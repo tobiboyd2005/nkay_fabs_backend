@@ -1,0 +1,6 @@
+@nkay_fabs_backend_HostAddress = http://localhost:5079
+
+GET {{nkay_fabs_backend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
