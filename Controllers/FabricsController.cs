@@ -9,11 +9,27 @@ namespace nkay_fabs_backend.Controllers
     [ApiController]
     public class FabricsController : ControllerBase
     {
+
+        private readonly FabricsDbContext _context;
+        private ILogger<FabricsController> _logger;
+
+        public FabricsController(FabricsDbContext context, ILogger<FabricsController> logger)
+        {
+            _context = context;
+            _logger = logger;
+        }
         // GET: api/<FabricsController>
         [HttpGet]
-        public IEnumerable<FabricDto> GetFabrics()
+        public ActionResult<IEnumerable<FabricDto>> GetFabrics()
         {
-            
+            var Fabrics = _context.Fabrics;
+            if (Fabrics == null) 
+            {
+                _logger.LogWarning("No fabrics found.");
+                return NotFound();
+            }
+
+            return Ok(Fabrics);
         }
 
         // GET api/<FabricsController>/5
