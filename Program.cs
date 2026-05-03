@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using nkay_fabs_backend.Data;
 using Serilog;
 using Serilog.Events;
 
@@ -30,13 +32,8 @@ try
     .Enrich.FromLogContext()
     .WriteTo.Console());
 
-    var connectionString =
-    builder.Configuration.GetConnectionString("DefaultConnection")
-        ?? throw new InvalidOperationException("Connection string"
-        + "'DefaultConnection' not found.");
-
     builder.Services.AddDbContext<FabricsDbContext>(options =>
-        options.UseSqlServer(connectionString));
+        options.UseInMemoryDatabase("FabricsDb"));
 
     // Add services to the container.
 
@@ -49,6 +46,11 @@ try
 
 
     var app = builder.Build();
+    using (var scope = app.Services.CreateScope())
+    {
+        var db = scope.ServiceProvider.GetRequiredService<FabricsDbContext>();
+        DbSeeder.Seed(db);
+    }
     app.UseSerilogRequestLogging(options =>
     {
         // Customize the message template
