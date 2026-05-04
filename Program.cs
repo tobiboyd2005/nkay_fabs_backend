@@ -1,24 +1,19 @@
 using Microsoft.EntityFrameworkCore;
 using nkay_fabs_backend.Data;
+using nkay_fabs_backend.Services;
 using Serilog;
 using Serilog.Events;
 
 
 Log.Logger = new LoggerConfiguration()
-    .MinimumLevel.Debug()
-    .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+    .MinimumLevel.Debug() 
+    .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
+    .MinimumLevel.Override("Microsoft.AspNetCore.Hosting", LogEventLevel.Warning)
+    .MinimumLevel.Override("Microsoft.AspNetCore.Mvc", LogEventLevel.Warning)
+    .MinimumLevel.Override("Microsoft.AspNetCore.Routing", LogEventLevel.Warning)
     .Enrich.FromLogContext()
     .WriteTo.Console()
-    // Add this line:
-    .WriteTo.File(
-       path: Path.Combine(AppContext.BaseDirectory, "logs", "log-.txt"),
-       rollingInterval: RollingInterval.Day,
-       fileSizeLimitBytes: 10 * 1024 * 1024,
-       retainedFileCountLimit: 2,
-       rollOnFileSizeLimit: true,
-       shared: true,
-       flushToDiskInterval: TimeSpan.FromSeconds(1))
-    .CreateBootstrapLogger();
+    .CreateLogger();
 
 
 
@@ -37,7 +32,8 @@ try
 
     // Add services to the container.
 
-    builder.Services.AddControllers();
+    builder.Services.AddControllers().AddNewtonsoftJson();
+    builder.Services.AddScoped<FabricValidationService>();
 
     builder.Services.AddSwaggerGen();
 

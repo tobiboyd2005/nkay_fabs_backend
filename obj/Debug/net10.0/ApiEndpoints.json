@@ -21,97 +21,79 @@
   },
   {
     "ContainingType": "nkay_fabs_backend.Controllers.FabricsController",
-    "Method": "Post",
+    "Method": "CreateFabric",
     "RelativePath": "api/Fabrics",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "value",
-        "Type": "System.String",
+        "Name": "NewFabric",
+        "Type": "nkay_fabs_backend.Models.Dtos.CreateFabricDto",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "nkay_fabs_backend.Controllers.FabricsController",
-    "Method": "Get",
-    "RelativePath": "api/Fabrics/{id}",
-    "HttpMethod": "GET",
+    "Method": "UpdateFabric",
+    "RelativePath": "api/Fabrics/{fabricid}",
+    "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.String",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "nkay_fabs_backend.Controllers.FabricsController",
-    "Method": "Put",
-    "RelativePath": "api/Fabrics/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
+        "Name": "fabricid",
         "Type": "System.Int32",
         "IsRequired": true
       },
       {
-        "Name": "value",
-        "Type": "System.String",
+        "Name": "patchDoc",
+        "Type": "Microsoft.AspNetCore.JsonPatch.Operations.Operation[]",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "nkay_fabs_backend.Controllers.FabricsController",
-    "Method": "Delete",
-    "RelativePath": "api/Fabrics/{id}",
+    "Method": "DeleteFabric",
+    "RelativePath": "api/Fabrics/{fabricid}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "fabricid",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "nkay_fabs_backend.Controllers.FabricsController",
+    "Method": "GetFabric",
+    "RelativePath": "api/Fabrics/{fabricId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fabricId",
         "Type": "System.Int32",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Void",
-        "MediaTypes": [],
+        "Type": "nkay_fabs_backend.Models.Dtos.FabricDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "StatusCode": 200
       }
     ]

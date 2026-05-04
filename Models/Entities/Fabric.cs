@@ -1,4 +1,6 @@
-﻿namespace nkay_fabs_backend.Models.Entities
+﻿using nkay_fabs_backend.Helpers;
+
+namespace nkay_fabs_backend.Models.Entities
 {
     public class Fabric
     {
@@ -18,8 +20,8 @@
         public bool IsActive { get; set; } = true;
 
         // Audit
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime CreatedAt { get; set; } = TimeHelper.NowWAT();
+        public DateTime UpdatedAt { get; set; } = TimeHelper.NowWAT();
 
 
         //Relationships
