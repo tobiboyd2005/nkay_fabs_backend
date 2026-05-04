@@ -90,3 +90,4 @@ finally
 {
     Log.CloseAndFlush();
 }
+var connectionString = builder.Configuration.GetConnectionString("FabricsDbContext") ?? throw new InvalidOperationException("Connection string 'FabricsDbContext' not found.");
