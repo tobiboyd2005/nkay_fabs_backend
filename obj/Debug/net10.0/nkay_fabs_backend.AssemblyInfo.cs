@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("nkay_fabs_backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f87aa5a1747af0637740ecb4123fba5494820bc2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ebbe183d2a0d87cf838188debe5ed2fb6eac8cbf")]
 [assembly: System.Reflection.AssemblyProductAttribute("nkay_fabs_backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("nkay_fabs_backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
