@@ -310,16 +310,14 @@
             }
           }
         }
-      }
-    },
-    "/api/Fabrics/{fabricid}": {
+      },
       "patch": {
         "tags": [
           "Fabrics"
         ],
         "parameters": [
           {
-            "name": "fabricid",
+            "name": "fabricId",
             "in": "path",
             "required": true,
             "schema": {
@@ -376,7 +374,7 @@
         ],
         "parameters": [
           {
-            "name": "fabricid",
+            "name": "fabricId",
             "in": "path",
             "required": true,
             "schema": {

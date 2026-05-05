@@ -146,43 +146,6 @@
   },
   {
     "ContainingType": "nkay_fabs_backend.Controllers.FabricsController",
-    "Method": "UpdateFabric",
-    "RelativePath": "api/Fabrics/{fabricid}",
-    "HttpMethod": "PATCH",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "fabricid",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "patchDoc",
-        "Type": "Microsoft.AspNetCore.JsonPatch.Operations.Operation[]",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "nkay_fabs_backend.Controllers.FabricsController",
-    "Method": "DeleteFabric",
-    "RelativePath": "api/Fabrics/{fabricid}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "fabricid",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "nkay_fabs_backend.Controllers.FabricsController",
     "Method": "GetFabric",
     "RelativePath": "api/Fabrics/{fabricId}",
     "HttpMethod": "GET",
@@ -206,6 +169,43 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "nkay_fabs_backend.Controllers.FabricsController",
+    "Method": "UpdateFabric",
+    "RelativePath": "api/Fabrics/{fabricId}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fabricId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "patchDoc",
+        "Type": "Microsoft.AspNetCore.JsonPatch.Operations.Operation[]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "nkay_fabs_backend.Controllers.FabricsController",
+    "Method": "DeleteFabric",
+    "RelativePath": "api/Fabrics/{fabricId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fabricId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "nkay_fabs_backend.Controllers.WeatherForecastController",

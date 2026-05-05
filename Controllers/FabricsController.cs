@@ -133,13 +133,13 @@ namespace nkay_fabs_backend.Controllers
         }
 
         // PUT api/<FabricsController>/5
-        [HttpPatch("{fabricid}")]
-        public async Task<ActionResult> UpdateFabric(int fabricid, JsonPatchDocument<UpdateFabricDto> patchDoc)
+        [HttpPatch("{fabricId}")]
+        public async Task<ActionResult> UpdateFabric(int fabricId, JsonPatchDocument<UpdateFabricDto> patchDoc)
         {
-            var fabric = await _context.Fabrics.FindAsync(fabricid);
+            var fabric = await _context.Fabrics.FindAsync(fabricId);
             if (fabric == null)
             {
-                _logger.LogWarning("Fabric of {id} not found for update.", fabricid);
+                _logger.LogWarning("Fabric of {id} not found for update.", fabricId);
                 return NotFound();
             }
 
@@ -175,13 +175,13 @@ namespace nkay_fabs_backend.Controllers
         }
 
         // DELETE api/<FabricsController>/5
-        [HttpDelete("{fabricid}")]
-        public async Task<ActionResult> DeleteFabric(int fabricid)
+        [HttpDelete("{fabricId}")]
+        public async Task<ActionResult> DeleteFabric(int fabricId)
         {
-            var fabric = await _context.Fabrics.FindAsync(fabricid);
+            var fabric = await _context.Fabrics.FindAsync(fabricId);
             if (fabric == null)
             {
-                _logger.LogWarning("Fabric of {id} not found for deletion.", fabricid);
+                _logger.LogWarning("Fabric of {id} not found for deletion.", fabricId);
                 return NotFound();
             }
             _context.Fabrics.Remove(fabric);
