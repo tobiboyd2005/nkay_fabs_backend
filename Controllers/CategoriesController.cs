@@ -108,7 +108,7 @@ public class CategoriesController : ControllerBase
         var category = await _context.Categories.FindAsync(id);
         if (category == null)
         {
-            _logger.LogWarning("Category with id {id} is not available", id);
+            _logger.LogWarning("Category with id {id} is not available for deletion", id);
             return NotFound();
         }
 

@@ -115,9 +115,9 @@ namespace nkay_fabs_backend.Controllers
                 ImageUrl = NewFabric.ImageUrl,
                 StockYards = NewFabric.StockYards,
                 CategoryId = NewFabric.CategoryId,
-                ColorId = NewFabric.ColorId,
-                CreatedAt = TimeHelper.NowWAT(),
-                UpdatedAt = TimeHelper.NowWAT()
+                ColorId = NewFabric.ColorId
+                //CreatedAt = TimeHelper.NowWAT(),
+                //UpdatedAt = TimeHelper.NowWAT()
             };
 
             
@@ -169,7 +169,7 @@ namespace nkay_fabs_backend.Controllers
             fabric.StockYards = updateFabric.StockYards;
             fabric.CategoryId = updateFabric.CategoryId;
             fabric.ColorId = updateFabric.ColorId;
-            fabric.UpdatedAt = TimeHelper.NowWAT();
+            //fabric.UpdatedAt = TimeHelper.NowWAT();
             await _context.SaveChangesAsync();
             return NoContent();
         }
