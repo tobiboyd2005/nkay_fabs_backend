@@ -94,7 +94,7 @@ public class CategoriesController : ControllerBase
             Description = category.Description
         };
 
-        _context.Categories.Add(newCategory);
+        await _context.Categories.AddAsync(newCategory);
         await _context.SaveChangesAsync();
         _logger.LogInformation("Category with id {id} created successfully.", newCategory.Id);
 

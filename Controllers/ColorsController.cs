@@ -1,5 +1,7 @@
+using Azure.Messaging;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using nkay_fabs_backend.Models.Dtos;
 using nkay_fabs_backend.Models.Entities;
 
 [Route("api/[controller]")]
@@ -7,59 +9,76 @@ using nkay_fabs_backend.Models.Entities;
 public class ColorsController : ControllerBase
 {
     private readonly FabricsDbContext _context;
-    public ColorsController(FabricsDbContext context)
+    private readonly ILogger<ColorsController> _logger; 
+    public ColorsController(FabricsDbContext context, ILogger<ColorsController> logger)
     {
         _context = context;
+        _logger = logger;
     }
 
     // GET: api/Color
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Color>>> GetColor()
+    public async Task<ActionResult<IEnumerable<ColorDto>>> GetColor()
     {
-        return await _context.Colors.ToListAsync();
+        _logger.LogInformation("Fetching all colors.");
+        var colors = await _context.Colors.ToListAsync();
+
+        var colorDtos = colors.Select(c => new ColorDto
+        {
+            Id = c.Id,
+            Name = c.Name,
+            HexCode = c.HexCode 
+        });
+
+        return Ok(colorDtos);
     }
 
     // GET: api/Color/5
     [HttpGet("{id}")]
-    public async Task<ActionResult<Color>> GetColor(int id)
+    public async Task<ActionResult<ColorDto>> GetColor(int id)
     {
         var color = await _context.Colors.FindAsync(id);
 
         if (color == null)
         {
+            _logger.LogWarning("Color with id of {id} not found.", id);
             return NotFound();
         }
 
-        return color;
+        var colorDto = new ColorDto
+        {
+            Id = color.Id,
+            Name = color.Name,
+            HexCode = color.HexCode
+        };
+
+        return Ok(colorDto);
     }
 
     // PUT: api/Color/5
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPut("{id}")]
-    public async Task<IActionResult> PutColor(int? id, Color color)
+    public async Task<IActionResult> PutColor(int? id, UpdateColorDto color)
     {
-        if (id != color.Id)
+        if (!ModelState.IsValid)
         {
-            return BadRequest();
+            _logger.LogWarning("Model state is invalid with updating color with id {id}", id);
+            return BadRequest(ModelState);
         }
 
-        _context.Entry(color).State = EntityState.Modified;
+        var ColorToUpdate = await _context.Colors.FindAsync(id);
 
-        try
+        if (ColorToUpdate == null)
         {
-            await _context.SaveChangesAsync();
+            _logger.LogWarning("Color with id {id} not found for update.", id);
+            return NotFound();
         }
-        catch (DbUpdateConcurrencyException)
-        {
-            if (!ColorExists(id))
-            {
-                return NotFound();
-            }
-            else
-            {
-                throw;
-            }
-        }
+
+        ColorToUpdate.Name = color.Name;
+        ColorToUpdate.HexCode = color.HexCode;
+
+        await _context.SaveChangesAsync();
+        _logger.LogInformation("Color with id {id} updated successfully.", id);
 
         return NoContent();
     }
@@ -67,27 +86,42 @@ public class ColorsController : ControllerBase
     // POST: api/Color
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPost]
-    public async Task<ActionResult<Color>> PostColor(Color color)
+    public async Task<ActionResult> PostColor(CreateColorDto color)
     {
-        _context.Colors.Add(color);
-        await _context.SaveChangesAsync();
 
-        return CreatedAtAction("GetColor", new { id = color.Id }, color);
+        if (!ModelState.IsValid)
+        {
+            _logger.LogWarning("Color does not meet all validation requirements");
+            return BadRequest(ModelState);
+        }
+
+        var newColor = new Color
+        {
+            Name = color.Name,
+            HexCode = color.HexCode
+        };
+
+        await _context.Colors.AddAsync(newColor);
+        await _context.SaveChangesAsync();
+        _logger.LogInformation("The color {name} has been added successfully.", newColor.Name);
+
+        return CreatedAtAction("GetColor", new { id = newColor.Id }, newColor);
     }
 
     // DELETE: api/Color/5
     [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteColor(int? id)
+    public async Task<IActionResult> DeleteColor(int id)
     {
         var color = await _context.Colors.FindAsync(id);
         if (color == null)
         {
+            _logger.LogWarning("Color with id {id} not found for deletion.", id);
             return NotFound();
         }
 
         _context.Colors.Remove(color);
         await _context.SaveChangesAsync();
-
+        _logger.LogInformation("Color with id {id} deleted successfully.", id);
         return NoContent();
     }
 

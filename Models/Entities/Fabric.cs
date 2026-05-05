@@ -20,8 +20,8 @@ namespace nkay_fabs_backend.Models.Entities
         public bool IsActive { get; set; } = true;
 
         // Audit
-        //public DateTime CreatedAt { get; set; } = TimeHelper.NowWAT();
-        //public DateTime UpdatedAt { get; set; } = TimeHelper.NowWAT();
+        public DateTime CreatedAt { get; set; } = TimeHelper.NowWAT();
+        public DateTime UpdatedAt { get; set; } = TimeHelper.NowWAT();
 
 
         //Relationships
