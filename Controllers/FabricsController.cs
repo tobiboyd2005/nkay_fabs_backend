@@ -132,7 +132,7 @@ namespace nkay_fabs_backend.Controllers
             return CreatedAtAction(nameof(GetFabric), new { fabricId = newFabric.Id }, newFabric);
         }
 
-        // PUT api/<FabricsController>/5
+        // PATCH api/<FabricsController>/5
         [HttpPatch("{fabricId}")]
         public async Task<ActionResult> UpdateFabric(int fabricId, JsonPatchDocument<UpdateFabricDto> patchDoc)
         {

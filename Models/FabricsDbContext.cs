@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using nkay_fabs_backend.Helpers;
 using nkay_fabs_backend.Models.Dtos;
 using nkay_fabs_backend.Models.Entities;
 
@@ -8,7 +9,23 @@ public class FabricsDbContext : DbContext
         : base(options){}
     public DbSet<Fabric> Fabrics { get; set; }
     public DbSet<Category> Categories { get; set; }
-    public DbSet<Color> Colors { get; set; } 
+    public DbSet<Color> Colors { get; set; }
+
+    public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+    {
+        var entries = ChangeTracker.Entries()
+            .Where(e => e.State == EntityState.Added || e.State == EntityState.Modified);
+
+        foreach (var entry in entries)
+        {
+            if (entry.State == EntityState.Added)
+                entry.Property("CreatedAt").CurrentValue = TimeHelper.NowWAT();
+
+            entry.Property("UpdatedAt").CurrentValue = TimeHelper.NowWAT();
+        }
+
+        return await base.SaveChangesAsync(cancellationToken);
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
