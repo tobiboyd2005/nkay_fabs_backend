@@ -6,13 +6,9 @@ using Serilog.Events;
 
 
 Log.Logger = new LoggerConfiguration()
-    .MinimumLevel.Debug() 
-    .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
-    .MinimumLevel.Override("Microsoft.AspNetCore.Hosting", LogEventLevel.Warning)
-    .MinimumLevel.Override("Microsoft.AspNetCore.Mvc", LogEventLevel.Warning)
-    .MinimumLevel.Override("Microsoft.AspNetCore.Routing", LogEventLevel.Warning)
-    .Enrich.FromLogContext()
+    .MinimumLevel.Debug()
     .WriteTo.Console()
+    .WriteTo.File("logs/cityinfo.txt", rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
 
@@ -21,11 +17,7 @@ try
 {
     Log.Information("Starting up the service...");
     var builder = WebApplication.CreateBuilder(args);
-    builder.Services.AddSerilog((services, lc) => lc
-    .ReadFrom.Configuration(builder.Configuration)
-    .ReadFrom.Services(services)
-    .Enrich.FromLogContext()
-    .WriteTo.Console());
+    builder.Host.UseSerilog();
 
     builder.Services.AddDbContext<FabricsDbContext>(options =>
         options.UseInMemoryDatabase("FabricsDb"));

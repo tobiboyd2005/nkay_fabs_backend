@@ -30,25 +30,33 @@ namespace nkay_fabs_backend.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<FabricDto>>> GetFabrics()
         {
-            var fabrics = await _context.Fabrics
+            try
+            {
+                var fabrics = await _context.Fabrics
                 .Include(f => f.Category)
                 .Include(f => f.Color)
                 .Select(f => new FabricDto
-                    {
-                        Id = f.Id,
-                        Name = f.Name,
-                        Description = f.Description,
-                        ImageUrl = f.ImageUrl,
-                        PricePerYard = f.PricePerYard,
-                        StockYards = f.StockYards,
-                        IsInStock = f.IsInStock,
-                        CategoryName = f.Category.Name,
-                        ColorName = f.Color.Name,
-                        ColorHex = f.Color.HexCode
-                    })
+                {
+                    Id = f.Id,
+                    Name = f.Name,
+                    Description = f.Description,
+                    ImageUrl = f.ImageUrl,
+                    PricePerYard = f.PricePerYard,
+                    StockYards = f.StockYards,
+                    IsInStock = f.IsInStock,
+                    CategoryName = f.Category.Name,
+                    ColorName = f.Color.Name,
+                    ColorHex = f.Color.HexCode
+                })
                     .ToListAsync();
 
-            return Ok(fabrics);
+                return Ok(fabrics);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogCritical(ex, "An error occurred while retrieving fabrics.");
+                return StatusCode(500, "An error occurred while processing your request.");
+            }   
         }
 
         // GET api/<FabricsController>/5
