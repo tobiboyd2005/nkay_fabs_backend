@@ -1,2 +1,32 @@
-﻿*.vsidx
+﻿# --- JetBrains Rider / IntelliJ ---
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# --- .NET / C# ---
+bin/
+obj/
+# Ignore user-specific project settings
+*.user
+*.userosscache
+*.sln.docstates
+
+# --- Visual Studio ---
 .vs/
+*.vsidx
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.opendb
+*.dbmdl
+
+# --- Operating Systems ---
+.DS_Store
+Thumbs.db
+
+# --- Secrets (Optional but recommended) ---
+# Do not ignore appsettings.json, but DO ignore the development version if it has passwords
+# appsettings.Development.json
+.env
