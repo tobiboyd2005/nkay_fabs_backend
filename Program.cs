@@ -1,15 +1,16 @@
 using Microsoft.EntityFrameworkCore;
-using nkay_fabs_backend.Data;
 using nkay_fabs_backend.Services;
 using Serilog;
 using Serilog.Events;
 
 
 Log.Logger = new LoggerConfiguration()
-    .MinimumLevel.Debug()
+     .MinimumLevel.Information()
+    .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
     .WriteTo.Console()
     .WriteTo.File("logs/cityinfo.txt", rollingInterval: RollingInterval.Day)
     .CreateLogger();
+ 
 
 
 
@@ -19,13 +20,13 @@ try
     var builder = WebApplication.CreateBuilder(args);
     builder.Host.UseSerilog();
 
-    builder.Services.AddDbContext<FabricsDbContext>(options =>
-        options.UseInMemoryDatabase("FabricsDb"));
-
     // Add services to the container.
 
     builder.Services.AddControllers().AddNewtonsoftJson();
     builder.Services.AddScoped<FabricValidationService>();
+
+    builder.Services.AddDbContext<FabricsDbContext>(dbContextOptions =>
+        dbContextOptions.UseSqlServer(builder.Configuration.GetConnectionString("FabricDb")));
 
     builder.Services.AddSwaggerGen();
 
@@ -34,11 +35,7 @@ try
 
 
     var app = builder.Build();
-    using (var scope = app.Services.CreateScope())
-    {
-        var db = scope.ServiceProvider.GetRequiredService<FabricsDbContext>();
-        DbSeeder.Seed(db);
-    }
+
     app.UseSerilogRequestLogging(options =>
     {
         // Customize the message template

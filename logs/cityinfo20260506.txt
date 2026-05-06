@@ -1,0 +1,917 @@
+2026-05-06 12:51:00.381 +01:00 [INF] Starting up the service...
+2026-05-06 12:51:01.427 +01:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2026-05-06 12:51:03.289 +01:00 [DBG] Entity Framework Core 10.0.7 initialized 'FabricsDbContext' using provider 'Microsoft.EntityFrameworkCore.InMemory:10.0.7' with options: StoreName=FabricsDb 
+2026-05-06 12:51:03.400 +01:00 [DBG] Compiling query expression: 
+'DbSet<Fabric>()
+    .Any()'
+2026-05-06 12:51:03.816 +01:00 [DBG] Generated query execution expression: 
+'queryContext => new QueryingEnumerable<bool>(
+    queryContext, 
+    new ResultEnumerable(() => new ValueBuffer(new object[]{ (object)InMemoryShapedQueryCompilingExpressionVisitor.Table(
+        queryContext: queryContext, 
+        entityType: EntityType: Fabric)
+        .Any() })), 
+    Func<QueryContext, ValueBuffer, bool>, 
+    FabricsDbContext, 
+    False, 
+    True
+)
+    .Single()'
+2026-05-06 12:51:06.015 +01:00 [DBG] 'FabricsDbContext' generated a value for the property 'Category.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 12:51:07.575 +01:00 [DBG] Context 'FabricsDbContext' started tracking 'Category' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 12:51:08.682 +01:00 [DBG] 'FabricsDbContext' generated a value for the property 'Category.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 12:51:09.127 +01:00 [DBG] Context 'FabricsDbContext' started tracking 'Category' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 12:51:10.158 +01:00 [DBG] 'FabricsDbContext' generated a value for the property 'Color.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 12:51:10.297 +01:00 [DBG] Context 'FabricsDbContext' started tracking 'Color' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 12:51:10.341 +01:00 [DBG] 'FabricsDbContext' generated a value for the property 'Color.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 12:51:10.407 +01:00 [DBG] Context 'FabricsDbContext' started tracking 'Color' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 12:51:10.538 +01:00 [DBG] 'FabricsDbContext' generated a value for the property 'Fabric.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 12:51:10.922 +01:00 [DBG] Context 'FabricsDbContext' started tracking 'Fabric' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 12:51:11.248 +01:00 [DBG] 'FabricsDbContext' generated a value for the property 'Fabric.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 12:51:11.263 +01:00 [DBG] Context 'FabricsDbContext' started tracking 'Fabric' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 12:51:11.289 +01:00 [DBG] SaveChanges starting for 'FabricsDbContext'.
+2026-05-06 12:51:11.311 +01:00 [DBG] DetectChanges starting for 'FabricsDbContext'.
+2026-05-06 12:51:11.462 +01:00 [DBG] DetectChanges completed for 'FabricsDbContext'.
+2026-05-06 12:51:11.527 +01:00 [INF] Saved 6 entities to in-memory store.
+2026-05-06 12:51:11.578 +01:00 [DBG] An entity of type 'Category' tracked by 'FabricsDbContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 12:51:11.594 +01:00 [DBG] An entity of type 'Category' tracked by 'FabricsDbContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 12:51:11.611 +01:00 [DBG] An entity of type 'Color' tracked by 'FabricsDbContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 12:51:11.627 +01:00 [DBG] An entity of type 'Color' tracked by 'FabricsDbContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 12:51:11.646 +01:00 [DBG] An entity of type 'Fabric' tracked by 'FabricsDbContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 12:51:11.661 +01:00 [DBG] An entity of type 'Fabric' tracked by 'FabricsDbContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 12:51:11.692 +01:00 [DBG] SaveChanges completed for 'FabricsDbContext' with 6 entities written to the database.
+2026-05-06 12:51:11.703 +01:00 [DBG] 'FabricsDbContext' disposed.
+2026-05-06 12:51:11.938 +01:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2026-05-06 12:51:12.244 +01:00 [DBG] Hosting starting
+2026-05-06 12:51:12.458 +01:00 [DBG] Middleware configuration started with options: {AllowedHosts = *, AllowEmptyHosts = True, IncludeFailureMessage = True}
+2026-05-06 12:51:12.509 +01:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2026-05-06 12:51:12.856 +01:00 [INF] Now listening on: https://localhost:7269
+2026-05-06 12:51:12.875 +01:00 [INF] Now listening on: http://localhost:5079
+2026-05-06 12:51:12.913 +01:00 [DBG] Loaded hosting startup assembly nkay_fabs_backend
+2026-05-06 12:51:12.943 +01:00 [DBG] Connection id "0HNLBCN2QHL2G" accepted.
+2026-05-06 12:51:12.996 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-06 12:51:13.009 +01:00 [DBG] Connection id "0HNLBCN2QHL2G" started.
+2026-05-06 12:51:13.010 +01:00 [INF] Hosting environment: Development
+2026-05-06 12:51:13.034 +01:00 [INF] Content root path: C:\Users\DELL\Documents\nkay_fabs_backend
+2026-05-06 12:51:13.061 +01:00 [DBG] Hosting started
+2026-05-06 12:51:13.152 +01:00 [DBG] Connection id "0HNLBCN2QHL2H" accepted.
+2026-05-06 12:51:13.157 +01:00 [DBG] Connection id "0HNLBCN2QHL2H" started.
+2026-05-06 12:51:13.246 +01:00 [DBG] Connection id "0HNLBCN2QHL2H" received FIN.
+2026-05-06 12:51:13.257 +01:00 [DBG] Connection 0HNLBCN2QHL2G established using the following protocol: "Tls13"
+2026-05-06 12:51:13.257 +01:00 [DBG] Connection 0HNLBCN2QHL2H established using the following protocol: "Tls13"
+2026-05-06 12:51:13.307 +01:00 [DBG] Connection id "0HNLBCN2QHL2H" is closed. The last processed stream ID was 0.
+2026-05-06 12:51:13.328 +01:00 [DBG] Connection id "0HNLBCN2QHL2H" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-05-06 12:51:13.357 +01:00 [DBG] The connection queue processing loop for 0HNLBCN2QHL2H completed.
+2026-05-06 12:51:13.377 +01:00 [DBG] Connection id "0HNLBCN2QHL2H" stopped.
+2026-05-06 12:51:13.445 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7269/ - null null
+2026-05-06 12:51:13.525 +01:00 [DBG] No candidates found for the request path '/'
+2026-05-06 12:51:13.530 +01:00 [DBG] Request did not match any endpoints
+2026-05-06 12:51:13.625 +01:00 [DBG] Handled /
+2026-05-06 12:51:13.652 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7269/ - 301 0 null 206.9255ms
+2026-05-06 12:51:13.702 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7269/index.html - null null
+2026-05-06 12:51:13.823 +01:00 [DBG] No candidates found for the request path '/index.html'
+2026-05-06 12:51:13.828 +01:00 [DBG] Request did not match any endpoints
+2026-05-06 12:51:14.028 +01:00 [DBG] Handled /index.html
+2026-05-06 12:51:14.058 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7269/index.html - 304 null null 357.2036ms
+2026-05-06 12:51:14.315 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7269/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-06 12:51:14.320 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7269/swagger-ui.css - null null
+2026-05-06 12:51:14.320 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7269/index.css - null null
+2026-05-06 12:51:14.321 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7269/swagger-ui-bundle.js - null null
+2026-05-06 12:51:14.346 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7269/swagger-ui-standalone-preset.js - null null
+2026-05-06 12:51:14.417 +01:00 [DBG] No candidates found for the request path '/swagger-ui-standalone-preset.js'
+2026-05-06 12:51:14.375 +01:00 [DBG] No candidates found for the request path '/swagger-ui.css'
+2026-05-06 12:51:14.427 +01:00 [DBG] Request did not match any endpoints
+2026-05-06 12:51:14.396 +01:00 [DBG] No candidates found for the request path '/swagger-ui-bundle.js'
+2026-05-06 12:51:14.435 +01:00 [DBG] Request did not match any endpoints
+2026-05-06 12:51:14.426 +01:00 [DBG] Request did not match any endpoints
+2026-05-06 12:51:14.379 +01:00 [DBG] No candidates found for the request path '/index.css'
+2026-05-06 12:51:14.452 +01:00 [DBG] Request did not match any endpoints
+2026-05-06 12:51:14.372 +01:00 [DBG] No candidates found for the request path '/_framework/aspnetcore-browser-refresh.js'
+2026-05-06 12:51:14.474 +01:00 [DBG] Handled /swagger-ui-standalone-preset.js
+2026-05-06 12:51:14.474 +01:00 [DBG] Handled /swagger-ui.css
+2026-05-06 12:51:14.475 +01:00 [DBG] Handled /swagger-ui-bundle.js
+2026-05-06 12:51:14.476 +01:00 [DBG] Handled /index.css
+2026-05-06 12:51:14.479 +01:00 [DBG] Request did not match any endpoints
+2026-05-06 12:51:14.484 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7269/swagger-ui-standalone-preset.js - 304 null null 137.7811ms
+2026-05-06 12:51:14.492 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7269/swagger-ui.css - 304 null null 172.7641ms
+2026-05-06 12:51:14.494 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7269/swagger-ui-bundle.js - 304 null null 173.6034ms
+2026-05-06 12:51:14.496 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7269/index.css - 304 null null 175.5195ms
+2026-05-06 12:51:14.507 +01:00 [DBG] Handled /_framework/aspnetcore-browser-refresh.js
+2026-05-06 12:51:14.523 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7269/index.js - null null
+2026-05-06 12:51:14.634 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7269/_framework/aspnetcore-browser-refresh.js - 404 0 null 318.6187ms
+2026-05-06 12:51:14.662 +01:00 [DBG] No candidates found for the request path '/index.js'
+2026-05-06 12:51:14.693 +01:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7269/_framework/aspnetcore-browser-refresh.js, Response status code: 404
+2026-05-06 12:51:14.694 +01:00 [DBG] Request did not match any endpoints
+2026-05-06 12:51:14.709 +01:00 [DBG] Handled /index.js
+2026-05-06 12:51:14.711 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7269/index.js - 304 null null 187.9021ms
+2026-05-06 12:51:15.170 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7269/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-06 12:51:15.179 +01:00 [DBG] No candidates found for the request path '/_framework/aspnetcore-browser-refresh.js'
+2026-05-06 12:51:15.187 +01:00 [DBG] Request did not match any endpoints
+2026-05-06 12:51:15.189 +01:00 [DBG] Handled /_framework/aspnetcore-browser-refresh.js
+2026-05-06 12:51:15.192 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7269/_framework/aspnetcore-browser-refresh.js - 404 0 null 21.9812ms
+2026-05-06 12:51:15.251 +01:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7269/_framework/aspnetcore-browser-refresh.js, Response status code: 404
+2026-05-06 12:51:15.378 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7269/swagger/v1/swagger.json - null null
+2026-05-06 12:51:15.400 +01:00 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2026-05-06 12:51:15.428 +01:00 [DBG] Request did not match any endpoints
+2026-05-06 12:51:15.523 +01:00 [DBG] Executing API description provider 'EndpointMetadataApiDescriptionProvider' from assembly Microsoft.AspNetCore.Mvc.ApiExplorer v10.0.0.0.
+2026-05-06 12:51:15.527 +01:00 [DBG] Executing API description provider 'DefaultApiDescriptionProvider' from assembly Microsoft.AspNetCore.Mvc.ApiExplorer v10.0.0.0.
+2026-05-06 12:51:15.557 +01:00 [DBG] Executing API description provider 'JsonPatchOperationsArrayProvider' from assembly Microsoft.AspNetCore.Mvc.NewtonsoftJson v10.0.7.0.
+2026-05-06 12:51:16.159 +01:00 [DBG] Handled /swagger/v1/swagger.json
+2026-05-06 12:51:16.175 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7269/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 797.0275ms
+2026-05-06 12:53:20.709 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7269/api/Fabrics - null null
+2026-05-06 12:53:20.791 +01:00 [DBG] 1 candidate(s) found for the request path '/api/Fabrics'
+2026-05-06 12:53:20.797 +01:00 [DBG] Endpoint 'nkay_fabs_backend.Controllers.FabricsController.GetFabrics (nkay_fabs_backend)' with route pattern 'api/Fabrics' is valid for the request path '/api/Fabrics'
+2026-05-06 12:53:20.801 +01:00 [DBG] Request matched endpoint 'nkay_fabs_backend.Controllers.FabricsController.GetFabrics (nkay_fabs_backend)'
+2026-05-06 12:53:20.816 +01:00 [INF] Executing endpoint 'nkay_fabs_backend.Controllers.FabricsController.GetFabrics (nkay_fabs_backend)'
+2026-05-06 12:53:20.866 +01:00 [INF] Route matched with {action = "GetFabrics", controller = "Fabrics"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[nkay_fabs_backend.Models.Dtos.FabricDto]]] GetFabrics() on controller nkay_fabs_backend.Controllers.FabricsController (nkay_fabs_backend).
+2026-05-06 12:53:20.880 +01:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2026-05-06 12:53:20.882 +01:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2026-05-06 12:53:20.900 +01:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2026-05-06 12:53:20.912 +01:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2026-05-06 12:53:20.914 +01:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2026-05-06 12:53:20.923 +01:00 [DBG] Executing controller factory for controller nkay_fabs_backend.Controllers.FabricsController (nkay_fabs_backend)
+2026-05-06 12:53:20.993 +01:00 [DBG] Executed controller factory for controller nkay_fabs_backend.Controllers.FabricsController (nkay_fabs_backend)
+2026-05-06 12:53:21.142 +01:00 [INF] Executed action nkay_fabs_backend.Controllers.FabricsController.GetFabrics (nkay_fabs_backend) in 214.8875ms
+2026-05-06 12:53:21.162 +01:00 [INF] Executed endpoint 'nkay_fabs_backend.Controllers.FabricsController.GetFabrics (nkay_fabs_backend)'
+2026-05-06 12:53:21.178 +01:00 [DBG] Handled /api/Fabrics
+System.Exception: Exception sample.
+   at nkay_fabs_backend.Controllers.FabricsController.GetFabrics() in C:\Users\DELL\Documents\nkay_fabs_backend\Controllers\FabricsController.cs:line 33
+   at lambda_method246(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-05-06 12:53:21.251 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Exception: Exception sample.
+   at nkay_fabs_backend.Controllers.FabricsController.GetFabrics() in C:\Users\DELL\Documents\nkay_fabs_backend\Controllers\FabricsController.cs:line 33
+   at lambda_method246(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-05-06 12:53:21.293 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7269/api/Fabrics - 500 null text/plain; charset=utf-8 584.077ms
+2026-05-06 12:53:57.210 +01:00 [INF] Application is shutting down...
+2026-05-06 12:53:57.217 +01:00 [DBG] Hosting stopping
+2026-05-06 12:53:57.238 +01:00 [DBG] Connection id "0HNLBCN2QHL2G" is closing.
+2026-05-06 12:53:57.240 +01:00 [DBG] Connection id "0HNLBCN2QHL2G" is closed. The last processed stream ID was 23.
+2026-05-06 12:53:57.244 +01:00 [DBG] Connection id "0HNLBCN2QHL2G" received FIN.
+2026-05-06 12:53:57.245 +01:00 [DBG] The connection queue processing loop for 0HNLBCN2QHL2G completed.
+2026-05-06 12:53:57.247 +01:00 [DBG] Connection id "0HNLBCN2QHL2G" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-05-06 12:53:57.265 +01:00 [DBG] Connection id "0HNLBCN2QHL2G" stopped.
+2026-05-06 12:53:57.276 +01:00 [DBG] Hosting stopped
+2026-05-06 13:10:28.019 +01:00 [INF] Starting up the service...
+2026-05-06 13:11:30.422 +01:00 [INF] Starting up the service...
+2026-05-06 13:11:32.238 +01:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2026-05-06 13:11:33.721 +01:00 [DBG] Entity Framework Core 10.0.7 initialized 'FabricsDbContext' using provider 'Microsoft.EntityFrameworkCore.InMemory:10.0.7' with options: StoreName=FabricsDb 
+2026-05-06 13:11:33.797 +01:00 [DBG] Compiling query expression: 
+'DbSet<Fabric>()
+    .Any()'
+2026-05-06 13:11:34.157 +01:00 [DBG] Generated query execution expression: 
+'queryContext => new QueryingEnumerable<bool>(
+    queryContext, 
+    new ResultEnumerable(() => new ValueBuffer(new object[]{ (object)InMemoryShapedQueryCompilingExpressionVisitor.Table(
+        queryContext: queryContext, 
+        entityType: EntityType: Fabric)
+        .Any() })), 
+    Func<QueryContext, ValueBuffer, bool>, 
+    FabricsDbContext, 
+    False, 
+    True
+)
+    .Single()'
+2026-05-06 13:11:34.584 +01:00 [DBG] 'FabricsDbContext' generated a value for the property 'Category.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 13:11:34.704 +01:00 [DBG] Context 'FabricsDbContext' started tracking 'Category' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 13:11:34.713 +01:00 [DBG] 'FabricsDbContext' generated a value for the property 'Category.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 13:11:34.717 +01:00 [DBG] Context 'FabricsDbContext' started tracking 'Category' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 13:11:34.734 +01:00 [DBG] 'FabricsDbContext' generated a value for the property 'Color.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 13:11:34.763 +01:00 [DBG] Context 'FabricsDbContext' started tracking 'Color' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 13:11:34.766 +01:00 [DBG] 'FabricsDbContext' generated a value for the property 'Color.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 13:11:34.770 +01:00 [DBG] Context 'FabricsDbContext' started tracking 'Color' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 13:11:34.796 +01:00 [DBG] 'FabricsDbContext' generated a value for the property 'Fabric.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 13:11:34.874 +01:00 [DBG] Context 'FabricsDbContext' started tracking 'Fabric' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 13:11:34.881 +01:00 [DBG] 'FabricsDbContext' generated a value for the property 'Fabric.Id'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 13:11:34.890 +01:00 [DBG] Context 'FabricsDbContext' started tracking 'Fabric' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 13:11:34.909 +01:00 [DBG] SaveChanges starting for 'FabricsDbContext'.
+2026-05-06 13:11:34.921 +01:00 [DBG] DetectChanges starting for 'FabricsDbContext'.
+2026-05-06 13:11:35.049 +01:00 [DBG] DetectChanges completed for 'FabricsDbContext'.
+2026-05-06 13:11:35.102 +01:00 [INF] Saved 6 entities to in-memory store.
+2026-05-06 13:11:35.137 +01:00 [DBG] An entity of type 'Category' tracked by 'FabricsDbContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 13:11:35.153 +01:00 [DBG] An entity of type 'Category' tracked by 'FabricsDbContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 13:11:35.161 +01:00 [DBG] An entity of type 'Color' tracked by 'FabricsDbContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 13:11:35.173 +01:00 [DBG] An entity of type 'Color' tracked by 'FabricsDbContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 13:11:35.189 +01:00 [DBG] An entity of type 'Fabric' tracked by 'FabricsDbContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 13:11:35.194 +01:00 [DBG] An entity of type 'Fabric' tracked by 'FabricsDbContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 13:11:35.215 +01:00 [DBG] SaveChanges completed for 'FabricsDbContext' with 6 entities written to the database.
+2026-05-06 13:11:35.240 +01:00 [DBG] 'FabricsDbContext' disposed.
+2026-05-06 13:11:35.505 +01:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2026-05-06 13:11:36.054 +01:00 [DBG] Hosting starting
+2026-05-06 13:11:36.144 +01:00 [DBG] Middleware loaded
+2026-05-06 13:11:36.189 +01:00 [DBG] Middleware loaded. Script /_framework/aspnetcore-browser-refresh.js (14939 B).
+2026-05-06 13:11:36.720 +01:00 [DBG] Middleware loaded. Script /_framework/blazor-hotreload.js (799 B).
+2026-05-06 13:11:37.172 +01:00 [DBG] Middleware configuration started with options: {AllowedHosts = *, AllowEmptyHosts = True, IncludeFailureMessage = True}
+2026-05-06 13:11:37.182 +01:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2026-05-06 13:11:37.206 +01:00 [DBG] Middleware loaded: DOTNET_MODIFIABLE_ASSEMBLIES=debug, __ASPNETCORE_BROWSER_TOOLS=true
+2026-05-06 13:11:37.541 +01:00 [DBG] Connection id "0HNLBD2FP7TE7" received FIN.
+2026-05-06 13:11:37.544 +01:00 [INF] Now listening on: https://localhost:7269
+2026-05-06 13:11:37.552 +01:00 [INF] Now listening on: http://localhost:5079
+2026-05-06 13:11:37.554 +01:00 [DBG] Loaded hosting startup assembly nkay_fabs_backend
+2026-05-06 13:11:37.557 +01:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2026-05-06 13:11:37.559 +01:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.ApiEndpointDiscovery
+2026-05-06 13:11:37.561 +01:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2026-05-06 13:11:37.562 +01:00 [DBG] Connection id "0HNLBD2FP7TE7" accepted.
+2026-05-06 13:11:37.573 +01:00 [DBG] Connection id "0HNLBD2FP7TE7" started.
+2026-05-06 13:11:37.591 +01:00 [DBG] Executing API description provider 'EndpointMetadataApiDescriptionProvider' from assembly Microsoft.AspNetCore.Mvc.ApiExplorer v10.0.0.0.
+2026-05-06 13:11:37.605 +01:00 [DBG] Executing API description provider 'DefaultApiDescriptionProvider' from assembly Microsoft.AspNetCore.Mvc.ApiExplorer v10.0.0.0.
+2026-05-06 13:11:37.667 +01:00 [DBG] Executing API description provider 'JsonPatchOperationsArrayProvider' from assembly Microsoft.AspNetCore.Mvc.NewtonsoftJson v10.0.7.0.
+2026-05-06 13:11:37.677 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveHandshakeFrameAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ProcessAuthenticationWithTelemetryAsync(Boolean isAsync, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2026-05-06 13:11:38.172 +01:00 [DBG] Connection id "0HNLBD2FP7TE8" accepted.
+2026-05-06 13:11:38.568 +01:00 [DBG] Connection id "0HNLBD2FP7TE8" started.
+2026-05-06 13:11:38.613 +01:00 [DBG] Connection id "0HNLBD2FP7TE7" stopped.
+2026-05-06 13:11:38.658 +01:00 [DBG] Connection id "0HNLBD2FP7TE7" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-05-06 13:11:38.806 +01:00 [DBG] Connection 0HNLBD2FP7TE8 established using the following protocol: "Tls13"
+2026-05-06 13:11:39.123 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7269/ - null null
+2026-05-06 13:11:40.566 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-06 13:11:40.586 +01:00 [INF] Hosting environment: Development
+2026-05-06 13:11:40.601 +01:00 [INF] Content root path: C:\Users\DELL\Documents\nkay_fabs_backend
+2026-05-06 13:11:40.604 +01:00 [DBG] Hosting started
+2026-05-06 13:11:40.896 +01:00 [DBG] No candidates found for the request path '/'
+2026-05-06 13:11:40.900 +01:00 [DBG] Request did not match any endpoints
+2026-05-06 13:11:40.929 +01:00 [DBG] Handled /
+2026-05-06 13:11:40.954 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7269/ - 301 null null 1898.5421ms
+2026-05-06 13:11:40.980 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7269/index.html - null null
+2026-05-06 13:11:41.096 +01:00 [DBG] No candidates found for the request path '/index.html'
+2026-05-06 13:11:41.112 +01:00 [DBG] Request did not match any endpoints
+2026-05-06 13:11:41.299 +01:00 [DBG] Handled /index.html
+2026-05-06 13:11:41.307 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7269/index.html - 304 null null 327.445ms
+2026-05-06 13:11:41.629 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7269/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-06 13:11:41.631 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7269/swagger-ui.css - null null
+2026-05-06 13:11:41.637 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7269/index.css - null null
+2026-05-06 13:11:41.639 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7269/swagger-ui-bundle.js - null null
+2026-05-06 13:11:41.717 +01:00 [DBG] Script injected: /_framework/aspnetcore-browser-refresh.js
+2026-05-06 13:11:41.742 +01:00 [DBG] No candidates found for the request path '/swagger-ui.css'
+2026-05-06 13:11:41.751 +01:00 [DBG] No candidates found for the request path '/index.css'
+2026-05-06 13:11:41.759 +01:00 [DBG] No candidates found for the request path '/swagger-ui-bundle.js'
+2026-05-06 13:11:41.766 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7269/_framework/aspnetcore-browser-refresh.js - 200 14939 application/javascript; charset=utf-8 136.8654ms
+2026-05-06 13:11:41.771 +01:00 [DBG] Request did not match any endpoints
+2026-05-06 13:11:41.777 +01:00 [DBG] Request did not match any endpoints
+2026-05-06 13:11:41.782 +01:00 [DBG] Request did not match any endpoints
+2026-05-06 13:11:41.798 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7269/swagger-ui-standalone-preset.js - null null
+2026-05-06 13:11:41.835 +01:00 [DBG] Handled /swagger-ui.css
+2026-05-06 13:11:41.835 +01:00 [DBG] Handled /index.css
+2026-05-06 13:11:41.841 +01:00 [DBG] Handled /swagger-ui-bundle.js
+2026-05-06 13:11:41.871 +01:00 [DBG] No candidates found for the request path '/swagger-ui-standalone-preset.js'
+2026-05-06 13:11:41.882 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7269/swagger-ui.css - 304 null null 251.8705ms
+2026-05-06 13:11:41.891 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7269/index.css - 304 null null 254.2824ms
+2026-05-06 13:11:41.893 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7269/swagger-ui-bundle.js - 304 null null 253.6454ms
+2026-05-06 13:11:41.894 +01:00 [DBG] Request did not match any endpoints
+2026-05-06 13:11:41.900 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7269/index.js - null null
+2026-05-06 13:11:42.012 +01:00 [DBG] No candidates found for the request path '/index.js'
+2026-05-06 13:11:41.973 +01:00 [DBG] Handled /swagger-ui-standalone-preset.js
+2026-05-06 13:11:42.038 +01:00 [DBG] Request did not match any endpoints
+2026-05-06 13:11:42.057 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7269/swagger-ui-standalone-preset.js - 304 null null 259.7533ms
+2026-05-06 13:11:42.064 +01:00 [DBG] Handled /index.js
+2026-05-06 13:11:42.207 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7269/index.js - 304 null null 307.4877ms
+2026-05-06 13:11:42.653 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7269/swagger/v1/swagger.json - null null
+2026-05-06 13:11:42.658 +01:00 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2026-05-06 13:11:42.662 +01:00 [DBG] Request did not match any endpoints
+2026-05-06 13:11:42.746 +01:00 [DBG] Handled /swagger/v1/swagger.json
+2026-05-06 13:11:42.756 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7269/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 103.7742ms
+2026-05-06 13:12:10.470 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7269/api/Fabrics - null null
+2026-05-06 13:12:10.489 +01:00 [DBG] 1 candidate(s) found for the request path '/api/Fabrics'
+2026-05-06 13:12:10.492 +01:00 [DBG] Endpoint 'nkay_fabs_backend.Controllers.FabricsController.GetFabrics (nkay_fabs_backend)' with route pattern 'api/Fabrics' is valid for the request path '/api/Fabrics'
+2026-05-06 13:12:10.496 +01:00 [DBG] Request matched endpoint 'nkay_fabs_backend.Controllers.FabricsController.GetFabrics (nkay_fabs_backend)'
+2026-05-06 13:12:10.510 +01:00 [INF] Executing endpoint 'nkay_fabs_backend.Controllers.FabricsController.GetFabrics (nkay_fabs_backend)'
+2026-05-06 13:12:10.577 +01:00 [INF] Route matched with {action = "GetFabrics", controller = "Fabrics"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[nkay_fabs_backend.Models.Dtos.FabricDto]]] GetFabrics() on controller nkay_fabs_backend.Controllers.FabricsController (nkay_fabs_backend).
+2026-05-06 13:12:10.592 +01:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2026-05-06 13:12:10.596 +01:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2026-05-06 13:12:10.599 +01:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2026-05-06 13:12:10.606 +01:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2026-05-06 13:12:10.611 +01:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2026-05-06 13:12:10.640 +01:00 [DBG] Executing controller factory for controller nkay_fabs_backend.Controllers.FabricsController (nkay_fabs_backend)
+2026-05-06 13:12:10.647 +01:00 [DBG] Executed controller factory for controller nkay_fabs_backend.Controllers.FabricsController (nkay_fabs_backend)
+2026-05-06 13:12:10.666 +01:00 [DBG] Entity Framework Core 10.0.7 initialized 'FabricsDbContext' using provider 'Microsoft.EntityFrameworkCore.InMemory:10.0.7' with options: StoreName=FabricsDb 
+2026-05-06 13:12:10.738 +01:00 [DBG] Compiling query expression: 
+'DbSet<Fabric>()
+    .Include(f => f.Category)
+    .Include(f => f.Color)
+    .Select(f => new FabricDto{ 
+        Id = f.Id, 
+        Name = f.Name, 
+        Description = f.Description, 
+        ImageUrl = f.ImageUrl, 
+        PricePerYard = f.PricePerYard, 
+        StockYards = f.StockYards, 
+        IsInStock = f.IsInStock, 
+        CategoryName = f.Category.Name, 
+        ColorName = f.Color.Name, 
+        ColorHex = f.Color.HexCode 
+    }
+    )'
+2026-05-06 13:12:10.808 +01:00 [DBG] Including navigation: 'Fabric.Category'.
+2026-05-06 13:12:10.812 +01:00 [DBG] Including navigation: 'Fabric.Color'.
+2026-05-06 13:12:11.044 +01:00 [DBG] Generated query execution expression: 
+'queryContext => new QueryingEnumerable<FabricDto>(
+    queryContext, 
+    InMemoryShapedQueryCompilingExpressionVisitor.Table(
+        queryContext: queryContext, 
+        entityType: EntityType: Fabric)
+        .Join(
+            inner: InMemoryShapedQueryCompilingExpressionVisitor.Table(
+                queryContext: queryContext, 
+                entityType: EntityType: Category), 
+            outerKeySelector: valueBuffer => (object)(int?)ExpressionExtensions.ValueBufferTryReadValue<int>(
+                valueBuffer: valueBuffer, 
+                index: 1, 
+                property: Property: Fabric.CategoryId (int) Required FK), 
+            innerKeySelector: valueBuffer => (object)(int?)ExpressionExtensions.ValueBufferTryReadValue<int>(
+                valueBuffer: valueBuffer, 
+                index: 0, 
+                property: Property: Category.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd), 
+            resultSelector: (outer, inner) => new ValueBuffer(new object[]
+            { 
+                (object)ExpressionExtensions.ValueBufferTryReadValue<int>(
+                    valueBuffer: outer, 
+                    index: 0, 
+                    property: Property: Fabric.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd), 
+                (object)ExpressionExtensions.ValueBufferTryReadValue<int>(
+                    valueBuffer: outer, 
+                    index: 1, 
+                    property: Property: Fabric.CategoryId (int) Required FK), 
+                (object)ExpressionExtensions.ValueBufferTryReadValue<int>(
+                    valueBuffer: outer, 
+                    index: 2, 
+                    property: Property: Fabric.ColorId (int) Required FK), 
+                (object)ExpressionExtensions.ValueBufferTryReadValue<DateTime>(
+                    valueBuffer: outer, 
+                    index: 3, 
+                    property: Property: Fabric.CreatedAt (DateTime) Required), 
+                ExpressionExtensions.ValueBufferTryReadValue<string>(
+                    valueBuffer: outer, 
+                    index: 4, 
+                    property: Property: Fabric.Description (string) Required), 
+                ExpressionExtensions.ValueBufferTryReadValue<string>(
+                    valueBuffer: outer, 
+                    index: 5, 
+                    property: Property: Fabric.ImageUrl (string) Required), 
+                (object)ExpressionExtensions.ValueBufferTryReadValue<bool>(
+                    valueBuffer: outer, 
+                    index: 6, 
+                    property: Property: Fabric.IsActive (bool) Required), 
+                ExpressionExtensions.ValueBufferTryReadValue<string>(
+                    valueBuffer: outer, 
+                    index: 7, 
+                    property: Property: Fabric.Name (string) Required), 
+                (object)ExpressionExtensions.ValueBufferTryReadValue<decimal>(
+                    valueBuffer: outer, 
+                    index: 8, 
+                    property: Property: Fabric.PricePerYard (decimal) Required), 
+                (object)ExpressionExtensions.ValueBufferTryReadValue<decimal>(
+                    valueBuffer: outer, 
+                    index: 9, 
+                    property: Property: Fabric.StockYards (decimal) Required), 
+                (object)ExpressionExtensions.ValueBufferTryReadValue<DateTime>(
+                    valueBuffer: outer, 
+                    index: 10, 
+                    property: Property: Fabric.UpdatedAt (DateTime) Required), 
+                (object)ExpressionExtensions.ValueBufferTryReadValue<int>(
+                    valueBuffer: inner, 
+                    index: 0, 
+                    property: Property: Category.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd), 
+                (object)ExpressionExtensions.ValueBufferTryReadValue<DateTime>(
+                    valueBuffer: inner, 
+                    index: 1, 
+                    property: Property: Category.CreatedAt (DateTime) Required), 
+                ExpressionExtensions.ValueBufferTryReadValue<string>(
+                    valueBuffer: inner, 
+                    index: 2, 
+                    property: Property: Category.Description (string) Required), 
+                ExpressionExtensions.ValueBufferTryReadValue<string>(
+                    valueBuffer: inner, 
+                    index: 3, 
+                    property: Property: Category.Name (string) Required), 
+                (object)ExpressionExtensions.ValueBufferTryReadValue<DateTime>(
+                    valueBuffer: inner, 
+                    index: 4, 
+                    property: Property: Category.UpdatedAt (DateTime) Required) 
+            }))
+        .Select(valueBuffer => new ValueBuffer(new object[]
+        { 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<int>(
+                valueBuffer: valueBuffer, 
+                index: 0, 
+                property: Property: Fabric.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<int>(
+                valueBuffer: valueBuffer, 
+                index: 1, 
+                property: Property: Fabric.CategoryId (int) Required FK), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<int>(
+                valueBuffer: valueBuffer, 
+                index: 2, 
+                property: Property: Fabric.ColorId (int) Required FK), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<DateTime>(
+                valueBuffer: valueBuffer, 
+                index: 3, 
+                property: Property: Fabric.CreatedAt (DateTime) Required), 
+            ExpressionExtensions.ValueBufferTryReadValue<string>(
+                valueBuffer: valueBuffer, 
+                index: 4, 
+                property: Property: Fabric.Description (string) Required), 
+            ExpressionExtensions.ValueBufferTryReadValue<string>(
+                valueBuffer: valueBuffer, 
+                index: 5, 
+                property: Property: Fabric.ImageUrl (string) Required), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<bool>(
+                valueBuffer: valueBuffer, 
+                index: 6, 
+                property: Property: Fabric.IsActive (bool) Required), 
+            ExpressionExtensions.ValueBufferTryReadValue<string>(
+                valueBuffer: valueBuffer, 
+                index: 7, 
+                property: Property: Fabric.Name (string) Required), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<decimal>(
+                valueBuffer: valueBuffer, 
+                index: 8, 
+                property: Property: Fabric.PricePerYard (decimal) Required), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<decimal>(
+                valueBuffer: valueBuffer, 
+                index: 9, 
+                property: Property: Fabric.StockYards (decimal) Required), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<DateTime>(
+                valueBuffer: valueBuffer, 
+                index: 10, 
+                property: Property: Fabric.UpdatedAt (DateTime) Required), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<int>(
+                valueBuffer: valueBuffer, 
+                index: 11, 
+                property: Property: Category.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<DateTime>(
+                valueBuffer: valueBuffer, 
+                index: 12, 
+                property: Property: Category.CreatedAt (DateTime) Required), 
+            ExpressionExtensions.ValueBufferTryReadValue<string>(
+                valueBuffer: valueBuffer, 
+                index: 13, 
+                property: Property: Category.Description (string) Required), 
+            ExpressionExtensions.ValueBufferTryReadValue<string>(
+                valueBuffer: valueBuffer, 
+                index: 14, 
+                property: Property: Category.Name (string) Required), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<DateTime>(
+                valueBuffer: valueBuffer, 
+                index: 15, 
+                property: Property: Category.UpdatedAt (DateTime) Required) 
+        }))
+        .Join(
+            inner: InMemoryShapedQueryCompilingExpressionVisitor.Table(
+                queryContext: queryContext, 
+                entityType: EntityType: Color), 
+            outerKeySelector: valueBuffer => (object)(int?)ExpressionExtensions.ValueBufferTryReadValue<int>(
+                valueBuffer: valueBuffer, 
+                index: 2, 
+                property: Property: Fabric.ColorId (int) Required FK), 
+            innerKeySelector: valueBuffer => (object)(int?)ExpressionExtensions.ValueBufferTryReadValue<int>(
+                valueBuffer: valueBuffer, 
+                index: 0, 
+                property: Property: Color.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd), 
+            resultSelector: (outer, inner) => new ValueBuffer(new object[]
+            { 
+                (object)ExpressionExtensions.ValueBufferTryReadValue<int>(
+                    valueBuffer: outer, 
+                    index: 0, 
+                    property: Property: Fabric.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd), 
+                (object)ExpressionExtensions.ValueBufferTryReadValue<int>(
+                    valueBuffer: outer, 
+                    index: 1, 
+                    property: Property: Fabric.CategoryId (int) Required FK), 
+                (object)ExpressionExtensions.ValueBufferTryReadValue<int>(
+                    valueBuffer: outer, 
+                    index: 2, 
+                    property: Property: Fabric.ColorId (int) Required FK), 
+                (object)ExpressionExtensions.ValueBufferTryReadValue<DateTime>(
+                    valueBuffer: outer, 
+                    index: 3, 
+                    property: Property: Fabric.CreatedAt (DateTime) Required), 
+                ExpressionExtensions.ValueBufferTryReadValue<string>(
+                    valueBuffer: outer, 
+                    index: 4, 
+                    property: Property: Fabric.Description (string) Required), 
+                ExpressionExtensions.ValueBufferTryReadValue<string>(
+                    valueBuffer: outer, 
+                    index: 5, 
+                    property: Property: Fabric.ImageUrl (string) Required), 
+                (object)ExpressionExtensions.ValueBufferTryReadValue<bool>(
+                    valueBuffer: outer, 
+                    index: 6, 
+                    property: Property: Fabric.IsActive (bool) Required), 
+                ExpressionExtensions.ValueBufferTryReadValue<string>(
+                    valueBuffer: outer, 
+                    index: 7, 
+                    property: Property: Fabric.Name (string) Required), 
+                (object)ExpressionExtensions.ValueBufferTryReadValue<decimal>(
+                    valueBuffer: outer, 
+                    index: 8, 
+                    property: Property: Fabric.PricePerYard (decimal) Required), 
+                (object)ExpressionExtensions.ValueBufferTryReadValue<decimal>(
+                    valueBuffer: outer, 
+                    index: 9, 
+                    property: Property: Fabric.StockYards (decimal) Required), 
+                (object)ExpressionExtensions.ValueBufferTryReadValue<DateTime>(
+                    valueBuffer: outer, 
+                    index: 10, 
+                    property: Property: Fabric.UpdatedAt (DateTime) Required), 
+                (object)ExpressionExtensions.ValueBufferTryReadValue<int>(
+                    valueBuffer: outer, 
+                    index: 11, 
+                    property: Property: Category.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd), 
+                (object)ExpressionExtensions.ValueBufferTryReadValue<DateTime>(
+                    valueBuffer: outer, 
+                    index: 12, 
+                    property: Property: Category.CreatedAt (DateTime) Required), 
+                ExpressionExtensions.ValueBufferTryReadValue<string>(
+                    valueBuffer: outer, 
+                    index: 13, 
+                    property: Property: Category.Description (string) Required), 
+                ExpressionExtensions.ValueBufferTryReadValue<string>(
+                    valueBuffer: outer, 
+                    index: 14, 
+                    property: Property: Category.Name (string) Required), 
+                (object)ExpressionExtensions.ValueBufferTryReadValue<DateTime>(
+                    valueBuffer: outer, 
+                    index: 15, 
+                    property: Property: Category.UpdatedAt (DateTime) Required), 
+                (object)ExpressionExtensions.ValueBufferTryReadValue<int>(
+                    valueBuffer: inner, 
+                    index: 0, 
+                    property: Property: Color.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd), 
+                (object)ExpressionExtensions.ValueBufferTryReadValue<DateTime>(
+                    valueBuffer: inner, 
+                    index: 1, 
+                    property: Property: Color.CreatedAt (DateTime) Required), 
+                ExpressionExtensions.ValueBufferTryReadValue<string>(
+                    valueBuffer: inner, 
+                    index: 2, 
+                    property: Property: Color.HexCode (string) Required), 
+                ExpressionExtensions.ValueBufferTryReadValue<string>(
+                    valueBuffer: inner, 
+                    index: 3, 
+                    property: Property: Color.Name (string) Required), 
+                (object)ExpressionExtensions.ValueBufferTryReadValue<DateTime>(
+                    valueBuffer: inner, 
+                    index: 4, 
+                    property: Property: Color.UpdatedAt (DateTime) Required) 
+            }))
+        .Select(valueBuffer => new ValueBuffer(new object[]
+        { 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<int>(
+                valueBuffer: valueBuffer, 
+                index: 0, 
+                property: Property: Fabric.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<int>(
+                valueBuffer: valueBuffer, 
+                index: 1, 
+                property: Property: Fabric.CategoryId (int) Required FK), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<int>(
+                valueBuffer: valueBuffer, 
+                index: 2, 
+                property: Property: Fabric.ColorId (int) Required FK), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<DateTime>(
+                valueBuffer: valueBuffer, 
+                index: 3, 
+                property: Property: Fabric.CreatedAt (DateTime) Required), 
+            ExpressionExtensions.ValueBufferTryReadValue<string>(
+                valueBuffer: valueBuffer, 
+                index: 4, 
+                property: Property: Fabric.Description (string) Required), 
+            ExpressionExtensions.ValueBufferTryReadValue<string>(
+                valueBuffer: valueBuffer, 
+                index: 5, 
+                property: Property: Fabric.ImageUrl (string) Required), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<bool>(
+                valueBuffer: valueBuffer, 
+                index: 6, 
+                property: Property: Fabric.IsActive (bool) Required), 
+            ExpressionExtensions.ValueBufferTryReadValue<string>(
+                valueBuffer: valueBuffer, 
+                index: 7, 
+                property: Property: Fabric.Name (string) Required), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<decimal>(
+                valueBuffer: valueBuffer, 
+                index: 8, 
+                property: Property: Fabric.PricePerYard (decimal) Required), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<decimal>(
+                valueBuffer: valueBuffer, 
+                index: 9, 
+                property: Property: Fabric.StockYards (decimal) Required), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<DateTime>(
+                valueBuffer: valueBuffer, 
+                index: 10, 
+                property: Property: Fabric.UpdatedAt (DateTime) Required), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<int>(
+                valueBuffer: valueBuffer, 
+                index: 11, 
+                property: Property: Category.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<DateTime>(
+                valueBuffer: valueBuffer, 
+                index: 12, 
+                property: Property: Category.CreatedAt (DateTime) Required), 
+            ExpressionExtensions.ValueBufferTryReadValue<string>(
+                valueBuffer: valueBuffer, 
+                index: 13, 
+                property: Property: Category.Description (string) Required), 
+            ExpressionExtensions.ValueBufferTryReadValue<string>(
+                valueBuffer: valueBuffer, 
+                index: 14, 
+                property: Property: Category.Name (string) Required), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<DateTime>(
+                valueBuffer: valueBuffer, 
+                index: 15, 
+                property: Property: Category.UpdatedAt (DateTime) Required), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<int>(
+                valueBuffer: valueBuffer, 
+                index: 16, 
+                property: Property: Color.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<DateTime>(
+                valueBuffer: valueBuffer, 
+                index: 17, 
+                property: Property: Color.CreatedAt (DateTime) Required), 
+            ExpressionExtensions.ValueBufferTryReadValue<string>(
+                valueBuffer: valueBuffer, 
+                index: 18, 
+                property: Property: Color.HexCode (string) Required), 
+            ExpressionExtensions.ValueBufferTryReadValue<string>(
+                valueBuffer: valueBuffer, 
+                index: 19, 
+                property: Property: Color.Name (string) Required), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<DateTime>(
+                valueBuffer: valueBuffer, 
+                index: 20, 
+                property: Property: Color.UpdatedAt (DateTime) Required) 
+        }))
+        .Select(valueBuffer => new ValueBuffer(new object[]
+        { 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<int>(
+                valueBuffer: valueBuffer, 
+                index: 0, 
+                property: Property: Fabric.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd), 
+            ExpressionExtensions.ValueBufferTryReadValue<string>(
+                valueBuffer: valueBuffer, 
+                index: 7, 
+                property: Property: Fabric.Name (string) Required), 
+            ExpressionExtensions.ValueBufferTryReadValue<string>(
+                valueBuffer: valueBuffer, 
+                index: 4, 
+                property: Property: Fabric.Description (string) Required), 
+            ExpressionExtensions.ValueBufferTryReadValue<string>(
+                valueBuffer: valueBuffer, 
+                index: 5, 
+                property: Property: Fabric.ImageUrl (string) Required), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<decimal>(
+                valueBuffer: valueBuffer, 
+                index: 8, 
+                property: Property: Fabric.PricePerYard (decimal) Required), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<decimal>(
+                valueBuffer: valueBuffer, 
+                index: 9, 
+                property: Property: Fabric.StockYards (decimal) Required), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<int>(
+                valueBuffer: valueBuffer, 
+                index: 0, 
+                property: Property: Fabric.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<int>(
+                valueBuffer: valueBuffer, 
+                index: 1, 
+                property: Property: Fabric.CategoryId (int) Required FK), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<int>(
+                valueBuffer: valueBuffer, 
+                index: 2, 
+                property: Property: Fabric.ColorId (int) Required FK), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<DateTime>(
+                valueBuffer: valueBuffer, 
+                index: 3, 
+                property: Property: Fabric.CreatedAt (DateTime) Required), 
+            ExpressionExtensions.ValueBufferTryReadValue<string>(
+                valueBuffer: valueBuffer, 
+                index: 4, 
+                property: Property: Fabric.Description (string) Required), 
+            ExpressionExtensions.ValueBufferTryReadValue<string>(
+                valueBuffer: valueBuffer, 
+                index: 5, 
+                property: Property: Fabric.ImageUrl (string) Required), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<bool>(
+                valueBuffer: valueBuffer, 
+                index: 6, 
+                property: Property: Fabric.IsActive (bool) Required), 
+            ExpressionExtensions.ValueBufferTryReadValue<string>(
+                valueBuffer: valueBuffer, 
+                index: 7, 
+                property: Property: Fabric.Name (string) Required), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<decimal>(
+                valueBuffer: valueBuffer, 
+                index: 8, 
+                property: Property: Fabric.PricePerYard (decimal) Required), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<decimal>(
+                valueBuffer: valueBuffer, 
+                index: 9, 
+                property: Property: Fabric.StockYards (decimal) Required), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<DateTime>(
+                valueBuffer: valueBuffer, 
+                index: 10, 
+                property: Property: Fabric.UpdatedAt (DateTime) Required), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<int>(
+                valueBuffer: valueBuffer, 
+                index: 11, 
+                property: Property: Category.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<DateTime>(
+                valueBuffer: valueBuffer, 
+                index: 12, 
+                property: Property: Category.CreatedAt (DateTime) Required), 
+            ExpressionExtensions.ValueBufferTryReadValue<string>(
+                valueBuffer: valueBuffer, 
+                index: 13, 
+                property: Property: Category.Description (string) Required), 
+            ExpressionExtensions.ValueBufferTryReadValue<string>(
+                valueBuffer: valueBuffer, 
+                index: 14, 
+                property: Property: Category.Name (string) Required), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<DateTime>(
+                valueBuffer: valueBuffer, 
+                index: 15, 
+                property: Property: Category.UpdatedAt (DateTime) Required), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<int>(
+                valueBuffer: valueBuffer, 
+                index: 16, 
+                property: Property: Color.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<DateTime>(
+                valueBuffer: valueBuffer, 
+                index: 17, 
+                property: Property: Color.CreatedAt (DateTime) Required), 
+            ExpressionExtensions.ValueBufferTryReadValue<string>(
+                valueBuffer: valueBuffer, 
+                index: 18, 
+                property: Property: Color.HexCode (string) Required), 
+            ExpressionExtensions.ValueBufferTryReadValue<string>(
+                valueBuffer: valueBuffer, 
+                index: 19, 
+                property: Property: Color.Name (string) Required), 
+            (object)ExpressionExtensions.ValueBufferTryReadValue<DateTime>(
+                valueBuffer: valueBuffer, 
+                index: 20, 
+                property: Property: Color.UpdatedAt (DateTime) Required), 
+            ExpressionExtensions.ValueBufferTryReadValue<string>(
+                valueBuffer: valueBuffer, 
+                index: 14, 
+                property: Property: Category.Name (string) Required), 
+            ExpressionExtensions.ValueBufferTryReadValue<string>(
+                valueBuffer: valueBuffer, 
+                index: 19, 
+                property: Property: Color.Name (string) Required), 
+            ExpressionExtensions.ValueBufferTryReadValue<string>(
+                valueBuffer: valueBuffer, 
+                index: 18, 
+                property: Property: Color.HexCode (string) Required) 
+        })), 
+    Func<QueryContext, ValueBuffer, FabricDto>, 
+    FabricsDbContext, 
+    False, 
+    True
+)'
+2026-05-06 13:12:11.133 +01:00 [DBG] Context 'FabricsDbContext' started tracking 'Fabric' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 13:12:11.148 +01:00 [DBG] The navigation 'Fabric.Category' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 13:12:11.155 +01:00 [DBG] Context 'FabricsDbContext' started tracking 'Category' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 13:12:11.163 +01:00 [DBG] The navigation 'Fabric.Color' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 13:12:11.165 +01:00 [DBG] Context 'FabricsDbContext' started tracking 'Color' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 13:12:11.174 +01:00 [DBG] Context 'FabricsDbContext' started tracking 'Fabric' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 13:12:11.178 +01:00 [DBG] The navigation 'Fabric.Category' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 13:12:11.181 +01:00 [DBG] Context 'FabricsDbContext' started tracking 'Category' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 13:12:11.183 +01:00 [DBG] The navigation 'Fabric.Color' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 13:12:11.188 +01:00 [DBG] Context 'FabricsDbContext' started tracking 'Color' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2026-05-06 13:12:11.210 +01:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter"]
+2026-05-06 13:12:11.221 +01:00 [DBG] Attempting to select an output formatter based on Accept header '["text/plain"]'.
+2026-05-06 13:12:11.227 +01:00 [DBG] Could not find an output formatter based on content negotiation. Accepted types were (["text/plain"])
+2026-05-06 13:12:11.230 +01:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2026-05-06 13:12:11.232 +01:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2026-05-06 13:12:11.236 +01:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter' and content type 'application/json' to write the response.
+2026-05-06 13:12:11.241 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[nkay_fabs_backend.Models.Dtos.FabricDto, nkay_fabs_backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-06 13:12:11.599 +01:00 [INF] Executed action nkay_fabs_backend.Controllers.FabricsController.GetFabrics (nkay_fabs_backend) in 955.9816ms
+2026-05-06 13:12:11.602 +01:00 [INF] Executed endpoint 'nkay_fabs_backend.Controllers.FabricsController.GetFabrics (nkay_fabs_backend)'
+2026-05-06 13:12:11.604 +01:00 [DBG] Handled /api/Fabrics
+2026-05-06 13:12:11.610 +01:00 [DBG] 'FabricsDbContext' disposed.
+2026-05-06 13:12:11.614 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7269/api/Fabrics - 200 458 application/json; charset=utf-8 1143.9838ms
+2026-05-06 13:15:01.629 +01:00 [DBG] Connection id "0HNLBD2FP7TE8" received FIN.
+2026-05-06 13:15:01.640 +01:00 [DBG] Connection id "0HNLBD2FP7TE8" is closing.
+2026-05-06 13:15:01.648 +01:00 [DBG] Connection id "0HNLBD2FP7TE8" is closed. The last processed stream ID was 21.
+2026-05-06 13:15:01.653 +01:00 [DBG] Connection id "0HNLBD2FP7TE8" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-05-06 13:15:01.654 +01:00 [DBG] The connection queue processing loop for 0HNLBD2FP7TE8 completed.
+2026-05-06 13:15:01.662 +01:00 [DBG] Connection id "0HNLBD2FP7TE8" stopped.
+2026-05-06 13:19:47.588 +01:00 [INF] Starting up the service...
+2026-05-06 13:20:56.245 +01:00 [WRN] Fabric of id 7 not found.
+2026-05-06 16:49:15.248 +01:00 [INF] Starting up the service...
+2026-05-06 17:16:57.084 +01:00 [INF] Starting up the service...
+2026-05-06 17:16:57.514 +01:00 [FTL] Application terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\DELL\Documents\nkay_fabs_backend\Program.cs:line 38
+2026-05-06 17:18:28.184 +01:00 [INF] Starting up the service...
+2026-05-06 17:18:28.528 +01:00 [FTL] Application terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\DELL\Documents\nkay_fabs_backend\Program.cs:line 37
+2026-05-06 17:21:41.279 +01:00 [INF] Starting up the service...
+2026-05-06 17:21:41.789 +01:00 [FTL] Application terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\DELL\Documents\nkay_fabs_backend\Program.cs:line 37
+2026-05-06 17:22:23.889 +01:00 [INF] Starting up the service...
+2026-05-06 17:22:24.115 +01:00 [FTL] Application terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\DELL\Documents\nkay_fabs_backend\Program.cs:line 37
+2026-05-06 17:22:49.099 +01:00 [INF] Starting up the service...
+2026-05-06 17:22:49.459 +01:00 [FTL] Application terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\DELL\Documents\nkay_fabs_backend\Program.cs:line 37
+2026-05-06 17:24:52.222 +01:00 [INF] Starting up the service...
+2026-05-06 17:24:52.647 +01:00 [FTL] Application terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\DELL\Documents\nkay_fabs_backend\Program.cs:line 37
+2026-05-06 17:25:18.839 +01:00 [INF] Starting up the service...
+2026-05-06 17:25:19.173 +01:00 [FTL] Application terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\DELL\Documents\nkay_fabs_backend\Program.cs:line 37
+2026-05-06 17:27:08.563 +01:00 [INF] Starting up the service...
+2026-05-06 17:27:08.897 +01:00 [FTL] Application terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\DELL\Documents\nkay_fabs_backend\Program.cs:line 37

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using nkay_fabs_backend.Entities;
 using nkay_fabs_backend.Helpers;
 using nkay_fabs_backend.Models.Dtos;
-using nkay_fabs_backend.Models.Entities;
 
 public class FabricsDbContext : DbContext
 {

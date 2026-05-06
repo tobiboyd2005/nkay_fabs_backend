@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using nkay_fabs_backend.Entities;
 using nkay_fabs_backend.Helpers;
 using nkay_fabs_backend.Models.Dtos;
-using nkay_fabs_backend.Models.Entities;
 using nkay_fabs_backend.Services;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
