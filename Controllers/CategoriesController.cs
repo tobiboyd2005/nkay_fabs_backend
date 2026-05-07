@@ -89,9 +89,8 @@ public class CategoriesController : ControllerBase
             return BadRequest(ModelState);
         }
 
-        var newCategory = new Category
+        var newCategory = new Category(category.Name)
         {
-            Name = category.Name,
             Description = category.Description
         };
 

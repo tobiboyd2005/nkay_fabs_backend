@@ -95,9 +95,8 @@ public class ColorsController : ControllerBase
             return BadRequest(ModelState);
         }
 
-        var newColor = new Color
+        var newColor = new Color(color.Name)
         {
-            Name = color.Name,
             HexCode = color.HexCode
         };
 

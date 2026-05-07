@@ -18,5 +18,10 @@ namespace nkay_fabs_backend.Entities
         public DateTime UpdatedAt { get; set; } = TimeHelper.NowWAT();
 
         public ICollection<Fabric> Fabrics { get; set; } = new List<Fabric>();
+
+        public Category (string name)
+        {
+            Name = name;
+        }
     }
 }
