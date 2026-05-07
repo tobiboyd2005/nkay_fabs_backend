@@ -39,14 +39,14 @@ public class CategoriesController : ControllerBase
     }
 
     // GET: api/Category/5
-    [HttpGet("{id}")]
-    public async Task<ActionResult<CategoryDto>> GetCategory(int id)
+    [HttpGet("{categoryid}")]
+    public async Task<ActionResult<CategoryDto>> GetCategory(int categoryid)
     {
-        var category = await _context.Categories.FindAsync(id);
+        var category = await _context.Categories.FindAsync(categoryid);
 
         if (category == null)
         {
-            _logger.LogWarning("Category with id {id} not found.", id);
+            _logger.LogWarning("Category with id {id} not found.", categoryid);
             return NotFound();
         }
 
@@ -62,8 +62,8 @@ public class CategoriesController : ControllerBase
 
     // PUT: api/Category/5
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-    [HttpPut("{id}")]
-    public async Task<IActionResult> PutCategory(int id, UpdateCategoryDto category)
+    [HttpPut("{categoryid}")]
+    public async Task<IActionResult> PutCategory(int categoryid, UpdateCategoryDto category)
     {
         if (!ModelState.IsValid)
         {
@@ -71,11 +71,11 @@ public class CategoriesController : ControllerBase
             return BadRequest(ModelState);
         }
 
-        var categoryToUpdate = await _context.Categories.FindAsync(id);
+        var categoryToUpdate = await _context.Categories.FindAsync(categoryid);
 
         if (categoryToUpdate == null)
         {
-            _logger.LogWarning("Category of id {id} not found.", id);
+            _logger.LogWarning("Category of id {id} not found.", categoryid);
             return NotFound();
         }
 
@@ -110,13 +110,13 @@ public class CategoriesController : ControllerBase
     }
 
     // DELETE: api/Category/5
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteCategory(int id)
+    [HttpDelete("{categoryid}")]
+    public async Task<IActionResult> DeleteCategory(int categoryid)
     {
-        var category = await _context.Categories.FindAsync(id);
+        var category = await _context.Categories.FindAsync(categoryid);
         if (category == null)
         {
-            _logger.LogWarning("Category with id {id} is not available for deletion", id);
+            _logger.LogWarning("Category with id {id} is not available for deletion", categoryid);
             return NotFound();
         }
 

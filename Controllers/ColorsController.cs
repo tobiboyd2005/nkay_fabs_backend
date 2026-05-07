@@ -34,14 +34,14 @@ public class ColorsController : ControllerBase
     }
 
     // GET: api/Color/5
-    [HttpGet("{id}")]
-    public async Task<ActionResult<ColorDto>> GetColor(int id)
+    [HttpGet("{colorid}")]
+    public async Task<ActionResult<ColorDto>> GetColor(int colorid)
     {
-        var color = await _context.Colors.FindAsync(id);
+        var color = await _context.Colors.FindAsync(colorid);
 
         if (color == null)
         {
-            _logger.LogWarning("Color with id of {id} not found.", id);
+            _logger.LogWarning("Color with id of {id} not found.", colorid);
             return NotFound();
         }
 
@@ -57,20 +57,20 @@ public class ColorsController : ControllerBase
 
     // PUT: api/Color/5
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-    [HttpPut("{id}")]
-    public async Task<IActionResult> PutColor(int? id, UpdateColorDto color)
+    [HttpPut("{colorid}")]
+    public async Task<IActionResult> PutColor(int? colorid, UpdateColorDto color)
     {
         if (!ModelState.IsValid)
         {
-            _logger.LogWarning("Model state is invalid with updating color with id {id}", id);
+            _logger.LogWarning("Model state is invalid with updating color with id {id}", colorid);
             return BadRequest(ModelState);
         }
 
-        var ColorToUpdate = await _context.Colors.FindAsync(id);
+        var ColorToUpdate = await _context.Colors.FindAsync(colorid);
 
         if (ColorToUpdate == null)
         {
-            _logger.LogWarning("Color with id {id} not found for update.", id);
+            _logger.LogWarning("Color with id {id} not found for update.", colorid);
             return NotFound();
         }
 
@@ -78,7 +78,7 @@ public class ColorsController : ControllerBase
         ColorToUpdate.HexCode = color.HexCode;
 
         await _context.SaveChangesAsync();
-        _logger.LogInformation("Color with id {id} updated successfully.", id);
+        _logger.LogInformation("Color with id {id} updated successfully.", colorid);
 
         return NoContent();
     }
@@ -108,19 +108,19 @@ public class ColorsController : ControllerBase
     }
 
     // DELETE: api/Color/5
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteColor(int id)
+    [HttpDelete("{colorid}")]
+    public async Task<IActionResult> DeleteColor(int colorid)
     {
-        var color = await _context.Colors.FindAsync(id);
+        var color = await _context.Colors.FindAsync(colorid);
         if (color == null)
         {
-            _logger.LogWarning("Color with id {id} not found for deletion.", id);
+            _logger.LogWarning("Color with id {id} not found for deletion.", colorid);
             return NotFound();
         }
 
         _context.Colors.Remove(color);
         await _context.SaveChangesAsync();
-        _logger.LogInformation("Color with id {id} deleted successfully.", id);
+        _logger.LogInformation("Color with id {id} deleted successfully.", colorid);
         return NoContent();
     }
 

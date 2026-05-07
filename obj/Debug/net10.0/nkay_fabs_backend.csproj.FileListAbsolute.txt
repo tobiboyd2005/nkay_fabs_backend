@@ -1,5 +1,6 @@
 C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\appsettings.Development.json
 C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\appsettings.json
+C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\appsettings.Production.json
 C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\nkay_fabs_backend.staticwebassets.endpoints.json
 C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\nkay_fabs_backend.exe
 C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\nkay_fabs_backend.deps.json
@@ -310,10 +311,10 @@ C:\Users\DELL\Documents\nkay_fabs_backend\obj\Debug\net10.0\staticwebassets.buil
 C:\Users\DELL\Documents\nkay_fabs_backend\obj\Debug\net10.0\staticwebassets.development.json
 C:\Users\DELL\Documents\nkay_fabs_backend\obj\Debug\net10.0\staticwebassets.build.endpoints.json
 C:\Users\DELL\Documents\nkay_fabs_backend\obj\Debug\net10.0\swae.build.ex.cache
+C:\Users\DELL\Documents\nkay_fabs_backend\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 C:\Users\DELL\Documents\nkay_fabs_backend\obj\Debug\net10.0\nkay_fab.24042A21.Up2Date
 C:\Users\DELL\Documents\nkay_fabs_backend\obj\Debug\net10.0\nkay_fabs_backend.dll
 C:\Users\DELL\Documents\nkay_fabs_backend\obj\Debug\net10.0\refint\nkay_fabs_backend.dll
 C:\Users\DELL\Documents\nkay_fabs_backend\obj\Debug\net10.0\nkay_fabs_backend.pdb
 C:\Users\DELL\Documents\nkay_fabs_backend\obj\Debug\net10.0\nkay_fabs_backend.genruntimeconfig.cache
 C:\Users\DELL\Documents\nkay_fabs_backend\obj\Debug\net10.0\ref\nkay_fabs_backend.dll
-C:\Users\DELL\Documents\nkay_fabs_backend\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

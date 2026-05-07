@@ -22,16 +22,24 @@ try
 
     builder.Services.AddControllers().AddNewtonsoftJson();
     builder.Services.AddScoped<FabricValidationService>();
+    builder.Services.AddScoped<IFabricInfoRepository, FabricInfoRepository>();
 
-    builder.Services.AddDbContext<FabricsDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("FabricDb"))
-           .ConfigureWarnings(warnings =>
-               warnings.Ignore(RelationalEventId.PendingModelChangesWarning)));
+    builder.Services.AddDbContext<FabricsDbContext>(dbContextOptions =>
+    dbContextOptions.UseSqlServer(builder.Configuration.GetConnectionString("Practice"),
+    sqlOptions => {
+        // This helps with transient connection blips
+        sqlOptions.EnableRetryOnFailure();
+    })
+    .ConfigureWarnings(warnings =>
+        warnings.Ignore(RelationalEventId.PendingModelChangesWarning)));
 
-    var connString = builder.Configuration.GetConnectionString("FabricDb");
-Console.WriteLine(connString); // Remove this after confirming
+    var connString = builder.Configuration.GetConnectionString("Practice");
+    Console.WriteLine(connString);
+
+
 
     builder.Services.AddSwaggerGen();
+    
 
     // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
     builder.Services.AddOpenApi();

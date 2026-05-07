@@ -1,4 +1,5 @@
 ﻿using nkay_fabs_backend.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace nkay_fabs_backend.Services
 {
@@ -12,32 +13,32 @@ namespace nkay_fabs_backend.Services
         }
         public async Task<IEnumerable<Category>> GetCategoriesAsync()
         {
-            return await _context.Categories.ToListAsync();
+            return await _context.Categories.OrderBy(c => c.Name).ToListAsync();
         }
 
-        public Task<Category?> GetCategoryAsync(int categoryId)
+        public async Task<Category?> GetCategoryAsync(int categoryId)
         {
-            throw new NotImplementedException();
+            return await _context.Categories.Where(c => c.Id == categoryId).FirstOrDefaultAsync();
         }
 
-        public Task<Color?> GetColorAsync(int colorId)
+        public async Task<Color?> GetColorAsync(int colorId)
         {
-            throw new NotImplementedException();
+            return await _context.Colors.Where(c => c.Id == colorId).FirstOrDefaultAsync();
         }
 
-        public Task<IEnumerable<Color>> GetColorsAsync()
+        public async Task<IEnumerable<Color>> GetColorsAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Colors.OrderBy(c => c.Name).ToListAsync();
         }
 
-        public Task<Fabric?> GetFabricAsync(int fabricId)
+        public async Task<Fabric?> GetFabricAsync(int fabricId)
         {
-            throw new NotImplementedException();
-        }
+            return await _context.Fabrics.Where(f => f.Id == fabricId).FirstOrDefaultAsync();
+        }       
 
-        public Task<IEnumerable<Fabric>> GetFabricsAsync()
+        public async Task<IEnumerable<Fabric>> GetFabricsAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Fabrics.ToListAsync();
         }
     }
 }
