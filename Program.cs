@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using nkay_fabs_backend.Services;
 using Serilog;
 using Serilog.Events;
@@ -22,8 +23,12 @@ try
     builder.Services.AddControllers().AddNewtonsoftJson();
     builder.Services.AddScoped<FabricValidationService>();
 
-    builder.Services.AddDbContext<FabricsDbContext>(dbContextOptions =>
-        dbContextOptions.UseSqlServer(builder.Configuration.GetConnectionString("FabricDb")));
+
+
+    builder.Services.AddDbContext<FabricsDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("FabricDb"))
+           .ConfigureWarnings(warnings =>
+               warnings.Ignore(RelationalEventId.PendingModelChangesWarning)));
 
     builder.Services.AddSwaggerGen();
 
