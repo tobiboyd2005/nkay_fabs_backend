@@ -20,14 +20,22 @@ public class CategoriesController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<CategoryDto>>> GetCategory()
     {
-        var categories = await _context.Categories.ToListAsync();
-        var categoryDtos = categories.Select(c => new CategoryDto
+        try
         {
-            Id = c.Id,
-            Name = c.Name,
-            Description = c.Description
-        });
-        return Ok(categoryDtos);
+            var categories = await _context.Categories.FromSql($"SELECT * FROM Categories").ToListAsync();
+            var categoryDtos = categories.Select(c => new CategoryDto
+            {
+                Id = c.Id,
+                Name = c.Name,
+                Description = c.Description
+            });
+            return Ok(categoryDtos);
+        }
+        catch(Exception ex)
+        {
+            _logger.LogCritical("There is a problem with the server {ex}", ex);
+            return StatusCode(500, "There is a problem with the server");
+        }
     }
 
     // GET: api/Category/5

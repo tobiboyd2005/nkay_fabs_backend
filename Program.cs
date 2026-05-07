@@ -23,12 +23,13 @@ try
     builder.Services.AddControllers().AddNewtonsoftJson();
     builder.Services.AddScoped<FabricValidationService>();
 
-
-
     builder.Services.AddDbContext<FabricsDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("FabricDb"))
            .ConfigureWarnings(warnings =>
                warnings.Ignore(RelationalEventId.PendingModelChangesWarning)));
+
+    var connString = builder.Configuration.GetConnectionString("FabricDb");
+Console.WriteLine(connString); // Remove this after confirming
 
     builder.Services.AddSwaggerGen();
 
