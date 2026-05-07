@@ -16,6 +16,7 @@ obj/
 .vs/
 *.vsidx
 *.suo
+appsettings.Development.json
 *.user
 *.userosscache
 *.sln.docstates
