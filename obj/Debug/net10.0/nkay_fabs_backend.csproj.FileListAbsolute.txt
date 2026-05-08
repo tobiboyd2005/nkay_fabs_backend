@@ -318,3 +318,5 @@ C:\Users\DELL\Documents\nkay_fabs_backend\obj\Debug\net10.0\refint\nkay_fabs_bac
 C:\Users\DELL\Documents\nkay_fabs_backend\obj\Debug\net10.0\nkay_fabs_backend.pdb
 C:\Users\DELL\Documents\nkay_fabs_backend\obj\Debug\net10.0\nkay_fabs_backend.genruntimeconfig.cache
 C:\Users\DELL\Documents\nkay_fabs_backend\obj\Debug\net10.0\ref\nkay_fabs_backend.dll
+C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\AutoMapper.dll
+C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

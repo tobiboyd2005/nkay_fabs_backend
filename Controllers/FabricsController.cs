@@ -1,4 +1,5 @@
-﻿using Azure;
+﻿using AutoMapper;
+using Azure;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -17,14 +18,16 @@ namespace nkay_fabs_backend.Controllers
     {
 
         private readonly IFabricInfoRepository _fabricInfoRepository;
-        private ILogger<FabricsController> _logger;
-        private FabricValidationService _validationService;
+        private readonly ILogger<FabricsController> _logger;
+        private readonly FabricValidationService _validationService;
+        private readonly IMapper _mapper;
 
-        public FabricsController(IFabricInfoRepository fabricInfoRepository, ILogger<FabricsController> logger, FabricValidationService validationService)
+        public FabricsController(IFabricInfoRepository fabricInfoRepository, ILogger<FabricsController> logger, FabricValidationService validationService, IMapper mapper)
         {
             _fabricInfoRepository = fabricInfoRepository ?? throw new ArgumentNullException(nameof(fabricInfoRepository));
-            _logger = logger;
-            _validationService = validationService;
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _validationService = validationService ?? throw new ArgumentNullException(nameof(validationService));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
         // GET: api/<FabricsController>
         [HttpGet]
@@ -33,25 +36,7 @@ namespace nkay_fabs_backend.Controllers
             try
             {
                 var fabrics = await _fabricInfoRepository.GetFabricsAsync();
-                var results = new List<FabricDto>();
-                foreach(var fabric in fabrics)
-                {
-                    results.Add(new FabricDto
-                    {
-                        Id = fabric.Id,
-                        Name = fabric.Name,
-                        Description = fabric.Description,
-                        ImageUrl = fabric.ImageUrl,
-                        PricePerYard = fabric.PricePerYard,
-                        StockYards = fabric.StockYards,
-                        IsInStock = fabric.IsInStock,
-                        CategoryName = fabric.Category.Name,
-                        ColorName = fabric.Color.Name,
-                        ColorHex = fabric.Color.HexCode
-                    });
-                };
-
-                return Ok(results);
+                return Ok(_mapper.Map<IEnumerable<FabricDto>>(fabrics));
             }
             catch (Exception ex)
             {
@@ -71,21 +56,7 @@ namespace nkay_fabs_backend.Controllers
                 return NotFound();
             }
 
-            var result = new FabricDto
-            {
-                Id = fabric.Id,
-                Name = fabric.Name,
-                Description = fabric.Description,
-                ImageUrl = fabric.ImageUrl,
-                PricePerYard = fabric.PricePerYard,
-                StockYards = fabric.StockYards,
-                IsInStock = fabric.IsInStock,
-                CategoryName = fabric.Category.Name,
-                ColorName = fabric.Color.Name,
-                ColorHex = fabric.Color.HexCode
-            };
-
-            return Ok(result);
+            return Ok(_mapper.Map<FabricDto>(fabric));
         }
 
         //// POST api/<FabricsController>

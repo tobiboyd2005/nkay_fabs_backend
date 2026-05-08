@@ -1,6 +1,7 @@
 ﻿using nkay_fabs_backend.Entities;
 using Microsoft.EntityFrameworkCore;
 
+// endpoint logic
 namespace nkay_fabs_backend.Services
 {
     public class FabricInfoRepository : IFabricInfoRepository
@@ -13,7 +14,7 @@ namespace nkay_fabs_backend.Services
         }
         public async Task<IEnumerable<Category>> GetCategoriesAsync()
         {
-            return await _context.Categories.OrderBy(c => c.Name).ToListAsync();
+            return await _context.Categories.ToListAsync();
         }
 
         public async Task<Category?> GetCategoryAsync(int categoryId)
@@ -28,7 +29,7 @@ namespace nkay_fabs_backend.Services
 
         public async Task<IEnumerable<Color>> GetColorsAsync()
         {
-            return await _context.Colors.OrderBy(c => c.Name).ToListAsync();
+            return await _context.Colors.ToListAsync();
         }
 
         public async Task<Fabric?> GetFabricAsync(int fabricId)

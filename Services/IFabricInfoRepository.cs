@@ -4,6 +4,7 @@ namespace nkay_fabs_backend.Services
 {
     public interface IFabricInfoRepository
     {
+        // imported endpoint logic from /FabricInfoRepository
         Task<IEnumerable<Fabric>> GetFabricsAsync();
         Task<Fabric?> GetFabricAsync(int fabricId);
         Task<IEnumerable<Category>> GetCategoriesAsync();

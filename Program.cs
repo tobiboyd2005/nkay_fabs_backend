@@ -1,5 +1,7 @@
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using nkay_fabs_backend.Profiles;
 using nkay_fabs_backend.Services;
 using Serilog;
 using Serilog.Events;
@@ -39,6 +41,7 @@ try
 
 
     builder.Services.AddSwaggerGen();
+    builder.Services.AddAutoMapper(typeof(Program));
     
 
     // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
