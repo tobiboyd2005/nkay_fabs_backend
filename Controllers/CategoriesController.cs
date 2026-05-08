@@ -2,17 +2,18 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using nkay_fabs_backend.Entities;
 using nkay_fabs_backend.Models.Dtos;
+using nkay_fabs_backend.Services;
 
 
 [Route("api/[controller]")]
 [ApiController]
 public class CategoriesController : ControllerBase
 {
-    private readonly FabricsDbContext _context;
+    private readonly IFabricInfoRepository _fabricInfoRepository;
     private readonly ILogger<CategoriesController> _logger;
-    public CategoriesController(FabricsDbContext context, ILogger<CategoriesController> logger)
+    public CategoriesController(IFabricInfoRepository fabricInfoRepository, ILogger<CategoriesController> logger)
     {
-        _context = context;
+        _fabricInfoRepository = fabricInfoRepository;
         _logger = logger;
     }
 
@@ -22,14 +23,20 @@ public class CategoriesController : ControllerBase
     {
         try
         {
-            var categories = await _context.Categories.FromSql($"SELECT * FROM Categories").ToListAsync();
-            var categoryDtos = categories.Select(c => new CategoryDto
+            var categories = await _fabricInfoRepository.GetCategoriesAsync();
+
+            var results = new List<CategoryDto>(); // list of results to return to the client
+            
+            foreach (var category in categories)
             {
-                Id = c.Id,
-                Name = c.Name,
-                Description = c.Description
-            });
-            return Ok(categoryDtos);
+                results.Add(new CategoryDto
+                {
+                    Id = category.Id,
+                    Name = category.Name,
+                    Description = category.Description
+                });
+            }
+            return Ok(results);
         }
         catch(Exception ex)
         {
@@ -42,7 +49,7 @@ public class CategoriesController : ControllerBase
     [HttpGet("{categoryid}")]
     public async Task<ActionResult<CategoryDto>> GetCategory(int categoryid)
     {
-        var category = await _context.Categories.FindAsync(categoryid);
+        var category = await _fabricInfoRepository.GetCategoryAsync(categoryid);
 
         if (category == null)
         {
@@ -50,84 +57,84 @@ public class CategoriesController : ControllerBase
             return NotFound();
         }
 
-        var categoryDto = new CategoryDto
+        var result = new CategoryDto
         {
             Id = category.Id,
             Name = category.Name,
             Description = category.Description
         };
 
-        return Ok(categoryDto);
+        return Ok(result);
     }
 
-    // PUT: api/Category/5
-    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-    [HttpPut("{categoryid}")]
-    public async Task<IActionResult> PutCategory(int categoryid, UpdateCategoryDto category)
-    {
-        if (!ModelState.IsValid)
-        {
-            _logger.LogWarning("Invalid model state for category update.");
-            return BadRequest(ModelState);
-        }
+    //// PUT: api/Category/5
+    //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+    //[HttpPut("{categoryid}")]
+    //public async Task<IActionResult> PutCategory(int categoryid, UpdateCategoryDto category)
+    //{
+    //    if (!ModelState.IsValid)
+    //    {
+    //        _logger.LogWarning("Invalid model state for category update.");
+    //        return BadRequest(ModelState);
+    //    }
 
-        var categoryToUpdate = await _context.Categories.FindAsync(categoryid);
+    //    var categoryToUpdate = await _context.Categories.FindAsync(categoryid);
 
-        if (categoryToUpdate == null)
-        {
-            _logger.LogWarning("Category of id {id} not found.", categoryid);
-            return NotFound();
-        }
+    //    if (categoryToUpdate == null)
+    //    {
+    //        _logger.LogWarning("Category of id {id} not found.", categoryid);
+    //        return NotFound();
+    //    }
 
-        categoryToUpdate.Name = category.Name;
-        categoryToUpdate.Description = category.Description;
-        await _context.SaveChangesAsync();
+    //    categoryToUpdate.Name = category.Name;
+    //    categoryToUpdate.Description = category.Description;
+    //    await _context.SaveChangesAsync();
 
-        return NoContent();
-    }
+    //    return NoContent();
+    //}
 
-    // POST: api/Category
-    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-    [HttpPost]
-    public async Task<ActionResult> PostCategory(CreateCategoryDto category)
-    {
-        if(!ModelState.IsValid)
-        {
-            _logger.LogWarning("Invalid model state for category creation.");
-            return BadRequest(ModelState);
-        }
+    //// POST: api/Category
+    //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+    //[HttpPost]
+    //public async Task<ActionResult> PostCategory(CreateCategoryDto category)
+    //{
+    //    if(!ModelState.IsValid)
+    //    {
+    //        _logger.LogWarning("Invalid model state for category creation.");
+    //        return BadRequest(ModelState);
+    //    }
 
-        var newCategory = new Category(category.Name)
-        {
-            Description = category.Description
-        };
+    //    var newCategory = new Category(category.Name)
+    //    {
+    //        Description = category.Description
+    //    };
 
-        await _context.Categories.AddAsync(newCategory);
-        await _context.SaveChangesAsync();
-        _logger.LogInformation("Category with id {id} created successfully.", newCategory.Id);
+    //    await _context.Categories.AddAsync(newCategory);
+    //    await _context.SaveChangesAsync();
+    //    _logger.LogInformation("Category with id {id} created successfully.", newCategory.Id);
 
-        return CreatedAtAction("GetCategory", new { id = newCategory.Id }, newCategory);
-    }
+    //    return CreatedAtAction("GetCategory", new { id = newCategory.Id }, newCategory);
+    //}
 
-    // DELETE: api/Category/5
-    [HttpDelete("{categoryid}")]
-    public async Task<IActionResult> DeleteCategory(int categoryid)
-    {
-        var category = await _context.Categories.FindAsync(categoryid);
-        if (category == null)
-        {
-            _logger.LogWarning("Category with id {id} is not available for deletion", categoryid);
-            return NotFound();
-        }
+    //// DELETE: api/Category/5
+    //[HttpDelete("{categoryid}")]
+    //public async Task<IActionResult> DeleteCategory(int categoryid)
+    //{
+    //    var category = await _context.Categories.FindAsync(categoryid);
+    //    if (category == null)
+    //    {
+    //        _logger.LogWarning("Category with id {id} is not available for deletion", categoryid);
+    //        return NotFound();
+    //    }
 
-        _context.Categories.Remove(category);
-        await _context.SaveChangesAsync();
+    //    _context.Categories.Remove(category);
+    //    await _context.SaveChangesAsync();
 
-        return NoContent();
-    }
+    //    return NoContent();
+    //}
 
     private bool CategoryExists(int? id)
     {
-        return _context.Categories.Any(e => e.Id == id);
+        return _fabricInfoRepository.GetCategoriesAsync().Result.Any(e => e.Id == id);
     }
 }
