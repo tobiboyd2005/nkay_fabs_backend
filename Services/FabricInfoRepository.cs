@@ -65,16 +65,16 @@ namespace nkay_fabs_backend.Services
             return (await _context.SaveChangesAsync() >= 0);
         }
 
-        Task IFabricInfoRepository.CreateCategory(CreateCategoryDto newCategory)
+        public async Task CreateCategory(Category newCategory)
         {
-            throw new NotImplementedException();
+            _context.Categories.Add(newCategory);
         }
 
 
 
-        Task IFabricInfoRepository.DeleteCategory(int categoryId)
+        public void DeleteCategory(Category category)
         {
-            throw new NotImplementedException();
+            _context.Categories.Remove(category);
         }
 
         public async Task CreateColor(Color newColor)
@@ -85,16 +85,6 @@ namespace nkay_fabs_backend.Services
         public void DeleteColor(Color color)
         {
             _context.Colors.Remove(color);
-        }
-
-        Task<IEnumerable<Category>> IFabricInfoRepository.GetCategoriesAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<Category?> IFabricInfoRepository.GetCategoryAsync(int categoryId)
-        {
-            throw new NotImplementedException();
         }
 
         public async Task<IEnumerable<Color>> GetColorsAsync()
@@ -110,11 +100,6 @@ namespace nkay_fabs_backend.Services
         public void DeleteFabric(Fabric fabric)
         {
             _context.Fabrics.Remove(fabric);
-        }
-
-        async Task<bool> IFabricInfoRepository.SaveChangesAsync()
-        {
-            return (await _context.SaveChangesAsync() >= 0);
         }
     }
 } 

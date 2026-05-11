@@ -10,6 +10,7 @@ namespace nkay_fabs_backend.Profiles
         {
             CreateMap<Category, CategoryDto>(); // Mapper to map from Category entity to CategoryDto
             CreateMap<CreateCategoryDto, Category>(); // Mapper to map from CreateCategoryDto to Category entity
+            CreateMap<UpdateCategoryDto, Category>(); // Mapper to map from UpdateCategoryDto to Category entity
         }
     }
 }

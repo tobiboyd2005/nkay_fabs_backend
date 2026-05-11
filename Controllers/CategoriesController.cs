@@ -55,71 +55,70 @@ public class CategoriesController : ControllerBase
         return Ok(result);
     }
 
-    //// PUT: api/Category/5
-    //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-    //[HttpPut("{categoryid}")]
-    //public async Task<IActionResult> PutCategory(int categoryid, UpdateCategoryDto category)
-    //{
-    //    if (!ModelState.IsValid)
-    //    {
-    //        _logger.LogWarning("Invalid model state for category update.");
-    //        return BadRequest(ModelState);
-    //    }
+    // PUT: api/Category/5
+    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+    [HttpPut("{categoryid}")]
+    public async Task<IActionResult> PutCategory(int categoryid, UpdateCategoryDto category)
+    {
+        if (!ModelState.IsValid)
+        {
+            _logger.LogWarning("Invalid model state for category update.");
+            return BadRequest(ModelState);
+        }
 
-    //    var categoryToUpdate = await _context.Categories.FindAsync(categoryid);
+        var categoryToUpdate = await _fabricInfoRepository.GetCategoryAsync(categoryid);
 
-    //    if (categoryToUpdate == null)
-    //    {
-    //        _logger.LogWarning("Category of id {id} not found.", categoryid);
-    //        return NotFound();
-    //    }
+        if (categoryToUpdate == null)
+        {
+            _logger.LogWarning("Category of id {id} not found.", categoryid);
+            return NotFound();
+        }
 
-    //    categoryToUpdate.Name = category.Name;
-    //    categoryToUpdate.Description = category.Description;
-    //    await _context.SaveChangesAsync();
+        _mapper.Map(category, categoryToUpdate); // Map the updated fields from the DTO to the existing category entity
+        await _fabricInfoRepository.SaveChangesAsync();
+        _logger.LogInformation("Category with id {id} updated successfully.", categoryid);
 
-    //    return NoContent();
-    //}
+        return NoContent();
+    }
 
-    //// POST: api/Category
-    //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-    //[HttpPost]
-    //public async Task<ActionResult> PostCategory(CreateCategoryDto category)
-    //{
-    //    if(!ModelState.IsValid)
-    //    {
-    //        _logger.LogWarning("Invalid model state for category creation.");
-    //        return BadRequest(ModelState);
-    //    }
+    // POST: api/Category
+    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+    [HttpPost]
+    public async Task<ActionResult> PostCategory(CreateCategoryDto category)
+    {
+        if (!ModelState.IsValid)
+        {
+            _logger.LogWarning("Invalid model state for category creation.");
+            return BadRequest(ModelState);
+        }
 
-    //    var newCategory = new Category(category.Name)
-    //    {
-    //        Description = category.Description
-    //    };
+        var newCategory = _mapper.Map<Category>(category); // Map the CreateCategoryDto to a Category entity
 
-    //    await _context.Categories.AddAsync(newCategory);
-    //    await _context.SaveChangesAsync();
-    //    _logger.LogInformation("Category with id {id} created successfully.", newCategory.Id);
+        await _fabricInfoRepository.CreateCategory(newCategory);
+        await _fabricInfoRepository.SaveChangesAsync();
+        _logger.LogInformation("Category with id {id} created successfully.", newCategory.Id);
 
-    //    return CreatedAtAction("GetCategory", new { id = newCategory.Id }, newCategory);
-    //}
+        var categoryDto = _mapper.Map<CategoryDto>(newCategory); // Map the created category to a CategoryDto for the response
 
-    //// DELETE: api/Category/5
-    //[HttpDelete("{categoryid}")]
-    //public async Task<IActionResult> DeleteCategory(int categoryid)
-    //{
-    //    var category = await _context.Categories.FindAsync(categoryid);
-    //    if (category == null)
-    //    {
-    //        _logger.LogWarning("Category with id {id} is not available for deletion", categoryid);
-    //        return NotFound();
-    //    }
+        return CreatedAtAction(nameof(GetCategory), new { id = newCategory.Id }, categoryDto);
+    }
 
-    //    _context.Categories.Remove(category);
-    //    await _context.SaveChangesAsync();
+    // DELETE: api/Category/5
+    [HttpDelete("{categoryid}")]
+    public async Task<IActionResult> DeleteCategory(int categoryid)
+    {
+        var category = await _fabricInfoRepository.GetCategoryAsync(categoryid);
+        if (category == null)
+        {
+            _logger.LogWarning("Category with id {id} is not available for deletion", categoryid);
+            return NotFound();
+        }
 
-    //    return NoContent();
-    //}
+        _fabricInfoRepository.DeleteCategory(category);
+        await _fabricInfoRepository.SaveChangesAsync();
+
+        return NoContent();
+    }
 
     private bool CategoryExists(int? id)
     {
