@@ -14,13 +14,10 @@ namespace nkay_fabs_backend.Services
         Task<IEnumerable<Color>> GetColorsAsync();
         Task<Color?> GetColorAsync(int colorId);
         Task CreateFabric(Fabric newFabric);
-        Task PartialUpdateFabric(int fabricId, JsonPatchDocument<UpdateFabricDto> patchDoc); 
         Task DeleteFabric(int fabricId);
         Task CreateCategory(CreateCategoryDto newCategory);
-        Task UpdateCategory(int categoryId, UpdateCategoryDto newCategory);
         Task DeleteCategory(int categoryId);
         Task CreateColor(CreateColorDto newColor);
-        Task UpdateColor(int colorId, UpdateColorDto newColor);
         Task DeleteColor(int colorId);
         Task<bool> SaveChangesAsync();
 

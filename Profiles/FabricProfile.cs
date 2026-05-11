@@ -10,6 +10,7 @@ namespace nkay_fabs_backend.Profiles
         {
             CreateMap<Fabric, FabricDto>(); // Mapper to map from Fabric entity to FabricDto
             CreateMap<CreateFabricDto, Fabric>(); // Mapper to map from CreateFabricDto to Fabric entity
+            CreateMap<UpdateFabricDto, Fabric>(); // Mapper to map from UpdateFabricDto to Fabric entity
         }
     }
 }

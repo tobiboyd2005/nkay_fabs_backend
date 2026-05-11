@@ -105,7 +105,7 @@ namespace nkay_fabs_backend.Controllers
 
         // PATCH api/<FabricsController>/5
         [HttpPatch("{fabricId}")]
-        public async Task<ActionResult> UpdateFabric(int fabricId, JsonPatchDocument<UpdateFabricDto> patchDoc)
+        public async Task<ActionResult> UpdateFabric(int fabricId, UpdateFabricDto patchDto)
         {
             var fabric = await _fabricInfoRepository.GetFabricAsync(fabricId);
             if (fabric == null)
@@ -114,33 +114,8 @@ namespace nkay_fabs_backend.Controllers
                 return NotFound();
             }
 
-            var updateFabric = new UpdateFabricDto
-            {
-                Name = fabric.Name,
-                Description = fabric.Description,
-                ImageUrl = fabric.ImageUrl,
-                PricePerYard = fabric.PricePerYard,
-                StockYards = fabric.StockYards,
-                CategoryId = fabric.CategoryId,
-                ColorId = fabric.ColorId
-            };
+            _mapper.Map(patchDto, fabric); // Map the properties from the UpdateFabricDto to the existing Fabric entity
 
-            patchDoc.ApplyTo(updateFabric, ModelState);
-
-            if (!ModelState.IsValid)
-            {
-                _logger.LogWarning("Invalid model state for fabric update.");
-                return BadRequest(ModelState);
-            }
-
-            fabric.Name = updateFabric.Name;
-            fabric.Description = updateFabric.Description;
-            fabric.ImageUrl = updateFabric.ImageUrl;
-            fabric.PricePerYard = updateFabric.PricePerYard;
-            fabric.StockYards = updateFabric.StockYards;
-            fabric.CategoryId = updateFabric.CategoryId;
-            fabric.ColorId = updateFabric.ColorId;
-            //fabric.UpdatedAt = TimeHelper.NowWAT();
             await _fabricInfoRepository.SaveChangesAsync();
             return NoContent();
         }

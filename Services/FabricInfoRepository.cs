@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.Build.Framework;
 using AutoMapper;
 
+
 // endpoint logic
 namespace nkay_fabs_backend.Services
 {
@@ -74,20 +75,12 @@ namespace nkay_fabs_backend.Services
             return (await _context.SaveChangesAsync() >= 0);
         }
 
-        Task IFabricInfoRepository.PartialUpdateFabric(int fabricId, JsonPatchDocument<UpdateFabricDto> patchDoc)
-        {
-            throw new NotImplementedException();
-        }
-
         Task IFabricInfoRepository.CreateCategory(CreateCategoryDto newCategory)
         {
             throw new NotImplementedException();
         }
 
-        Task IFabricInfoRepository.UpdateCategory(int categoryId, UpdateCategoryDto newCategory)
-        {
-            throw new NotImplementedException();
-        }
+
 
         Task IFabricInfoRepository.DeleteCategory(int categoryId)
         {
@@ -99,10 +92,6 @@ namespace nkay_fabs_backend.Services
             throw new NotImplementedException();
         }
 
-        Task IFabricInfoRepository.UpdateColor(int colorId, UpdateColorDto newColor)
-        {
-            throw new NotImplementedException();
-        }
 
         Task IFabricInfoRepository.DeleteColor(int colorId)
         {
