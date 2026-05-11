@@ -22,11 +22,11 @@ public class CategoriesController : ControllerBase
 
     // GET: api/Category
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<CategoryDto>>> GetCategory()
+    public async Task<ActionResult<IEnumerable<CategoryDto>>> GetCategory(string? name)
     {
         try
         {
-            var categories = await _fabricInfoRepository.GetCategoriesAsync();
+            var categories = await _fabricInfoRepository.GetCategoriesAsync(name);
             var results = _mapper.Map<IEnumerable<CategoryDto>>(categories); // Use AutoMapper to map categories to CategoryDtos
             return Ok(results);
         }

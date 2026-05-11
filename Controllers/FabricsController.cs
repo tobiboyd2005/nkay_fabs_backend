@@ -31,11 +31,11 @@ namespace nkay_fabs_backend.Controllers
         }
         // GET: api/<FabricsController>
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<FabricDto>>> GetFabrics()
+        public async Task<ActionResult<IEnumerable<FabricDto>>> GetFabrics(string? name)
         {
             try
             {
-                var fabrics = await _fabricInfoRepository.GetFabricsAsync();
+                var fabrics = await _fabricInfoRepository.GetFabricsAsync(name);
                 var result = _mapper.Map<IEnumerable<FabricDto>>(fabrics); // Map the list of Fabric entities to a list of FabricDto objects
                 return Ok(result);
             }

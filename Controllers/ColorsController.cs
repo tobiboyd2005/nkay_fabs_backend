@@ -22,9 +22,9 @@ public class ColorsController : ControllerBase
 
     // GET: api/Color
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<ColorDto>>> GetColor()
+    public async Task<ActionResult<IEnumerable<ColorDto>>> GetColor(string? name)
     {
-        var colors = await _fabricInfoRepository.GetColorsAsync();
+        var colors = await _fabricInfoRepository.GetColorsAsync(name);
         var result = _mapper.Map<IEnumerable<ColorDto>>(colors); // Map the list of colors to a list of ColorDto
         return Ok(result); 
     }

@@ -25,6 +25,18 @@ namespace nkay_fabs_backend.Services
             return await _context.Categories.ToListAsync();
         }
 
+        public async Task<IEnumerable<Category>> GetCategoriesAsync(string? name)
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                return await GetCategoriesAsync();
+            }
+
+            return await _context.Categories
+                .Where(c => c.Name.Contains(name))
+                .ToListAsync();
+        }
+
         public async Task<Category?> GetCategoryAsync(int categoryId)
         {
             return await _context.Categories.Where(c => c.Id == categoryId).FirstOrDefaultAsync();
@@ -43,6 +55,20 @@ namespace nkay_fabs_backend.Services
             return await _context.Fabrics
                 .Include(f => f.Category)
                 .Include(f => f.Color)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Fabric>> GetFabricsAsync(string? name)
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                return await GetFabricsAsync();
+            }
+
+            return await _context.Fabrics
+                .Include(f => f.Category)
+                .Include(f => f.Color)
+                .Where(f => f.Name.Contains(name))
                 .ToListAsync();
         }
 
@@ -91,6 +117,18 @@ namespace nkay_fabs_backend.Services
         {
             return await _context.Colors.ToListAsync();
         }
+        public async Task<IEnumerable<Color>> GetColorsAsync(string? name)
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                return await GetColorsAsync();
+            }
+
+            return await _context.Colors
+                .Where(c => c.Name.Contains(name))
+                .ToListAsync();
+        }
+
 
         public async Task<Color?> GetColorAsync(int colorId)
         {
