@@ -58,18 +58,34 @@ namespace nkay_fabs_backend.Services
                 .ToListAsync();
         }
 
-        public async Task<IEnumerable<Fabric>> GetFabricsAsync(string? name)
+        public async Task<IEnumerable<Fabric>> GetFabricsAsync(string? name, string? searchQuery)
         {
-            if (string.IsNullOrEmpty(name))
+            // No filters provided - return everything
+            if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(searchQuery))
             {
                 return await GetFabricsAsync();
             }
 
-            return await _context.Fabrics
-                .Include(f => f.Category)
-                .Include(f => f.Color)
-                .Where(f => f.Name.Contains(name))
-                .ToListAsync();
+            // Build query without executing it yet
+            var collection = _context.Fabrics as IQueryable<Fabric>;
+
+            // Exact name match
+            if (!string.IsNullOrWhiteSpace(name))
+            {
+                name = name.Trim();
+                collection = collection.Where(c => c.Name == name);
+            }
+
+            // Partial match across Name and Description
+            if (!string.IsNullOrWhiteSpace(searchQuery))
+            {
+                searchQuery = searchQuery.Trim();
+                collection = collection.Where(a => a.Name.Contains(searchQuery) ||
+                    (a.Description != null && a.Description.Contains(searchQuery)));
+            }
+
+            // Execute query, sort by name and return
+            return await collection.OrderBy(c => c.Name).ToListAsync();
         }
 
         public async Task CreateFabric(Fabric newFabric)
