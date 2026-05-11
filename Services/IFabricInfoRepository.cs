@@ -14,7 +14,7 @@ namespace nkay_fabs_backend.Services
         Task<IEnumerable<Color>> GetColorsAsync();
         Task<Color?> GetColorAsync(int colorId);
         Task CreateFabric(Fabric newFabric);
-        Task DeleteFabric(int fabricId);
+        void DeleteFabric(Fabric fabric);
         Task CreateCategory(CreateCategoryDto newCategory);
         Task DeleteCategory(int categoryId);
         Task CreateColor(CreateColorDto newColor);

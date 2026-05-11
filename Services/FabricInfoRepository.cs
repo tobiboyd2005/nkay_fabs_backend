@@ -118,9 +118,9 @@ namespace nkay_fabs_backend.Services
             throw new NotImplementedException();
         }
 
-        Task IFabricInfoRepository.DeleteFabric(int fabricId)
+        public void DeleteFabric(Fabric fabric)
         {
-            throw new NotImplementedException();
+            _context.Fabrics.Remove(fabric);
         }
 
         async Task<bool> IFabricInfoRepository.SaveChangesAsync()

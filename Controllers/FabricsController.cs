@@ -107,17 +107,25 @@ namespace nkay_fabs_backend.Controllers
         [HttpPatch("{fabricId}")]
         public async Task<ActionResult> UpdateFabric(int fabricId, UpdateFabricDto patchDto)
         {
-            var fabric = await _fabricInfoRepository.GetFabricAsync(fabricId);
-            if (fabric == null)
+            try
             {
-                _logger.LogWarning("Fabric of {id} not found for update.", fabricId);
-                return NotFound();
+                var fabric = await _fabricInfoRepository.GetFabricAsync(fabricId);
+                if (fabric == null)
+                {
+                    _logger.LogWarning("Fabric of {id} not found for update.", fabricId);
+                    return NotFound();
+                }
+
+                _mapper.Map(patchDto, fabric);
+
+                await _fabricInfoRepository.SaveChangesAsync();
+                return NoContent();
             }
-
-            _mapper.Map(patchDto, fabric); // Map the properties from the UpdateFabricDto to the existing Fabric entity
-
-            await _fabricInfoRepository.SaveChangesAsync();
-            return NoContent();
+            catch (Exception ex)
+            {
+                _logger.LogCritical(ex, "An error occurred while updating fabric {id}.", fabricId);
+                return StatusCode(500, "An error occurred while processing your request.");
+            }
         }
 
         // DELETE api/<FabricsController>/5
@@ -130,7 +138,7 @@ namespace nkay_fabs_backend.Controllers
                 _logger.LogWarning("Fabric of {id} not found for deletion.", fabricId);
                 return NotFound();
             }
-            await _fabricInfoRepository.DeleteFabric(fabric.Id);
+            _fabricInfoRepository.DeleteFabric(fabric);
             await _fabricInfoRepository.SaveChangesAsync();
             return NoContent();
         }
