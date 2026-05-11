@@ -24,7 +24,6 @@ public class ColorsController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<ColorDto>>> GetColor()
     {
-        _logger.LogInformation("Fetching all colors.");
         var colors = await _fabricInfoRepository.GetColorsAsync();
         var result = _mapper.Map<IEnumerable<ColorDto>>(colors); // Map the list of colors to a list of ColorDto
         return Ok(result); 
@@ -44,74 +43,69 @@ public class ColorsController : ControllerBase
         return Ok(result); 
     }
 
-    //// PUT: api/Color/5
-    //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-    //[HttpPut("{colorid}")]
-    //public async Task<IActionResult> PutColor(int? colorid, UpdateColorDto color)
-    //{
-    //    if (!ModelState.IsValid)
-    //    {
-    //        _logger.LogWarning("Model state is invalid with updating color with id {id}", colorid);
-    //        return BadRequest(ModelState);
-    //    }
+    // PUT: api/Color/5
+    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+    [HttpPut("{colorid}")]
+    public async Task<IActionResult> PutColor(int colorid, UpdateColorDto color)
+    {
+        if (!ModelState.IsValid)
+        {
+            _logger.LogWarning("Model state is invalid with updating color with id {id}", colorid);
+            return BadRequest(ModelState);
+        }
 
-    //    var ColorToUpdate = await _context.Colors.FindAsync(colorid);
+        var ColorToUpdate = await _fabricInfoRepository.GetColorAsync(colorid);
 
-    //    if (ColorToUpdate == null)
-    //    {
-    //        _logger.LogWarning("Color with id {id} not found for update.", colorid);
-    //        return NotFound();
-    //    }
+        if (ColorToUpdate == null)
+        {
+            _logger.LogWarning("Color with id {id} not found for update.", colorid);
+            return NotFound();
+        }
 
-    //    ColorToUpdate.Name = color.Name;
-    //    ColorToUpdate.HexCode = color.HexCode;
+        _mapper.Map(color, ColorToUpdate); // Map the updated fields from the DTO to the existing color entity
 
-    //    await _context.SaveChangesAsync();
-    //    _logger.LogInformation("Color with id {id} updated successfully.", colorid);
+        await _fabricInfoRepository.SaveChangesAsync();
+        _logger.LogInformation("Color with id {id} updated successfully.", colorid);
 
-    //    return NoContent();
-    //}
+        return NoContent();
+    }
 
-    //// POST: api/Color
-    //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-    //[HttpPost]
-    //public async Task<ActionResult> PostColor(CreateColorDto color)
-    //{
+    // POST: api/Color
+    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+    [HttpPost]
+    public async Task<ActionResult<ColorDto>> PostColor(CreateColorDto color)
+    {
 
-    //    if (!ModelState.IsValid)
-    //    {
-    //        _logger.LogWarning("Color does not meet all validation requirements");
-    //        return BadRequest(ModelState);
-    //    }
+        if (!ModelState.IsValid)
+        {
+            _logger.LogWarning("Color does not meet all validation requirements");
+            return BadRequest(ModelState);
+        }
+        var createdColor = _mapper.Map<Color>(color);
+        await _fabricInfoRepository.CreateColor(createdColor);
+        await _fabricInfoRepository.SaveChangesAsync();
 
-    //    var newColor = new Color(color.Name)
-    //    {
-    //        HexCode = color.HexCode
-    //    };
+        var newColor = _mapper.Map<ColorDto>(createdColor); // Map the created color to a ColorDto for the response
 
-    //    await _context.Colors.AddAsync(newColor);
-    //    await _context.SaveChangesAsync();
-    //    _logger.LogInformation("The color {name} has been added successfully.", newColor.Name);
+        return CreatedAtAction(nameof(GetColor), new { id = createdColor.Id }, newColor);
+    }
 
-    //    return CreatedAtAction("GetColor", new { id = newColor.Id }, newColor);
-    //}
+    // DELETE: api/Color/5
+    [HttpDelete("{colorid}")]
+    public async Task<IActionResult> DeleteColor(int colorid)
+    {
+        var color = await _fabricInfoRepository.GetColorAsync(colorid);
+        if (color == null)
+        {
+            _logger.LogWarning("Color with id {id} not found for deletion.", colorid);
+            return NotFound();
+        }
 
-    //// DELETE: api/Color/5
-    //[HttpDelete("{colorid}")]
-    //public async Task<IActionResult> DeleteColor(int colorid)
-    //{
-    //    var color = await _context.Colors.FindAsync(colorid);
-    //    if (color == null)
-    //    {
-    //        _logger.LogWarning("Color with id {id} not found for deletion.", colorid);
-    //        return NotFound();
-    //    }
-
-    //    _context.Colors.Remove(color);
-    //    await _context.SaveChangesAsync();
-    //    _logger.LogInformation("Color with id {id} deleted successfully.", colorid);
-    //    return NoContent();
-    //}
+        _fabricInfoRepository.DeleteColor(color);
+        await _fabricInfoRepository.SaveChangesAsync();
+        _logger.LogInformation("Color with id {id} deleted successfully.", colorid);
+        return NoContent();
+    }
 
     private bool ColorExists(int? id)
     {

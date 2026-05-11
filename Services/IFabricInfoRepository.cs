@@ -17,8 +17,8 @@ namespace nkay_fabs_backend.Services
         void DeleteFabric(Fabric fabric);
         Task CreateCategory(CreateCategoryDto newCategory);
         Task DeleteCategory(int categoryId);
-        Task CreateColor(CreateColorDto newColor);
-        Task DeleteColor(int colorId);
+        Task CreateColor(Color newColor);
+        void DeleteColor(Color color);
         Task<bool> SaveChangesAsync();
 
     }

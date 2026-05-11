@@ -30,16 +30,6 @@ namespace nkay_fabs_backend.Services
             return await _context.Categories.Where(c => c.Id == categoryId).FirstOrDefaultAsync();
         }
 
-        public async Task<Color?> GetColorAsync(int colorId)
-        {
-            return await _context.Colors.Where(c => c.Id == colorId).FirstOrDefaultAsync();
-        }
-
-        public async Task<IEnumerable<Color>> GetColorsAsync()
-        {
-            return await _context.Colors.ToListAsync();
-        }
-
         public async Task<Fabric?> GetFabricAsync(int fabricId)
         {
             return await _context.Fabrics
@@ -87,15 +77,14 @@ namespace nkay_fabs_backend.Services
             throw new NotImplementedException();
         }
 
-        Task IFabricInfoRepository.CreateColor(CreateColorDto newColor)
+        public async Task CreateColor(Color newColor)
         {
-            throw new NotImplementedException();
+            _context.Colors.Add(newColor);
         }
 
-
-        Task IFabricInfoRepository.DeleteColor(int colorId)
+        public void DeleteColor(Color color)
         {
-            throw new NotImplementedException();
+            _context.Colors.Remove(color);
         }
 
         Task<IEnumerable<Category>> IFabricInfoRepository.GetCategoriesAsync()
@@ -108,14 +97,14 @@ namespace nkay_fabs_backend.Services
             throw new NotImplementedException();
         }
 
-        Task<IEnumerable<Color>> IFabricInfoRepository.GetColorsAsync()
+        public async Task<IEnumerable<Color>> GetColorsAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Colors.ToListAsync();
         }
 
-        Task<Color?> IFabricInfoRepository.GetColorAsync(int colorId)
+        public async Task<Color?> GetColorAsync(int colorId)
         {
-            throw new NotImplementedException();
+            return await _context.Colors.Where(c => c.Id == colorId).FirstOrDefaultAsync();
         }
 
         public void DeleteFabric(Fabric fabric)
