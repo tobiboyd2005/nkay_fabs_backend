@@ -1,3 +1,4 @@
+using AutoMapper;
 using Azure.Messaging;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,10 +12,12 @@ public class ColorsController : ControllerBase
 {
     private readonly IFabricInfoRepository _fabricInfoRepository;
     private readonly ILogger<ColorsController> _logger; 
-    public ColorsController(IFabricInfoRepository fabricInfoRepository, ILogger<ColorsController> logger)
+    private readonly IMapper _mapper;
+    public ColorsController(IFabricInfoRepository fabricInfoRepository, ILogger<ColorsController> logger, IMapper mapper)
     {
-        _fabricInfoRepository = fabricInfoRepository;
-        _logger = logger;
+        _fabricInfoRepository = fabricInfoRepository ?? throw new ArgumentNullException(nameof(fabricInfoRepository));
+        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+        _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
     // GET: api/Color
@@ -23,21 +26,8 @@ public class ColorsController : ControllerBase
     {
         _logger.LogInformation("Fetching all colors.");
         var colors = await _fabricInfoRepository.GetColorsAsync();
-
-        var results = new List<ColorDto>();
-
-        foreach (var color in colors)
-        {
-            results.Add(new ColorDto
-            {
-                Id = color.Id,
-                Name = color.Name,
-                HexCode = color.HexCode
-            });
-        }
-
-
-        return Ok(results);
+        var result = _mapper.Map<IEnumerable<ColorDto>>(colors); // Map the list of colors to a list of ColorDto
+        return Ok(result); 
     }
 
     // GET: api/Color/5
@@ -45,21 +35,13 @@ public class ColorsController : ControllerBase
     public async Task<ActionResult<ColorDto>> GetColor(int colorid)
     {
         var color = await _fabricInfoRepository.GetColorAsync(colorid);
-
         if (color == null)
         {
-            _logger.LogWarning("Color with id of {id} not found.", colorid);
+            _logger.LogWarning("Color with id {id} not found.", colorid);
             return NotFound();
         }
-
-        var result = new ColorDto
-        {
-            Id = color.Id,
-            Name = color.Name,
-            HexCode = color.HexCode
-        };
-
-        return Ok(result);
+        var result = _mapper.Map<ColorDto>(color); // Return the color as a ColorDto
+        return Ok(result); 
     }
 
     //// PUT: api/Color/5

@@ -11,6 +11,5 @@
         public bool IsInStock { get; set; }
         public string CategoryName { get; set; } = string.Empty;
         public string ColorName { get; set; } = string.Empty;
-        public string ColorHex { get; set; } = string.Empty;
     }
 }

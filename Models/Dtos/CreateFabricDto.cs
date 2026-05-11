@@ -11,10 +11,6 @@ namespace nkay_fabs_backend.Models.Dtos
         [StringLength(500, ErrorMessage = "Description cannot exceed 500 characters.")]
         public string Description { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Material is required.")]
-        [StringLength(50, ErrorMessage = "Material cannot exceed 50 characters.")]
-        public string Material { get; set; } = string.Empty;
-
         [Url(ErrorMessage = "Image URL must be a valid URL.")]
         public string ImageUrl { get; set; } = string.Empty;
 

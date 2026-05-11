@@ -36,7 +36,8 @@ namespace nkay_fabs_backend.Controllers
             try
             {
                 var fabrics = await _fabricInfoRepository.GetFabricsAsync();
-                return Ok(_mapper.Map<IEnumerable<FabricDto>>(fabrics));
+                var result = _mapper.Map<IEnumerable<FabricDto>>(fabrics); // Map the list of Fabric entities to a list of FabricDto objects
+                return Ok(result);
             }
             catch (Exception ex)
             {
@@ -56,115 +57,107 @@ namespace nkay_fabs_backend.Controllers
                 return NotFound();
             }
 
-            return Ok(_mapper.Map<FabricDto>(fabric));
+            var result = _mapper.Map<FabricDto>(fabric); // Map the Fabric entity to a FabricDto object
+            return Ok(result);
         }
 
-        //// POST api/<FabricsController>
-        //[HttpPost]
-        //public async Task<ActionResult> CreateFabric(CreateFabricDto NewFabric)
-        //{
+        // POST api/<FabricsController>
+        [HttpPost]
+        public async Task<ActionResult<FabricDto>> CreateFabric(CreateFabricDto NewFabric)
+        {
+            if (!ModelState.IsValid)
+            {
+                _logger.LogWarning("Invalid model state for fabric creation.");
+                return BadRequest(ModelState);
+            }
 
-        //    if (!ModelState.IsValid)
-        //    {
-        //        _logger.LogWarning("Invalid model state for fabric creation.");
-        //        return BadRequest(ModelState);
-        //    }
+            if (!await _validationService.CategoryExistsAsync(NewFabric.CategoryId))
+            {
+                ModelState.AddModelError("CategoryId", "The selected category does not exist.");
+                _logger.LogWarning("Category Id does not exist");
+                return BadRequest(ModelState);
+            }
 
-        //    if (!await _validationService.CategoryExistsAsync(NewFabric.CategoryId))
-        //    {
-        //        ModelState.AddModelError("CategoryId", "The selected category does not exist.");
-        //        _logger.LogWarning("Category Id does not exist");
-        //        return BadRequest(ModelState);
-        //    }
+            if (!await _validationService.ColorExistsAsync(NewFabric.ColorId))
+            {
+                ModelState.AddModelError("ColorId", "The selected color does not exist.");
+                _logger.LogWarning("Color Id does not exist");
+                return BadRequest(ModelState);
+            }
 
-        //    if (!await _validationService.ColorExistsAsync(NewFabric.ColorId))
-        //    {
-        //        ModelState.AddModelError("ColorId", "The selected color does not exist.");
-        //        _logger.LogWarning("Color Id does not exist");
-        //        return BadRequest(ModelState);
-        //    }
+            var createdFabric = _mapper.Map<Fabric>(NewFabric);
 
+            await _fabricInfoRepository.CreateFabric(createdFabric);
 
-        //    var newFabric = new Fabric
-        //    {
-        //        Name = NewFabric.Name,
-        //        Description = NewFabric.Description,
-        //        PricePerYard = NewFabric.PricePerYard,
-        //        ImageUrl = NewFabric.ImageUrl,
-        //        StockYards = NewFabric.StockYards,
-        //        CategoryId = NewFabric.CategoryId,
-        //        ColorId = NewFabric.ColorId
-        //        //CreatedAt = TimeHelper.NowWAT(),
-        //        //UpdatedAt = TimeHelper.NowWAT()
-        //    };
+            await _fabricInfoRepository.SaveChangesAsync();
 
+            var fabricWithDetails = await _fabricInfoRepository.GetFabricAsync(createdFabric.Id);
 
+            var response = _mapper.Map<FabricDto>(fabricWithDetails);
 
-        //    _context.Fabrics.Add(newFabric);
-        //    await _context.SaveChangesAsync();
+            return CreatedAtAction(nameof(GetFabric),
+                new
+                {
+                    fabricId = createdFabric.Id
+                },
+                response);
+        }
 
-        //    //console log on successful creation
-        //    _logger.LogInformation("Fabric {Name} created with ID {Id}.", newFabric.Name, newFabric.Id);
+        // PATCH api/<FabricsController>/5
+        [HttpPatch("{fabricId}")]
+        public async Task<ActionResult> UpdateFabric(int fabricId, JsonPatchDocument<UpdateFabricDto> patchDoc)
+        {
+            var fabric = await _fabricInfoRepository.GetFabricAsync(fabricId);
+            if (fabric == null)
+            {
+                _logger.LogWarning("Fabric of {id} not found for update.", fabricId);
+                return NotFound();
+            }
 
-        //    // return 201 with location header pointing to the new resource
-        //    return CreatedAtAction(nameof(GetFabric), new { fabricId = newFabric.Id }, newFabric);
-        //}
+            var updateFabric = new UpdateFabricDto
+            {
+                Name = fabric.Name,
+                Description = fabric.Description,
+                ImageUrl = fabric.ImageUrl,
+                PricePerYard = fabric.PricePerYard,
+                StockYards = fabric.StockYards,
+                CategoryId = fabric.CategoryId,
+                ColorId = fabric.ColorId
+            };
 
-        //// PATCH api/<FabricsController>/5
-        //[HttpPatch("{fabricId}")]
-        //public async Task<ActionResult> UpdateFabric(int fabricId, JsonPatchDocument<UpdateFabricDto> patchDoc)
-        //{
-        //    var fabric = await _context.Fabrics.FindAsync(fabricId);
-        //    if (fabric == null)
-        //    {
-        //        _logger.LogWarning("Fabric of {id} not found for update.", fabricId);
-        //        return NotFound();
-        //    }
+            patchDoc.ApplyTo(updateFabric, ModelState);
 
-        //    var updateFabric = new UpdateFabricDto
-        //    {
-        //        Name = fabric.Name,
-        //        Description = fabric.Description,
-        //        ImageUrl = fabric.ImageUrl,
-        //        PricePerYard = fabric.PricePerYard,
-        //        StockYards = fabric.StockYards,
-        //        CategoryId = fabric.CategoryId,
-        //        ColorId = fabric.ColorId
-        //    };
+            if (!ModelState.IsValid)
+            {
+                _logger.LogWarning("Invalid model state for fabric update.");
+                return BadRequest(ModelState);
+            }
 
-        //    patchDoc.ApplyTo(updateFabric, ModelState);
+            fabric.Name = updateFabric.Name;
+            fabric.Description = updateFabric.Description;
+            fabric.ImageUrl = updateFabric.ImageUrl;
+            fabric.PricePerYard = updateFabric.PricePerYard;
+            fabric.StockYards = updateFabric.StockYards;
+            fabric.CategoryId = updateFabric.CategoryId;
+            fabric.ColorId = updateFabric.ColorId;
+            //fabric.UpdatedAt = TimeHelper.NowWAT();
+            await _fabricInfoRepository.SaveChangesAsync();
+            return NoContent();
+        }
 
-        //    if (!ModelState.IsValid)
-        //    {
-        //        _logger.LogWarning("Invalid model state for fabric update.");
-        //        return BadRequest(ModelState);
-        //    }
-
-        //    fabric.Name = updateFabric.Name;
-        //    fabric.Description = updateFabric.Description;
-        //    fabric.ImageUrl = updateFabric.ImageUrl;
-        //    fabric.PricePerYard = updateFabric.PricePerYard;
-        //    fabric.StockYards = updateFabric.StockYards;
-        //    fabric.CategoryId = updateFabric.CategoryId;
-        //    fabric.ColorId = updateFabric.ColorId;
-        //    //fabric.UpdatedAt = TimeHelper.NowWAT();
-        //    await _context.SaveChangesAsync();
-        //    return NoContent();
-        //}
-
-        //// DELETE api/<FabricsController>/5
-        //[HttpDelete("{fabricId}")]
-        //public async Task<ActionResult> DeleteFabric(int fabricId)
-        //{
-        //    var fabric = await _context.Fabrics.FindAsync(fabricId);
-        //    if (fabric == null)
-        //    {
-        //        _logger.LogWarning("Fabric of {id} not found for deletion.", fabricId);
-        //        return NotFound();
-        //    }
-        //    _context.Fabrics.Remove(fabric);
-        //    await _context.SaveChangesAsync();
-        //    return NoContent();
-        //}
+        // DELETE api/<FabricsController>/5
+        [HttpDelete("{fabricId}")]
+        public async Task<ActionResult> DeleteFabric(int fabricId)
+        {
+            var fabric = await _fabricInfoRepository.GetFabricAsync(fabricId);
+            if (fabric == null)
+            {
+                _logger.LogWarning("Fabric of {id} not found for deletion.", fabricId);
+                return NotFound();
+            }
+            await _fabricInfoRepository.DeleteFabric(fabric.Id);
+            await _fabricInfoRepository.SaveChangesAsync();
+            return NoContent();
+        }
     }
 }

@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using nkay_fabs_backend.Entities;
@@ -11,10 +12,12 @@ public class CategoriesController : ControllerBase
 {
     private readonly IFabricInfoRepository _fabricInfoRepository;
     private readonly ILogger<CategoriesController> _logger;
-    public CategoriesController(IFabricInfoRepository fabricInfoRepository, ILogger<CategoriesController> logger)
+    private readonly IMapper _mapper;
+    public CategoriesController(IFabricInfoRepository fabricInfoRepository, ILogger<CategoriesController> logger, IMapper mapper)
     {
-        _fabricInfoRepository = fabricInfoRepository;
-        _logger = logger;
+        _fabricInfoRepository = fabricInfoRepository ?? throw new ArgumentNullException(nameof(fabricInfoRepository));
+        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+        _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
     // GET: api/Category
@@ -24,18 +27,7 @@ public class CategoriesController : ControllerBase
         try
         {
             var categories = await _fabricInfoRepository.GetCategoriesAsync();
-
-            var results = new List<CategoryDto>(); // list of results to return to the client
-            
-            foreach (var category in categories)
-            {
-                results.Add(new CategoryDto
-                {
-                    Id = category.Id,
-                    Name = category.Name,
-                    Description = category.Description
-                });
-            }
+            var results = _mapper.Map<IEnumerable<CategoryDto>>(categories); // Use AutoMapper to map categories to CategoryDtos
             return Ok(results);
         }
         catch(Exception ex)
@@ -57,12 +49,8 @@ public class CategoriesController : ControllerBase
             return NotFound();
         }
 
-        var result = new CategoryDto
-        {
-            Id = category.Id,
-            Name = category.Name,
-            Description = category.Description
-        };
+        var result = _mapper.Map<CategoryDto>(category); // Use AutoMapper to map the category to a CategoryDto
+
 
         return Ok(result);
     }
