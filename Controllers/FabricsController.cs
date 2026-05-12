@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Azure;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -71,6 +72,7 @@ namespace nkay_fabs_backend.Controllers
 
         // POST api/<FabricsController>
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<FabricDto>> CreateFabric(CreateFabricDto NewFabric)
         {
             if (!ModelState.IsValid)
@@ -113,6 +115,7 @@ namespace nkay_fabs_backend.Controllers
 
         // PATCH api/<FabricsController>/5
         [HttpPatch("{fabricId}")]
+        [Authorize]
         public async Task<ActionResult> UpdateFabric(int fabricId, UpdateFabricDto patchDto)
         {
             try
@@ -138,6 +141,7 @@ namespace nkay_fabs_backend.Controllers
 
         // DELETE api/<FabricsController>/5
         [HttpDelete("{fabricId}")]
+        [Authorize]
         public async Task<ActionResult> DeleteFabric(int fabricId)
         {
             var fabric = await _fabricInfoRepository.GetFabricAsync(fabricId);

@@ -1,10 +1,14 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.IdentityModel.Tokens;
 using nkay_fabs_backend.Profiles;
 using nkay_fabs_backend.Services;
 using Serilog;
 using Serilog.Events;
+using System.Text;
 
 
 Log.Logger = new LoggerConfiguration()
@@ -18,6 +22,31 @@ try
 {
     Log.Information("Starting up the service...");
     var builder = WebApplication.CreateBuilder(args);
+
+    builder.Services.AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+        };
+    });
+
+    builder.Services.AddAuthorization();
+    builder.Services.AddScoped<JwtService>();
+
+
     builder.Host.UseSerilog();
 
     // Add services to the container.
@@ -48,7 +77,12 @@ try
     builder.Services.AddOpenApi();
 
 
+
+
     var app = builder.Build();
+
+    app.UseAuthentication();
+    app.UseAuthorization();
 
     app.UseSerilogRequestLogging(options =>
     {
@@ -78,8 +112,6 @@ try
     }
 
     app.UseHttpsRedirection();
-
-    app.UseAuthorization();
 
     app.MapControllers();
 
