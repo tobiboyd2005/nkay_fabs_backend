@@ -9,7 +9,7 @@
         public decimal PricePerYard { get; set; }
         public decimal StockYards { get; set; }
         public bool IsInStock { get; set; }
-        public string CategoryName { get; set; } = string.Empty;
-        public string ColorName { get; set; } = string.Empty;
+        public CategoryDto Category { get; set; } = new CategoryDto();
+        public ColorDto Color { get; set; } = new ColorDto();
     }
 }

@@ -25,17 +25,31 @@ namespace nkay_fabs_backend.Services
             return await _context.Categories.ToListAsync();
         }
 
-        public async Task<IEnumerable<Category>> GetCategoriesAsync(string? name)
+        public async Task<IEnumerable<Category>> GetCategoriesAsync(string? name, string? searchQuery)
         {
-            if (string.IsNullOrEmpty(name))
+            if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(searchQuery))
             {
                 return await GetCategoriesAsync();
             }
 
-            return await _context.Categories
-                .Where(c => c.Name.Contains(name))
-                .ToListAsync();
+            var collection = _context.Categories as IQueryable<Category>;
+
+            if (!string.IsNullOrEmpty(name))
+            {
+                name = name.Trim();
+                collection = collection.Where(c => c.Name == name);
+            }
+
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                searchQuery = searchQuery.Trim();
+                collection = collection.Where(c => c.Name.Contains(searchQuery) || (c.Description != null && c.Description.Contains(searchQuery)));
+            }
+
+            return await collection.ToListAsync();
         }
+            
+        
 
         public async Task<Category?> GetCategoryAsync(int categoryId)
         {
@@ -85,7 +99,10 @@ namespace nkay_fabs_backend.Services
             }
 
             // Execute query, sort by name and return
-            return await collection.OrderBy(c => c.Name).ToListAsync();
+            return await collection.OrderBy(c => c.Name)
+                .Include(c => c.Category)
+                .Include(c => c.Color)
+                .ToListAsync();
         }
 
         public async Task CreateFabric(Fabric newFabric)
@@ -133,16 +150,28 @@ namespace nkay_fabs_backend.Services
         {
             return await _context.Colors.ToListAsync();
         }
-        public async Task<IEnumerable<Color>> GetColorsAsync(string? name)
+        public async Task<IEnumerable<Color>> GetColorsAsync(string? name, string? searchQuery)
         {
-            if (string.IsNullOrEmpty(name))
+            if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(searchQuery))
             {
                 return await GetColorsAsync();
             }
 
-            return await _context.Colors
-                .Where(c => c.Name.Contains(name))
-                .ToListAsync();
+            var collection = _context.Colors as IQueryable<Color>;
+
+            if (!string.IsNullOrEmpty(name))
+            {
+                name = name.Trim();
+                collection = collection.Where(c => c.Name == name);
+            }
+
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                searchQuery = searchQuery.Trim();
+                collection = collection.Where(c => c.Name.Contains(searchQuery) || (c.HexCode != null && c.HexCode.Contains(searchQuery)));
+            }
+
+            return await collection.ToListAsync();
         }
 
 

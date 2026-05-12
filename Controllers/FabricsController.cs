@@ -29,13 +29,14 @@ namespace nkay_fabs_backend.Controllers
             _validationService = validationService ?? throw new ArgumentNullException(nameof(validationService));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
+        
         // GET: api/<FabricsController>
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<FabricDto>>> GetFabrics(string? name)
+        public async Task<ActionResult<IEnumerable<FabricDto>>> GetFabrics(string? name, string? searchQuery)
         {
             try
             {
-                var fabrics = await _fabricInfoRepository.GetFabricsAsync(name);
+                var fabrics = await _fabricInfoRepository.GetFabricsAsync(name, searchQuery);
                 var result = _mapper.Map<IEnumerable<FabricDto>>(fabrics); // Map the list of Fabric entities to a list of FabricDto objects
                 return Ok(result);
             }
