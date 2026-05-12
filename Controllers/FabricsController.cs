@@ -21,6 +21,7 @@ namespace nkay_fabs_backend.Controllers
         private readonly ILogger<FabricsController> _logger;
         private readonly FabricValidationService _validationService;
         private readonly IMapper _mapper;
+        const int maxPageSize = 20;
 
         public FabricsController(IFabricInfoRepository fabricInfoRepository, ILogger<FabricsController> logger, FabricValidationService validationService, IMapper mapper)
         {
@@ -32,11 +33,15 @@ namespace nkay_fabs_backend.Controllers
         
         // GET: api/<FabricsController>
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<FabricDto>>> GetFabrics(string? name, string? searchQuery)
+        public async Task<ActionResult<IEnumerable<FabricDto>>> GetFabrics(string? name, string? searchQuery, int pageNumber = 1, int pageSize = 10)
         {
             try
             {
-                var fabrics = await _fabricInfoRepository.GetFabricsAsync(name, searchQuery);
+                if (pageSize > maxPageSize)
+                {
+                    pageSize = maxPageSize;
+                }
+                var fabrics = await _fabricInfoRepository.GetFabricsAsync(name, searchQuery, pageNumber, pageSize);
                 var result = _mapper.Map<IEnumerable<FabricDto>>(fabrics); // Map the list of Fabric entities to a list of FabricDto objects
                 return Ok(result);
             }

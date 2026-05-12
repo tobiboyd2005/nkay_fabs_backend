@@ -8,13 +8,13 @@ namespace nkay_fabs_backend.Services
     {
         // imported endpoint logic from /FabricInfoRepository
         Task<IEnumerable<Fabric>> GetFabricsAsync();
-        Task<IEnumerable<Fabric>> GetFabricsAsync(string? name, string? searchQuery);
+        Task<IEnumerable<Fabric>> GetFabricsAsync(string? name, string? searchQuery, int pageNumber, int pageSize);
         Task<Fabric?> GetFabricAsync(int fabricId);
         Task<IEnumerable<Category>> GetCategoriesAsync();
-        Task<IEnumerable<Category>> GetCategoriesAsync(string? name, string? searchQuery);
+        Task<IEnumerable<Category>> GetCategoriesAsync(string? name, string? searchQuery, int pageNumber, int pageSize);
         Task<Category?> GetCategoryAsync(int categoryId);
         Task<IEnumerable<Color>> GetColorsAsync();
-        Task<IEnumerable<Color>> GetColorsAsync(string? name, string? searchQuery);
+        Task<IEnumerable<Color>> GetColorsAsync(string? name, string? searchQuery, int pageNumber, int pageSize);
         Task<Color?> GetColorAsync(int colorId);
         Task CreateFabric(Fabric newFabric);
         void DeleteFabric(Fabric fabric);

@@ -13,6 +13,7 @@ public class ColorsController : ControllerBase
     private readonly IFabricInfoRepository _fabricInfoRepository;
     private readonly ILogger<ColorsController> _logger; 
     private readonly IMapper _mapper;
+    const int maxPageSize = 20;
     public ColorsController(IFabricInfoRepository fabricInfoRepository, ILogger<ColorsController> logger, IMapper mapper)
     {
         _fabricInfoRepository = fabricInfoRepository ?? throw new ArgumentNullException(nameof(fabricInfoRepository));
@@ -22,9 +23,13 @@ public class ColorsController : ControllerBase
 
     // GET: api/Color
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<ColorDto>>> GetColor(string? name, string? searchQuery)
+    public async Task<ActionResult<IEnumerable<ColorDto>>> GetColor(string? name, string? searchQuery, int pageNumber = 1, int pageSize = 10)
     {
-        var colors = await _fabricInfoRepository.GetColorsAsync(name, searchQuery);
+        if (pageSize > maxPageSize)
+        {
+            pageSize = maxPageSize;
+        }
+        var colors = await _fabricInfoRepository.GetColorsAsync(name, searchQuery, pageNumber, pageSize);
         var result = _mapper.Map<IEnumerable<ColorDto>>(colors); // Map the list of colors to a list of ColorDto
         return Ok(result); 
     }

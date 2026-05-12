@@ -25,28 +25,29 @@ namespace nkay_fabs_backend.Services
             return await _context.Categories.ToListAsync();
         }
 
-        public async Task<IEnumerable<Category>> GetCategoriesAsync(string? name, string? searchQuery)
+        public async Task<IEnumerable<Category>> GetCategoriesAsync(string? name, string? searchQuery, int pageNumber, int pageSize)
         {
-            if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(searchQuery))
-            {
-                return await GetCategoriesAsync();
-            }
 
-            var collection = _context.Categories as IQueryable<Category>;
+            var collection = _context.Categories as IQueryable<Category>; // Build query without executing it yet
 
+            // Exact name match
             if (!string.IsNullOrEmpty(name))
             {
                 name = name.Trim();
                 collection = collection.Where(c => c.Name == name);
             }
 
+            // Partial match across Name and Description
             if (!string.IsNullOrEmpty(searchQuery))
             {
                 searchQuery = searchQuery.Trim();
                 collection = collection.Where(c => c.Name.Contains(searchQuery) || (c.Description != null && c.Description.Contains(searchQuery)));
             }
 
-            return await collection.ToListAsync();
+            return await collection
+                .Skip(pageSize * (pageNumber - 1))
+                .Take(pageSize)
+                .ToListAsync();
         }
             
         
@@ -72,16 +73,13 @@ namespace nkay_fabs_backend.Services
                 .ToListAsync();
         }
 
-        public async Task<IEnumerable<Fabric>> GetFabricsAsync(string? name, string? searchQuery)
+        public async Task<IEnumerable<Fabric>> GetFabricsAsync(string? name, string? searchQuery, int pageNumber, int pageSize)
         {
-            // No filters provided - return everything
-            if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(searchQuery))
-            {
-                return await GetFabricsAsync();
-            }
 
             // Build query without executing it yet
             var collection = _context.Fabrics as IQueryable<Fabric>;
+
+
 
             // Exact name match
             if (!string.IsNullOrWhiteSpace(name))
@@ -102,6 +100,8 @@ namespace nkay_fabs_backend.Services
             return await collection.OrderBy(c => c.Name)
                 .Include(c => c.Category)
                 .Include(c => c.Color)
+                .Skip(pageSize * (pageNumber - 1))
+                .Take(pageSize)
                 .ToListAsync();
         }
 
@@ -150,28 +150,29 @@ namespace nkay_fabs_backend.Services
         {
             return await _context.Colors.ToListAsync();
         }
-        public async Task<IEnumerable<Color>> GetColorsAsync(string? name, string? searchQuery)
+        public async Task<IEnumerable<Color>> GetColorsAsync(string? name, string? searchQuery, int pageNumber, int pageSize)
         {
-            if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(searchQuery))
-            {
-                return await GetColorsAsync();
-            }
 
-            var collection = _context.Colors as IQueryable<Color>;
+            var collection = _context.Colors as IQueryable<Color>; // Build query without executing it yet
 
+            // Exact name match
             if (!string.IsNullOrEmpty(name))
             {
                 name = name.Trim();
                 collection = collection.Where(c => c.Name == name);
             }
 
+            // Partial match across Name and HexCode
             if (!string.IsNullOrEmpty(searchQuery))
             {
                 searchQuery = searchQuery.Trim();
                 collection = collection.Where(c => c.Name.Contains(searchQuery) || (c.HexCode != null && c.HexCode.Contains(searchQuery)));
             }
 
-            return await collection.ToListAsync();
+            return await collection
+                .Skip(pageSize * (pageNumber - 1))
+                .Take(pageSize)
+                .ToListAsync();
         }
 
 

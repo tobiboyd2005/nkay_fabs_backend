@@ -13,6 +13,7 @@ public class CategoriesController : ControllerBase
     private readonly IFabricInfoRepository _fabricInfoRepository;
     private readonly ILogger<CategoriesController> _logger;
     private readonly IMapper _mapper;
+    const int maxPageSize = 20;
     public CategoriesController(IFabricInfoRepository fabricInfoRepository, ILogger<CategoriesController> logger, IMapper mapper)
     {
         _fabricInfoRepository = fabricInfoRepository ?? throw new ArgumentNullException(nameof(fabricInfoRepository));
@@ -22,11 +23,15 @@ public class CategoriesController : ControllerBase
 
     // GET: api/Category
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<CategoryDto>>> GetCategory(string? name, string? searchQuery)
+    public async Task<ActionResult<IEnumerable<CategoryDto>>> GetCategory(string? name, string? searchQuery, int pageNumber = 1, int pageSize = 10)
     {
         try
         {
-            var categories = await _fabricInfoRepository.GetCategoriesAsync(name, searchQuery);
+            if (pageSize > maxPageSize)
+            {
+                pageSize = maxPageSize;
+            }
+            var categories = await _fabricInfoRepository.GetCategoriesAsync(name, searchQuery, pageNumber, pageSize);
             var results = _mapper.Map<IEnumerable<CategoryDto>>(categories); // Use AutoMapper to map categories to CategoryDtos
             return Ok(results);
         }
