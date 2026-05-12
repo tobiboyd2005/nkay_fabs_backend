@@ -84,9 +84,6 @@ C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\Serilog.Sinks.File.d
 C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\SQLitePCLRaw.batteries_v2.dll
 C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\SQLitePCLRaw.core.dll
 C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\SQLitePCLRaw.provider.e_sqlite3.dll
-C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\System.ClientModel.dll
 C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\System.CodeDom.dll
 C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\System.Composition.AttributedModel.dll
@@ -311,7 +308,6 @@ C:\Users\DELL\Documents\nkay_fabs_backend\obj\Debug\net10.0\staticwebassets.buil
 C:\Users\DELL\Documents\nkay_fabs_backend\obj\Debug\net10.0\staticwebassets.development.json
 C:\Users\DELL\Documents\nkay_fabs_backend\obj\Debug\net10.0\staticwebassets.build.endpoints.json
 C:\Users\DELL\Documents\nkay_fabs_backend\obj\Debug\net10.0\swae.build.ex.cache
-C:\Users\DELL\Documents\nkay_fabs_backend\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 C:\Users\DELL\Documents\nkay_fabs_backend\obj\Debug\net10.0\nkay_fab.24042A21.Up2Date
 C:\Users\DELL\Documents\nkay_fabs_backend\obj\Debug\net10.0\nkay_fabs_backend.dll
 C:\Users\DELL\Documents\nkay_fabs_backend\obj\Debug\net10.0\refint\nkay_fabs_backend.dll
@@ -321,3 +317,15 @@ C:\Users\DELL\Documents\nkay_fabs_backend\obj\Debug\net10.0\ref\nkay_fabs_backen
 C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\AutoMapper.dll
 C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\Scalar.AspNetCore.dll
+C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\System.Net.Http.Formatting.dll
+C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\System.Web.Http.dll
+C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\System.Web.Http.WebHost.dll
+C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\Microsoft.Web.Infrastructure.dll
+C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\Swashbuckle.AspNetCore.Newtonsoft.dll
+C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\Swashbuckle.Core.dll
+C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\WebActivatorEx.dll
+C:\Users\DELL\Documents\nkay_fabs_backend\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
