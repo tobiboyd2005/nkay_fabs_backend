@@ -7,6 +7,7 @@ using nkay_fabs_backend.Entities;
 using nkay_fabs_backend.Helpers;
 using nkay_fabs_backend.Models.Dtos;
 using nkay_fabs_backend.Services;
+using System.Text.Json;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -41,8 +42,9 @@ namespace nkay_fabs_backend.Controllers
                 {
                     pageSize = maxPageSize;
                 }
-                var fabrics = await _fabricInfoRepository.GetFabricsAsync(name, searchQuery, pageNumber, pageSize);
+                var (fabrics, paginationMetadata) = await _fabricInfoRepository.GetFabricsAsync(name, searchQuery, pageNumber, pageSize); // Retrieve the list of Fabric entities based on the provided filters and pagination parameters, along with the pagination metadata
                 var result = _mapper.Map<IEnumerable<FabricDto>>(fabrics); // Map the list of Fabric entities to a list of FabricDto objects
+                Response.Headers.Append("X-Pagination", JsonSerializer.Serialize(paginationMetadata)); // Add pagination metadata to the response headers
                 return Ok(result);
             }
             catch (Exception ex)

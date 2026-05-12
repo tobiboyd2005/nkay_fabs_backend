@@ -25,7 +25,7 @@ namespace nkay_fabs_backend.Services
             return await _context.Categories.ToListAsync();
         }
 
-        public async Task<IEnumerable<Category>> GetCategoriesAsync(string? name, string? searchQuery, int pageNumber, int pageSize)
+        public async Task<(IEnumerable<Category>, PaginationMetadata Metadata)> GetCategoriesAsync(string? name, string? searchQuery, int pageNumber, int pageSize)
         {
 
             var collection = _context.Categories as IQueryable<Category>; // Build query without executing it yet
@@ -44,10 +44,16 @@ namespace nkay_fabs_backend.Services
                 collection = collection.Where(c => c.Name.Contains(searchQuery) || (c.Description != null && c.Description.Contains(searchQuery)));
             }
 
-            return await collection
+            var totalItemCount = await collection.CountAsync();
+
+            var paginationMetadata = new PaginationMetadata(totalItemCount, pageSize, pageNumber);
+
+            var collectionToReturn = await collection
                 .Skip(pageSize * (pageNumber - 1))
                 .Take(pageSize)
                 .ToListAsync();
+
+            return (collectionToReturn, paginationMetadata);
         }
             
         
@@ -73,7 +79,7 @@ namespace nkay_fabs_backend.Services
                 .ToListAsync();
         }
 
-        public async Task<IEnumerable<Fabric>> GetFabricsAsync(string? name, string? searchQuery, int pageNumber, int pageSize)
+        public async Task<(IEnumerable<Fabric>, PaginationMetadata Metadata)> GetFabricsAsync(string? name, string? searchQuery, int pageNumber, int pageSize)
         {
 
             // Build query without executing it yet
@@ -96,13 +102,17 @@ namespace nkay_fabs_backend.Services
                     (a.Description != null && a.Description.Contains(searchQuery)));
             }
 
-            // Execute query, sort by name and return
-            return await collection.OrderBy(c => c.Name)
-                .Include(c => c.Category)
-                .Include(c => c.Color)
+            var totalItemCount = await collection.CountAsync(); // Get total count before pagination is applied
+
+            var paginationMetadata = new PaginationMetadata(totalItemCount, pageSize, pageNumber); // Create pagination metadata based on total count and page parameters
+
+            // Apply pagination to the query and execute it
+            var collectionToReturn = await collection
                 .Skip(pageSize * (pageNumber - 1))
                 .Take(pageSize)
                 .ToListAsync();
+
+            return (collectionToReturn, paginationMetadata);// Return the paginated collection along with the pagination metadata
         }
 
         public async Task CreateFabric(Fabric newFabric)
@@ -150,7 +160,7 @@ namespace nkay_fabs_backend.Services
         {
             return await _context.Colors.ToListAsync();
         }
-        public async Task<IEnumerable<Color>> GetColorsAsync(string? name, string? searchQuery, int pageNumber, int pageSize)
+        public async Task<(IEnumerable<Color>, PaginationMetadata Metadata)> GetColorsAsync(string? name, string? searchQuery, int pageNumber, int pageSize)
         {
 
             var collection = _context.Colors as IQueryable<Color>; // Build query without executing it yet
@@ -169,10 +179,16 @@ namespace nkay_fabs_backend.Services
                 collection = collection.Where(c => c.Name.Contains(searchQuery) || (c.HexCode != null && c.HexCode.Contains(searchQuery)));
             }
 
-            return await collection
+            var totalItemCount = await collection.CountAsync();
+
+            var paginationMetadata = new PaginationMetadata(totalItemCount, pageSize, pageNumber);
+
+            var collectionToReturn = await collection
                 .Skip(pageSize * (pageNumber - 1))
                 .Take(pageSize)
                 .ToListAsync();
+
+            return (collectionToReturn, paginationMetadata);
         }
 
 

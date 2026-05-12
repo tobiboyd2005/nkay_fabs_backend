@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using nkay_fabs_backend.Entities;
 using nkay_fabs_backend.Models.Dtos;
 using nkay_fabs_backend.Services;
+using System.Text.Json;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -29,8 +30,9 @@ public class ColorsController : ControllerBase
         {
             pageSize = maxPageSize;
         }
-        var colors = await _fabricInfoRepository.GetColorsAsync(name, searchQuery, pageNumber, pageSize);
+        var (colors, paginationMetadata) = await _fabricInfoRepository.GetColorsAsync(name, searchQuery, pageNumber, pageSize);
         var result = _mapper.Map<IEnumerable<ColorDto>>(colors); // Map the list of colors to a list of ColorDto
+        Response.Headers.Append("X-Pagination", JsonSerializer.Serialize(paginationMetadata));
         return Ok(result); 
     }
 

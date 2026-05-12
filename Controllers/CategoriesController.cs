@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using nkay_fabs_backend.Entities;
 using nkay_fabs_backend.Models.Dtos;
 using nkay_fabs_backend.Services;
+using System.Text.Json;
 
 
 [Route("api/[controller]")]
@@ -31,8 +32,9 @@ public class CategoriesController : ControllerBase
             {
                 pageSize = maxPageSize;
             }
-            var categories = await _fabricInfoRepository.GetCategoriesAsync(name, searchQuery, pageNumber, pageSize);
+            var (categories, paginationMetadata) = await _fabricInfoRepository.GetCategoriesAsync(name, searchQuery, pageNumber, pageSize);
             var results = _mapper.Map<IEnumerable<CategoryDto>>(categories); // Use AutoMapper to map categories to CategoryDtos
+            Response.Headers.Append("X-Pagination", JsonSerializer.Serialize(paginationMetadata));
             return Ok(results);
         }
         catch(Exception ex)
