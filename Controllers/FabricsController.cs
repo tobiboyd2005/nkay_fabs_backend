@@ -15,6 +15,7 @@ using System.Text.Json;
 namespace nkay_fabs_backend.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize] // Require authentication for all endpoints in this controller
     [ApiController]
     public class FabricsController : ControllerBase
     {
@@ -72,7 +73,6 @@ namespace nkay_fabs_backend.Controllers
 
         // POST api/<FabricsController>
         [HttpPost]
-        [Authorize]
         public async Task<ActionResult<FabricDto>> CreateFabric(CreateFabricDto NewFabric)
         {
             if (!ModelState.IsValid)
@@ -115,7 +115,6 @@ namespace nkay_fabs_backend.Controllers
 
         // PATCH api/<FabricsController>/5
         [HttpPatch("{fabricId}")]
-        [Authorize]
         public async Task<ActionResult> UpdateFabric(int fabricId, UpdateFabricDto patchDto)
         {
             try
@@ -141,7 +140,6 @@ namespace nkay_fabs_backend.Controllers
 
         // DELETE api/<FabricsController>/5
         [HttpDelete("{fabricId}")]
-        [Authorize]
         public async Task<ActionResult> DeleteFabric(int fabricId)
         {
             var fabric = await _fabricInfoRepository.GetFabricAsync(fabricId);

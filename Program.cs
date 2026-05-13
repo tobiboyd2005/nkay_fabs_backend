@@ -53,8 +53,42 @@ try
 
 
 
-    builder.Services.AddSwaggerGen();
+    builder.Services.AddSwaggerGen(options =>
+    {
+        // Define the Bearer auth scheme
+        options.AddSecurityDefinition("bearer", new OpenApiSecurityScheme
+        {
+            Name = "Authorization",
+            Type = SecuritySchemeType.Http,
+            Scheme = "bearer",
+            BearerFormat = "JWT",
+            In = ParameterLocation.Header,
+            Description = "Input a valid token to access this API"
+        });
+
+        // Require the Bearer token globally across all endpoints
+        options.AddSecurityRequirement(document => new OpenApiSecurityRequirement
+        {
+            [new OpenApiSecuritySchemeReference("bearer", document)] = []
+        });
+    });
+
     builder.Services.AddAutoMapper(typeof(Program));
+
+    builder.Services.AddAuthentication("Bearer")
+        .AddJwtBearer(options =>
+        {
+            options.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateIssuerSigningKey = true,
+                ValidIssuer = builder.Configuration["Authentication:Issuer"],
+                ValidAudience = builder.Configuration["Authentication:Audience"],
+                IssuerSigningKey = new SymmetricSecurityKey(
+                    Convert.FromBase64String(builder.Configuration["Authentication:SecretForKey"]!))
+            };
+        });
 
 
     // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
@@ -64,6 +98,8 @@ try
 
 
     var app = builder.Build();
+
+    app.UseHttpsRedirection();
 
     app.UseAuthentication();
     app.UseAuthorization();
@@ -96,7 +132,7 @@ try
         });
     }
 
-    app.UseHttpsRedirection();
+
 
     app.MapControllers();
 
