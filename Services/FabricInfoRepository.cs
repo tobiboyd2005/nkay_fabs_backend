@@ -108,6 +108,8 @@ namespace nkay_fabs_backend.Services
 
             // Apply pagination to the query and execute it
             var collectionToReturn = await collection
+                .Include(f => f.Category)   
+                .Include(f => f.Color)
                 .Skip(pageSize * (pageNumber - 1))
                 .Take(pageSize)
                 .ToListAsync();

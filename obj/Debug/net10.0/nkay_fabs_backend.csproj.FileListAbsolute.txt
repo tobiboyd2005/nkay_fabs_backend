@@ -318,14 +318,8 @@ C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\AutoMapper.dll
 C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\Scalar.AspNetCore.dll
-C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\System.Net.Http.Formatting.dll
-C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\System.Web.Http.dll
-C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\System.Web.Http.WebHost.dll
-C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\Microsoft.Web.Infrastructure.dll
 C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\Swashbuckle.AspNetCore.Newtonsoft.dll
 C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\Swashbuckle.Core.dll
-C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\WebActivatorEx.dll
 C:\Users\DELL\Documents\nkay_fabs_backend\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
