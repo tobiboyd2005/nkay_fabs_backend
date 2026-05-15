@@ -38,8 +38,17 @@ try
     builder.Services.AddScoped<FabricValidationService>();
     builder.Services.AddScoped<IFabricInfoRepository, FabricInfoRepository>();
 
+    builder.Services.AddScoped<IUserRepository, UserRepository>();
+    builder.Services.AddScoped<IEmailVerificationRepository, EmailVerificationRepository>();
+    builder.Services.AddScoped<IOtpVerificationRepository, OtpVerificationRepository>();
+    builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+    builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
+    builder.Services.AddScoped<IMessageRepository, MessageRepository>();
+    builder.Services.AddScoped<IEmailService, EmailService>();
+    builder.Services.AddScoped<IOtpService, OtpService>();
+
     builder.Services.AddDbContext<FabricsDbContext>(dbContextOptions =>
-    dbContextOptions.UseSqlServer(builder.Configuration.GetConnectionString("Practice"),
+    dbContextOptions.UseSqlServer(builder.Configuration.GetConnectionString("NkayDb"),
     sqlOptions =>
     {
         // This helps with transient connection blips
@@ -48,7 +57,7 @@ try
     .ConfigureWarnings(warnings =>
         warnings.Ignore(RelationalEventId.PendingModelChangesWarning)));
 
-    var connString = builder.Configuration.GetConnectionString("Practice");
+    var connString = builder.Configuration.GetConnectionString("NkayDb");
     Console.WriteLine(connString);
 
 
@@ -201,7 +210,7 @@ finally
 //    builder.Services.AddScoped<IFabricInfoRepository, FabricInfoRepository>();
 
 //    builder.Services.AddDbContext<FabricsDbContext>(dbContextOptions =>
-//    dbContextOptions.UseSqlServer(builder.Configuration.GetConnectionString("Practice"),
+//    dbContextOptions.UseSqlServer(builder.Configuration.GetConnectionString("NkayDb"),
 //    sqlOptions => {
 //        sqlOptions.EnableRetryOnFailure();
 //    })

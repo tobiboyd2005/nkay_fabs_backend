@@ -10,6 +10,14 @@ public class FabricsDbContext : DbContext
     public DbSet<Fabric> Fabrics { get; set; }
     public DbSet<Category> Categories { get; set; }
     public DbSet<Color> Colors { get; set; }
+    public DbSet<User> Users { get; set; }
+    public DbSet<EmailVerification> EmailVerifications { get; set; }
+    public DbSet<OtpVerification> OtpVerifications { get; set; }
+    public DbSet<Order> Orders { get; set; }
+    public DbSet<OrderItem> OrderItems { get; set; }
+    public DbSet<Notification> Notifications { get; set; }
+    public DbSet<Conversation> Conversations { get; set; }
+    public DbSet<Message> Messages { get; set; }
 
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
@@ -46,6 +54,66 @@ public class FabricsDbContext : DbContext
             .HasOne(f => f.Color)
             .WithMany(c => c.Fabrics)
             .HasForeignKey(f => f.ColorId);
+
+        modelBuilder.Entity<Conversation>()
+            .HasOne(c => c.User)
+            .WithMany(u => u.Conversations)
+            .HasForeignKey(c => c.UserId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<Conversation>()
+            .HasOne(c => c.Admin)
+            .WithMany()
+            .HasForeignKey(c => c.AdminId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<Message>()
+            .HasOne(m => m.Conversation)
+            .WithMany(c => c.Messages)
+            .HasForeignKey(m => m.ConversationId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<Message>()
+            .HasOne(m => m.Sender)
+            .WithMany()
+            .HasForeignKey(m => m.SenderId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<Order>()
+            .HasOne(o => o.User)
+            .WithMany(u => u.Orders)
+            .HasForeignKey(o => o.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<OrderItem>()
+            .HasOne(oi => oi.Order)
+            .WithMany(o => o.OrderItems)
+            .HasForeignKey(oi => oi.OrderId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<OrderItem>()
+            .HasOne(oi => oi.Fabric)
+            .WithMany()
+            .HasForeignKey(oi => oi.FabricId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<Notification>()
+            .HasOne(n => n.User)
+            .WithMany(u => u.Notifications)
+            .HasForeignKey(n => n.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<EmailVerification>()
+            .HasOne(e => e.User)
+            .WithMany(u => u.EmailVerifications)
+            .HasForeignKey(e => e.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<OtpVerification>()
+            .HasOne(o => o.User)
+            .WithMany(u => u.OtpVerifications)
+            .HasForeignKey(o => o.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
 
         modelBuilder.Entity<Color>()
             .HasData(
