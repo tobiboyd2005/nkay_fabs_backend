@@ -17,6 +17,7 @@ obj/
 *.vsidx
 *.suo
 appsettings.Development.json
+appsettings.json
 secrets.json
 *.user
 *.userosscache

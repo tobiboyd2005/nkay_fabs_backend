@@ -24,7 +24,7 @@ namespace nkay_fabs_backend.Services
 
         public async Task<User?> GetUserByUsernameAsync(string username)
         {
-            return await _context.Users.FirstOrDefaultAsync(u => u.Username.ToLower() == username.ToLower());
+          return await _context.Users.FirstOrDefaultAsync(u => u.Username.ToLower() == username.ToLower());
         }
 
         public async Task<User> CreateUserAsync(User user)
