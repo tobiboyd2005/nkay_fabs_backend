@@ -27,11 +27,9 @@ namespace nkay_fabs_backend.Services
           return await _context.Users.FirstOrDefaultAsync(u => u.Username.ToLower() == username.ToLower());
         }
 
-        public async Task<User> CreateUserAsync(User user)
+        public async Task CreateUser(User user)
         {
             _context.Users.Add(user);
-            await _context.SaveChangesAsync();
-            return user;
         }
 
         public async Task<bool> SaveChangesAsync()

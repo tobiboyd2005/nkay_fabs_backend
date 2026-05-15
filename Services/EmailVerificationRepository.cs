@@ -12,11 +12,9 @@ namespace nkay_fabs_backend.Services
             _context = context;
         }
 
-        public async Task<EmailVerification> CreateAsync(EmailVerification verification)
+        public async Task Verification(EmailVerification verification)
         {
-            _context.EmailVerifications.Add(verification);
-            await _context.SaveChangesAsync();
-            return verification;
+            _context.EmailVerifications.Add(verification);  
         }
 
         public async Task<EmailVerification?> GetByTokenAsync(string token)

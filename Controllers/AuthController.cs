@@ -45,7 +45,9 @@ namespace nkay_fabs_backend.Controllers
             _logger = logger;
         }
 
-        [HttpPost("register")]
+
+        // Register User
+        [HttpPost("Register")]
         public async Task<ActionResult<AuthResponseDto>> Register([FromBody] RegisterRequestDto request)
         {
             if (!ModelState.IsValid)
@@ -66,7 +68,9 @@ namespace nkay_fabs_backend.Controllers
             var user = _mapper.Map<User>(request);
             user.PasswordHash = HashPassword(request.Password);
 
-            await _userRepository.CreateUserAsync(user);
+            await _userRepository.CreateUser(user);
+
+            await _userRepository.SaveChangesAsync();
 
             var verificationToken = Guid.NewGuid().ToString();
             var emailVerification = new EmailVerification
@@ -75,7 +79,9 @@ namespace nkay_fabs_backend.Controllers
                 Token = verificationToken,
                 ExpiresAt = DateTime.UtcNow.AddHours(24)
             };
-            await _emailVerificationRepo.CreateAsync(emailVerification);
+
+            await _emailVerificationRepo.Verification(emailVerification);
+            await _emailVerificationRepo.SaveChangesAsync(); // ← save FIRST
 
             await _emailService.SendVerificationEmailAsync(user.Email, user.Username, verificationToken);
 
@@ -87,7 +93,7 @@ namespace nkay_fabs_backend.Controllers
                 User = _mapper.Map<UserDto>(user)
             };
 
-            return CreatedAtAction(nameof(GetCurrentUser), new { }, response);
+            return CreatedAtAction(nameof(GetCurrentUser), new { token }, response);
         }
 
         [HttpPost("login")]
@@ -154,7 +160,7 @@ namespace nkay_fabs_backend.Controllers
                 Token = verificationToken,
                 ExpiresAt = DateTime.UtcNow.AddHours(24)
             };
-            await _emailVerificationRepo.CreateAsync(emailVerification);
+            await _emailVerificationRepo.Verification(emailVerification);
 
             await _emailService.SendVerificationEmailAsync(user.Email, user.Username, verificationToken);
 
@@ -226,7 +232,7 @@ namespace nkay_fabs_backend.Controllers
                 Token = resetToken,
                 ExpiresAt = DateTime.UtcNow.AddHours(1)
             };
-            await _emailVerificationRepo.CreateAsync(emailVerification);
+            await _emailVerificationRepo.Verification(emailVerification);
 
             await _emailService.SendPasswordResetEmailAsync(user.Email, user.Username, resetToken);
 

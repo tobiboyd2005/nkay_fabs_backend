@@ -7,7 +7,7 @@ namespace nkay_fabs_backend.Services
         Task<User?> GetUserByIdAsync(int userId);
         Task<User?> GetUserByEmailAsync(string email);
         Task<User?> GetUserByUsernameAsync(string username);
-        Task<User> CreateUserAsync(User user);
+        Task CreateUser(User user);
         Task<bool> SaveChangesAsync();
         Task<User?> GetAdminAsync();
     }

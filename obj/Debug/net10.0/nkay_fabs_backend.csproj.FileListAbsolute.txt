@@ -323,3 +323,6 @@ C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\Swashbuckle.AspNetCo
 C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\DELL\Documents\nkay_fabs_backend\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\BouncyCastle.Cryptography.dll
+C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\MailKit.dll
+C:\Users\DELL\Documents\nkay_fabs_backend\bin\Debug\net10.0\MimeKit.dll

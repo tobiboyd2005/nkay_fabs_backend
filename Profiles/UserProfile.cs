@@ -13,6 +13,8 @@ namespace nkay_fabs_backend.Profiles
 
             CreateMap<RegisterRequestDto, User>()
                 .ForMember(dest => dest.PasswordHash, opt => opt.Ignore());
+
+            CreateMap<RegisterRequestDto, AuthResponseDto>(); // This allows us to map from RegisterRequestDto to AuthResponseDto, which is useful for returning user info after registration.
         }
     }
 }

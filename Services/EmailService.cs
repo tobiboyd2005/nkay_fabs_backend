@@ -1,7 +1,12 @@
+using MailKit.Net.Smtp;
+using MimeKit;
 using Microsoft.Extensions.Logging;
 
 namespace nkay_fabs_backend.Services
 {
+    /// <summary>
+    /// Handles all email communication for the Nkay Fabs application using MailKit.
+    /// </summary>
     public class EmailService : IEmailService
     {
         private readonly ILogger<EmailService> _logger;
@@ -13,14 +18,49 @@ namespace nkay_fabs_backend.Services
             _configuration = configuration;
         }
 
+        /// <summary>
+        /// Base method for sending emails via SMTP using MailKit.
+        /// </summary>
+        /// <param name="toEmail">Recipient email address</param>
+        /// <param name="subject">Email subject line</param>
+        /// <param name="body">HTML email body</param>
+        /// <returns>True if email was sent successfully, false otherwise</returns>
         public async Task<bool> SendEmailAsync(string toEmail, string subject, string body)
         {
             try
             {
-                _logger.LogInformation("Sending email to {Email} with subject: {Subject}", toEmail, subject);
-                _logger.LogInformation("Email Body: {Body}", body);
-                
-                await Task.CompletedTask;
+                // Get SMTP settings from configuration
+                var smtpHost = _configuration["Email:SmtpHost"];
+                var smtpPort = int.Parse(_configuration["Email:SmtpPort"] ?? "587");
+                var smtpUser = _configuration["Email:SmtpUser"];
+                var smtpPassword = _configuration["Email:SmtpPassword"];
+                var fromName = _configuration["Email:FromName"] ?? "Nkay Fabs";
+                var fromEmail = _configuration["Email:FromEmail"] ?? smtpUser;
+
+                // Build the email message
+                var message = new MimeMessage();
+                message.From.Add(new MailboxAddress(fromName, fromEmail));
+                message.To.Add(new MailboxAddress(toEmail, toEmail));
+                message.Subject = subject;
+
+                // Set HTML body
+                message.Body = new TextPart("html")
+                {
+                    Text = body
+                };
+
+                using var client = new SmtpClient();
+
+                _logger.LogInformation("Connecting to SMTP server {Host}:{Port}", smtpHost, smtpPort);
+                await client.ConnectAsync(smtpHost, smtpPort, false);
+
+                // Authenticate with SMTP credentials
+                await client.AuthenticateAsync(smtpUser, smtpPassword);
+
+                await client.SendAsync(message);
+                await client.DisconnectAsync(true);
+
+                _logger.LogInformation("Email sent successfully to {Email}", toEmail);
                 return true;
             }
             catch (Exception ex)
@@ -30,11 +70,15 @@ namespace nkay_fabs_backend.Services
             }
         }
 
+        /// <summary>
+        /// Sends an email verification link to a newly registered user.
+        /// The token is valid for 24 hours.
+        /// </summary>
         public async Task<bool> SendVerificationEmailAsync(string toEmail, string username, string token)
         {
-            var baseUrl = _configuration["App:BaseUrl"] ?? "http://localhost:7269";
+            var baseUrl = _configuration["App:BaseUrl"] ?? "https://localhost:7269";
             var verificationUrl = $"{baseUrl}/api/auth/verify-email?token={token}";
-            
+
             var subject = "Verify Your Email - Nkay Fabs";
             var body = $@"
                 <html>
@@ -51,11 +95,15 @@ namespace nkay_fabs_backend.Services
             return await SendEmailAsync(toEmail, subject, body);
         }
 
+        /// <summary>
+        /// Sends a password reset link to the user's email.
+        /// The reset token is valid for 1 hour.
+        /// </summary>
         public async Task<bool> SendPasswordResetEmailAsync(string toEmail, string username, string token)
         {
-            var baseUrl = _configuration["App:BaseUrl"] ?? "http://localhost:7269";
+            var baseUrl = _configuration["App:BaseUrl"] ?? "https://localhost:7269";
             var resetUrl = $"{baseUrl}/api/auth/reset-password?token={token}";
-            
+
             var subject = "Reset Your Password - Nkay Fabs";
             var body = $@"
                 <html>
