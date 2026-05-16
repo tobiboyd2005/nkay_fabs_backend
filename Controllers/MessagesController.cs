@@ -106,7 +106,7 @@ namespace nkay_fabs_backend.Controllers
 
         [Authorize(Roles = "User")]
         [HttpPost]
-        public async Task<ActionResult<MessageDto>> SendMessage([FromBody] CreateMessageDto request)
+        public async Task<ActionResult<MessageDto>> SendMessage(CreateMessageDto request)
         {
             try
             {

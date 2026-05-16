@@ -41,3 +41,28 @@ Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
    at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
    at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
    at Program.<Main>$(String[] args) in C:\Users\DELL\Documents\nkay_fabs_backend\Program.cs:line 109
+2026-05-16 15:55:26.468 +01:00 [INF] Starting up the service...
+2026-05-16 15:56:58.404 +01:00 [WRN] No store type was specified for the decimal property 'Quantity' on entity type 'OrderItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-05-16 15:57:01.366 +01:00 [INF] Connecting to SMTP server smtp.gmail.com:587
+2026-05-16 15:57:04.295 +01:00 [INF] Email sent successfully to tobiolan947@gmail.com
+2026-05-16 16:00:46.469 +01:00 [FTL] Error sending message.
+System.InvalidOperationException: The property 'Conversation.UpdatedAt' could not be found. Ensure that the property exists and has been included in the model.
+   at Microsoft.EntityFrameworkCore.Metadata.IReadOnlyTypeBase.GetProperty(String name)
+   at Microsoft.EntityFrameworkCore.Metadata.IEntityType.GetProperty(String name)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry.Property(String propertyName)
+   at FabricsDbContext.SaveChangesAsync(CancellationToken cancellationToken) in C:\Users\DELL\Documents\nkay_fabs_backend\Models\FabricsDbContext.cs:line 32
+   at nkay_fabs_backend.Services.MessageRepository.CreateConversationAsync(Conversation conversation) in C:\Users\DELL\Documents\nkay_fabs_backend\Services\MessageRepository.cs:line 53
+   at nkay_fabs_backend.Controllers.MessagesController.SendMessage(CreateMessageDto request) in C:\Users\DELL\Documents\nkay_fabs_backend\Controllers\MessagesController.cs:line 133
+2026-05-16 16:10:13.801 +01:00 [INF] Starting up the service...
+2026-05-16 16:11:56.098 +01:00 [INF] Starting up the service...
+2026-05-16 16:12:39.483 +01:00 [WRN] No store type was specified for the decimal property 'Quantity' on entity type 'OrderItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-05-16 16:14:54.859 +01:00 [FTL] Error sending message.
+System.InvalidOperationException: The property 'Conversation.UpdatedAt' could not be found. Ensure that the property exists and has been included in the model.
+   at Microsoft.EntityFrameworkCore.Metadata.IReadOnlyTypeBase.GetProperty(String name)
+   at Microsoft.EntityFrameworkCore.Metadata.IEntityType.GetProperty(String name)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry.Property(String propertyName)
+   at FabricsDbContext.SaveChangesAsync(CancellationToken cancellationToken) in C:\Users\DELL\Documents\nkay_fabs_backend\Models\FabricsDbContext.cs:line 32
+   at nkay_fabs_backend.Services.MessageRepository.CreateConversationAsync(Conversation conversation) in C:\Users\DELL\Documents\nkay_fabs_backend\Services\MessageRepository.cs:line 53
+   at nkay_fabs_backend.Controllers.MessagesController.SendMessage(CreateMessageDto request) in C:\Users\DELL\Documents\nkay_fabs_backend\Controllers\MessagesController.cs:line 133
+2026-05-16 16:15:50.142 +01:00 [INF] Starting up the service...
+2026-05-16 16:16:28.892 +01:00 [WRN] No store type was specified for the decimal property 'Quantity' on entity type 'OrderItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.

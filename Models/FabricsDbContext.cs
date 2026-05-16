@@ -29,7 +29,7 @@ public class FabricsDbContext : DbContext
             if (entry.State == EntityState.Added)
                 entry.Property("CreatedAt").CurrentValue = TimeHelper.NowWAT();
 
-            entry.Property("UpdatedAt").CurrentValue = TimeHelper.NowWAT();
+            //entry.Property("UpdatedAt").CurrentValue = TimeHelper.NowWAT();
         }
 
         return await base.SaveChangesAsync(cancellationToken);
