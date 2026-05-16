@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace nkay_fabs_backend.Migrations
 {
     [DbContext(typeof(FabricsDbContext))]
-    [Migration("20260515112702_AddAuthOrdersNotificationsMessages")]
-    partial class AddAuthOrdersNotificationsMessages
+    [Migration("20260516145027_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -56,162 +56,162 @@ namespace nkay_fabs_backend.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(2762),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(1627),
                             Description = "A vibrant wax print fabric widely used across Nigeria, known for its bold, colorful patterns and commonly worn at celebrations, ceremonies and everyday occasions.",
                             Name = "Ankara",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(2788)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(1658)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8795),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(5968),
                             Description = "A hand-loomed Yoruba fabric from South-Western Nigeria, traditionally worn at weddings and ceremonies, available in three types: Oja, Ipele, and Fila.",
                             Name = "Aso-Oke",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8820)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(5992)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8837),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6005),
                             Description = "A traditional Yoruba indigo-dyed fabric from Nigeria, featuring intricate tie-dye or starch-resist (eleko) patterns, originating from Abeokuta and Ibadan.",
                             Name = "Adire",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8839)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6006)
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8842),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6009),
                             Description = "A luxurious fabric popular in South-Eastern Nigeria, commonly worn by Igbo and Ijaw women during weddings and special ceremonies, often adorned with glitter or embroidery.",
                             Name = "George Fabric",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8843)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6010)
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8846),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6013),
                             Description = "A traditional Igbo fabric from South-Eastern Nigeria featuring lion head prints, typically worn by men of title and distinction during cultural events and ceremonies.",
                             Name = "Isiagu",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8847)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6014)
                         },
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8850),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6016),
                             Description = "A hand-woven textile from Akwete town in Abia State, Nigeria, produced by Igbo women and known for its unique weaving techniques and complex patterns.",
                             Name = "Akwete",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8852)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6018)
                         },
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8854),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6021),
                             Description = "A richly embroidered fabric from Northern Nigeria, featuring intricate hand-stitched patterns around the neckline and chest, commonly used in traditional Hausa and Fulani attire.",
                             Name = "Hausa Embroidered Fabric",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8856)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6022)
                         },
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8859),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6025),
                             Description = "A coarse, hand-woven cotton fabric from Northern Nigeria traditionally produced by the Hausa people, known for its natural earthy tones and used in everyday traditional wear.",
                             Name = "Kijipa",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8860)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6026)
                         },
                         new
                         {
                             Id = 9,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8863),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6029),
                             Description = "A plain hand-woven Yoruba cloth from South-Western Nigeria, typically woven in white or neutral tones and used as a base fabric for dyeing techniques like Adire.",
                             Name = "Ofi",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8864)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6030)
                         },
                         new
                         {
                             Id = 10,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8867),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6032),
                             Description = "A dark navy blue hand-woven Yoruba fabric from South-Western Nigeria, traditionally reserved for elders and people of high social standing during important ceremonies.",
                             Name = "Etu",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8869)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6033)
                         },
                         new
                         {
                             Id = 11,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8871),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6036),
                             Description = "A prestigious hand-woven Yoruba fabric made from the silk of the Anaphe moth, featuring a distinctive brown or beige tone and traditionally worn by Yoruba royalty.",
                             Name = "Sanyan",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8873)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6039)
                         },
                         new
                         {
                             Id = 12,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8875),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6042),
                             Description = "A fine hand-woven fabric from the Yoruba people of South-Western Nigeria, known for its delicate thread work and typically worn during high-profile traditional occasions.",
                             Name = "Alabere",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8877)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6043)
                         },
                         new
                         {
                             Id = 13,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8880),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6046),
                             Description = "A traditional hand-woven fabric from Okene in Kogi State, produced by the Ebira people, known for its bold geometric patterns and cultural significance in Central Nigeria.",
                             Name = "Okene Weave",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8881)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6047)
                         },
                         new
                         {
                             Id = 14,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8884),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6050),
                             Description = "A traditional handwoven fabric from the Ogoja people of Cross River State, known for its earthy tones and symbolic patterns used in ceremonial and ritual contexts.",
                             Name = "Ogoja Cloth",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8885)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6051)
                         },
                         new
                         {
                             Id = 15,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8888),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6054),
                             Description = "A traditional fabric from the Urhobo people of Delta State, Nigeria, featuring distinct woven patterns and used during cultural festivals and important ceremonies.",
                             Name = "Urhobo Cloth",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8889)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6056)
                         },
                         new
                         {
                             Id = 16,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8892),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6058),
                             Description = "A hand-woven fabric from the Igala people of Kogi State, Nigeria, known for its colorful striped patterns and cultural importance in royal and ceremonial dressing.",
                             Name = "Igala Weave",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8894)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6059)
                         },
                         new
                         {
                             Id = 17,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8896),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6063),
                             Description = "A traditional hand-woven fabric from the Tiv people of Benue State, Nigeria, distinctively featuring black and white striped patterns called Anger, used in traditional ceremonies.",
                             Name = "Tiv Cloth",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8898)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6064)
                         },
                         new
                         {
                             Id = 18,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8900),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6066),
                             Description = "A traditional fabric from the Nupe people of Niger State, Nigeria, known for intricate hand-loom weaving techniques and vibrant colors used in royal ceremonial attire.",
                             Name = "Nupe Weave",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8902)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6067)
                         },
                         new
                         {
                             Id = 19,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8904),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6069),
                             Description = "A traditional fabric from the Efik people of Cross River State, Nigeria, commonly used during the famous Calabar carnival and cultural ceremonies such as the Ekpe festival.",
                             Name = "Efik Cloth",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8906)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6071)
                         },
                         new
                         {
                             Id = 20,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8909),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6074),
                             Description = "A traditional ceremonial fabric from the Ijaw people of the Niger Delta region, typically featuring bold colors and worn alongside coral beads during important cultural and royal events.",
                             Name = "Ijaw Wrapper",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 72, DateTimeKind.Unspecified).AddTicks(8910)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 601, DateTimeKind.Unspecified).AddTicks(6075)
                         });
                 });
 
@@ -247,562 +247,562 @@ namespace nkay_fabs_backend.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 26, 59, 906, DateTimeKind.Unspecified).AddTicks(2255),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 410, DateTimeKind.Unspecified).AddTicks(8286),
                             HexCode = "#000000",
                             Name = "Black",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(5186)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(684)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7559),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4638),
                             HexCode = "#FFFFFF",
                             Name = "White",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7567)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4652)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7574),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4663),
                             HexCode = "#FF0000",
                             Name = "Red",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7575)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4668)
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7577),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4676),
                             HexCode = "#001F5B",
                             Name = "Navy Blue",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7578)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4681)
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7580),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4688),
                             HexCode = "#4169E1",
                             Name = "Royal Blue",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7580)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4693)
                         },
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7582),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4701),
                             HexCode = "#87CEEB",
                             Name = "Sky Blue",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7583)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4706)
                         },
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7585),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4708),
                             HexCode = "#008080",
                             Name = "Teal",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7585)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4709)
                         },
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7587),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4711),
                             HexCode = "#40E0D0",
                             Name = "Turquoise",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7588)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4712)
                         },
                         new
                         {
                             Id = 9,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7590),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4719),
                             HexCode = "#008000",
                             Name = "Green",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7590)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4722)
                         },
                         new
                         {
                             Id = 10,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7592),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4729),
                             HexCode = "#6B8E23",
                             Name = "Olive Green",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7593)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4730)
                         },
                         new
                         {
                             Id = 11,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7595),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4733),
                             HexCode = "#98FF98",
                             Name = "Mint Green",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7595)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4734)
                         },
                         new
                         {
                             Id = 12,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7597),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4736),
                             HexCode = "#32CD32",
                             Name = "Lime Green",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7598)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4740)
                         },
                         new
                         {
                             Id = 13,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7600),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4749),
                             HexCode = "#FFFF00",
                             Name = "Yellow",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7600)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4752)
                         },
                         new
                         {
                             Id = 14,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7602),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4757),
                             HexCode = "#FFDB58",
                             Name = "Mustard Yellow",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7603)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4760)
                         },
                         new
                         {
                             Id = 15,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7604),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4765),
                             HexCode = "#FFD700",
                             Name = "Gold",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7605)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4766)
                         },
                         new
                         {
                             Id = 16,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7607),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4770),
                             HexCode = "#FF8C00",
                             Name = "Orange",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7607)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4773)
                         },
                         new
                         {
                             Id = 17,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7609),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4778),
                             HexCode = "#FF6B6B",
                             Name = "Coral",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7610)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4782)
                         },
                         new
                         {
                             Id = 18,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7611),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4787),
                             HexCode = "#FFCBA4",
                             Name = "Peach",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7612)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4790)
                         },
                         new
                         {
                             Id = 19,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7614),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4795),
                             HexCode = "#FFC0CB",
                             Name = "Pink",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7615)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4798)
                         },
                         new
                         {
                             Id = 20,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7616),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4803),
                             HexCode = "#FF69B4",
                             Name = "Hot Pink",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7617)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4807)
                         },
                         new
                         {
                             Id = 21,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7619),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4813),
                             HexCode = "#FF00FF",
                             Name = "Fuchsia",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7620)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4816)
                         },
                         new
                         {
                             Id = 22,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7660),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4822),
                             HexCode = "#FF0090",
                             Name = "Magenta",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7660)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4825)
                         },
                         new
                         {
                             Id = 23,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7662),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4831),
                             HexCode = "#800080",
                             Name = "Purple",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7663)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4835)
                         },
                         new
                         {
                             Id = 24,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7665),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4842),
                             HexCode = "#E6E6FA",
                             Name = "Lavender",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7666)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4843)
                         },
                         new
                         {
                             Id = 25,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7667),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4845),
                             HexCode = "#EE82EE",
                             Name = "Violet",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7668)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4847)
                         },
                         new
                         {
                             Id = 26,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7670),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4917),
                             HexCode = "#4B0082",
                             Name = "Indigo",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7670)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4919)
                         },
                         new
                         {
                             Id = 27,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7672),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4922),
                             HexCode = "#800000",
                             Name = "Maroon",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7673)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4924)
                         },
                         new
                         {
                             Id = 28,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7674),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4926),
                             HexCode = "#800020",
                             Name = "Burgundy",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7675)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4930)
                         },
                         new
                         {
                             Id = 29,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7677),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4936),
                             HexCode = "#722F37",
                             Name = "Wine Red",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7678)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4940)
                         },
                         new
                         {
                             Id = 30,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7679),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4946),
                             HexCode = "#DC143C",
                             Name = "Crimson",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7680)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4950)
                         },
                         new
                         {
                             Id = 31,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7682),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4956),
                             HexCode = "#FF2400",
                             Name = "Scarlet",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7683)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4960)
                         },
                         new
                         {
                             Id = 32,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7684),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4963),
                             HexCode = "#8B4513",
                             Name = "Brown",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7685)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4964)
                         },
                         new
                         {
                             Id = 33,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7687),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4966),
                             HexCode = "#7B3F00",
                             Name = "Chocolate",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7688)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4970)
                         },
                         new
                         {
                             Id = 34,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7689),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4976),
                             HexCode = "#C68642",
                             Name = "Caramel",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7690)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4979)
                         },
                         new
                         {
                             Id = 35,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7691),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4984),
                             HexCode = "#D2B48C",
                             Name = "Tan",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7692)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4987)
                         },
                         new
                         {
                             Id = 36,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7694),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4992),
                             HexCode = "#F5F5DC",
                             Name = "Beige",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7695)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4993)
                         },
                         new
                         {
                             Id = 37,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7696),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(4999),
                             HexCode = "#FFFDD0",
                             Name = "Cream",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7697)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5002)
                         },
                         new
                         {
                             Id = 38,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7699),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5007),
                             HexCode = "#FFFFF0",
                             Name = "Ivory",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7699)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5009)
                         },
                         new
                         {
                             Id = 39,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7701),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5014),
                             HexCode = "#FAF9F6",
                             Name = "Off White",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7702)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5017)
                         },
                         new
                         {
                             Id = 40,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7703),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5022),
                             HexCode = "#D3D3D3",
                             Name = "Light Gray",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7704)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5025)
                         },
                         new
                         {
                             Id = 41,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7706),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5030),
                             HexCode = "#808080",
                             Name = "Gray",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7707)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5033)
                         },
                         new
                         {
                             Id = 42,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7708),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5038),
                             HexCode = "#404040",
                             Name = "Dark Gray",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7709)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5042)
                         },
                         new
                         {
                             Id = 43,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7711),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5047),
                             HexCode = "#36454F",
                             Name = "Charcoal",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7711)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5051)
                         },
                         new
                         {
                             Id = 44,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7713),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5056),
                             HexCode = "#C0C0C0",
                             Name = "Silver",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7714)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5060)
                         },
                         new
                         {
                             Id = 45,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7715),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5062),
                             HexCode = "#B76E79",
                             Name = "Rose Gold",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7716)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5063)
                         },
                         new
                         {
                             Id = 46,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7718),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5066),
                             HexCode = "#B87333",
                             Name = "Copper",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7718)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5067)
                         },
                         new
                         {
                             Id = 47,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7720),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5072),
                             HexCode = "#CD7F32",
                             Name = "Bronze",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7721)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5075)
                         },
                         new
                         {
                             Id = 48,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7722),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5080),
                             HexCode = "#C3B091",
                             Name = "Khaki",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7723)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5083)
                         },
                         new
                         {
                             Id = 49,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7725),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5088),
                             HexCode = "#C2B280",
                             Name = "Sand",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7726)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5091)
                         },
                         new
                         {
                             Id = 50,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7727),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5096),
                             HexCode = "#B7410E",
                             Name = "Rust",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7728)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5099)
                         },
                         new
                         {
                             Id = 51,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7729),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5104),
                             HexCode = "#FA8072",
                             Name = "Salmon",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7730)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5108)
                         },
                         new
                         {
                             Id = 52,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7732),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5113),
                             HexCode = "#DCAE96",
                             Name = "Dusty Rose",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7733)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5114)
                         },
                         new
                         {
                             Id = 53,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7759),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5116),
                             HexCode = "#DE5D83",
                             Name = "Blush",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7760)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5117)
                         },
                         new
                         {
                             Id = 54,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7762),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5119),
                             HexCode = "#89CFF0",
                             Name = "Baby Blue",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7762)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5120)
                         },
                         new
                         {
                             Id = 55,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7764),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5126),
                             HexCode = "#B0E0E6",
                             Name = "Powder Blue",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7765)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5129)
                         },
                         new
                         {
                             Id = 56,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7766),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5134),
                             HexCode = "#007BA7",
                             Name = "Cerulean",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7767)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5138)
                         },
                         new
                         {
                             Id = 57,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7769),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5182),
                             HexCode = "#0047AB",
                             Name = "Cobalt Blue",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7770)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5188)
                         },
                         new
                         {
                             Id = 58,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7771),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5196),
                             HexCode = "#B2AC88",
                             Name = "Sage Green",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7772)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5201)
                         },
                         new
                         {
                             Id = 59,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7774),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5209),
                             HexCode = "#228B22",
                             Name = "Forest Green",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7775)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5214)
                         },
                         new
                         {
                             Id = 60,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7776),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5223),
                             HexCode = "#50C878",
                             Name = "Emerald Green",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7777)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5224)
                         },
                         new
                         {
                             Id = 61,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7779),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5226),
                             HexCode = "#00A86B",
                             Name = "Jade",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7779)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5228)
                         },
                         new
                         {
                             Id = 62,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7781),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5232),
                             HexCode = "#C8A2C8",
                             Name = "Lilac",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7782)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5235)
                         },
                         new
                         {
                             Id = 63,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7784),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5241),
                             HexCode = "#E0B0FF",
                             Name = "Mauve",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7784)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5244)
                         },
                         new
                         {
                             Id = 64,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7786),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5249),
                             HexCode = "#DDA0DD",
                             Name = "Plum",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7787)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5252)
                         },
                         new
                         {
                             Id = 65,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7789),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5258),
                             HexCode = "#614051",
                             Name = "Eggplant",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7789)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5261)
                         },
                         new
                         {
                             Id = 66,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7791),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5266),
                             HexCode = "#FFF44F",
                             Name = "Lemon Yellow",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7792)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5270)
                         },
                         new
                         {
                             Id = 67,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7793),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5275),
                             HexCode = "#FFBF00",
                             Name = "Amber",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7794)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5276)
                         },
                         new
                         {
                             Id = 68,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7796),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5278),
                             HexCode = "#FBCEB1",
                             Name = "Apricot",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7797)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5279)
                         },
                         new
                         {
                             Id = 69,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7798),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5282),
                             HexCode = "#E2725B",
                             Name = "Terracotta",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7799)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5283)
                         },
                         new
                         {
                             Id = 70,
-                            CreatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7801),
+                            CreatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5286),
                             HexCode = "#CB4154",
                             Name = "Brick Red",
-                            UpdatedAt = new DateTime(2026, 5, 15, 12, 27, 0, 70, DateTimeKind.Unspecified).AddTicks(7801)
+                            UpdatedAt = new DateTime(2026, 5, 16, 15, 50, 22, 597, DateTimeKind.Unspecified).AddTicks(5289)
                         });
                 });
 
@@ -856,6 +856,9 @@ namespace nkay_fabs_backend.Migrations
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
@@ -1156,6 +1159,22 @@ namespace nkay_fabs_backend.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedAt = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Email = "rabiaddawgz200@gmail.com",
+                            FirstName = "Admin",
+                            IsActive = true,
+                            IsEmailVerified = true,
+                            LastName = "User",
+                            PasswordHash = "6G94qKPK8LYNjnTllCqm2G3BUM08AzOK7yW30tfjrMc=",
+                            Role = 1,
+                            UpdatedAt = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Username = "admin"
+                        });
                 });
 
             modelBuilder.Entity("nkay_fabs_backend.Entities.Conversation", b =>

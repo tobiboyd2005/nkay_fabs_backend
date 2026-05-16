@@ -842,3 +842,7 @@ Newtonsoft.Json.JsonSerializationException: Self referencing loop detected for p
                 </body>
                 </html>
 2026-05-15 16:38:55.181 +01:00 [INF] Starting up the service...
+2026-05-15 16:41:27.022 +01:00 [INF] Starting up the service...
+2026-05-15 16:43:42.847 +01:00 [WRN] No store type was specified for the decimal property 'Quantity' on entity type 'OrderItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-05-15 16:44:32.734 +01:00 [INF] Connecting to SMTP server smtp.gmail.com:587
+2026-05-15 16:44:35.335 +01:00 [INF] Email sent successfully to tobiolan947@gmail.com

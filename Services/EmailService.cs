@@ -91,7 +91,7 @@ namespace nkay_fabs_backend.Services
                     <p>If you did not register, please ignore this email.</p>
                 </body>
                 </html>";
-
+            
             return await SendEmailAsync(toEmail, subject, body);
         }
 

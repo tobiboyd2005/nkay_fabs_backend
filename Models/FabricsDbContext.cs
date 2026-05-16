@@ -211,5 +211,23 @@ public class FabricsDbContext : DbContext
                 new Category("Efik Cloth") { Id = 19, Description = "A traditional fabric from the Efik people of Cross River State, Nigeria, commonly used during the famous Calabar carnival and cultural ceremonies such as the Ekpe festival." },
                 new Category("Ijaw Wrapper") { Id = 20, Description = "A traditional ceremonial fabric from the Ijaw people of the Niger Delta region, typically featuring bold colors and worn alongside coral beads during important cultural and royal events." }
             );
+
+        modelBuilder.Entity<User>()
+            .HasData(
+                new User
+                {
+                    Id = 1,
+                    Username = "admin",
+                    Email = "rabiaddawgz200@gmail.com",
+                    PasswordHash = "6G94qKPK8LYNjnTllCqm2G3BUM08AzOK7yW30tfjrMc=",
+                    FirstName = "Admin",
+                    LastName = "User",
+                    Role = UserRole.Admin,
+                    IsEmailVerified = true,
+                    IsActive = true,
+                    CreatedAt = new DateTime(2025, 1, 1, 0, 0, 0, DateTimeKind.Utc),
+                    UpdatedAt = new DateTime(2025, 1, 1, 0, 0, 0, DateTimeKind.Utc)
+                }
+            );
     }
 }
